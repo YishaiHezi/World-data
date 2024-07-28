@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorPrimary"
+		android:padding="16dp">
+
+<!--		<Button-->
+<!--			android:id="@+id/map_button"-->
+<!--			android:layout_width="wrap_content"-->
+<!--			android:layout_height="wrap_content"-->
+<!--			android:background="@drawable/bullet_left"-->
+<!--			android:maxHeight="10dp"-->
+<!--			android:maxWidth="10dp"-->
+<!--			android:text="@string/map_button"-->
+<!--			android:textColor="@color/black"-->
+<!--			app:backgroundTint="?attr/colorSurface"-->
+<!--			app:layout_constraintStart_toEndOf="@id/search_button"-->
+<!--			app:layout_constraintBottom_toBottomOf="parent"-->
+<!--			app:layout_constraintEnd_toStartOf="@id/chart_button"-->
+<!--			app:layout_constraintTop_toTopOf="parent"/>-->
+
+<!--		<Button-->
+<!--			android:minHeight="20dp"-->
+<!--			android:minWidth="20dp"-->
+<!--			android:id="@+id/chart_button"-->
+<!--			android:layout_width="wrap_content"-->
+<!--			android:layout_height="wrap_content"-->
+<!--			android:background="@drawable/bullet_right"-->
+<!--			android:text="@string/chart_button"-->
+<!--			android:textColor="@color/black"-->
+<!--			app:backgroundTint="?attr/colorSurface"-->
+<!--			app:layout_constraintBottom_toBottomOf="parent"-->
+<!--			app:layout_constraintEnd_toEndOf="parent"-->
+<!--			app:layout_constraintTop_toTopOf="parent"/>-->
+
+		<Button
+			android:id="@+id/search_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:backgroundTint="?attr/colorSecondary"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="population"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/table_title"
+			android:textAppearance="?attr/textAppearanceHeadline6"
+			android:textColor="?attr/colorOnPrimary"
+			app:layout_constraintBottom_toBottomOf="@id/search_button"
+			app:layout_constraintEnd_toStartOf="@id/search_button"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="@id/search_button"/>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
 
 </LinearLayout>
