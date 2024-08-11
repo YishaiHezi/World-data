@@ -9,6 +9,7 @@
 	android:padding="16dp">
 
 	<TextView
+		android:id="@+id/position"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="16dp"
@@ -16,14 +17,15 @@
 		tools:text="1."/>
 
 	<ImageView
+		android:id="@+id/flag"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-
 		android:layout_marginEnd="16dp"
 		android:importantForAccessibility="no"
 		tools:src="@drawable/uae_flag"/>
 
 	<TextView
+		android:id="@+id/name"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="16dp"
@@ -31,10 +33,11 @@
 		tools:text="United Arab Emirates"/>
 
 	<TextView
+		android:id="@+id/parameter"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
-		android:gravity="center"
+		android:gravity="end"
 		android:textAppearance="?attr/textAppearanceBody2"
 		tools:text="10000000"/>
 
