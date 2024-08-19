@@ -9,11 +9,13 @@
 
 	<color name="black">#FF000000</color>
 
+	<color name="gray_93">#292A30</color>
 	<color name="gray_90">#2F3037</color>
 	<color name="gray_75">#3C3E47</color>
 	<color name="gray_68">#525357</color>
 	<color name="gray_52">#7a7c7f</color>
 	<color name="gray_32">#A9AFB2</color>
+	<color name="gray_12">#DEE2E3</color>
 
 	<color name="gray_16_alpha_30">#4DD0DADC</color>
 	<color name="gray_16_alpha_60">#99D0DADC</color>
