@@ -39,9 +39,13 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 		viewLifecycleOwner.lifecycleScope.launch {
 			repeatOnLifecycle(Lifecycle.State.STARTED) {
 				viewModel.countriesFlow.collect { countries ->
-					if (recyclerView.adapter == null || (recyclerView.adapter as CountriesListAdapter).countries != countries) {
+					if (recyclerView.adapter == null) {
 						initRecyclerView(recyclerView, countries)
 					}
+					else if ((recyclerView.adapter as CountriesListAdapter).countries != countries){
+						(recyclerView.adapter as CountriesListAdapter).updateCountries(countries)
+					}
+
 				}
 			}
 		}
@@ -76,7 +80,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	/**
 	 * The adapter for the recycler view that shows all the countries.
 	 */
-	private class CountriesListAdapter(val countries: List<CountryItem>) :
+	private class CountriesListAdapter(var countries: List<CountryItem>) :
 		RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 		override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 			val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, parent, false)
@@ -105,6 +109,19 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 			parameterView.text = countryItem.parameter.toString()
 		}
 
+
+		/**
+		 * Update the countries list.
+		 */
+		fun updateCountries(newCountries: List<CountryItem>) {
+			countries = newCountries
+			notifyDataSetChanged()
+		}
+
+
+		/**
+		 * The view holder for the recycler view.
+		 */
 		class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 	}
 
