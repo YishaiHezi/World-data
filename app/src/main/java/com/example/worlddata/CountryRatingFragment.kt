@@ -92,7 +92,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 			val countryItem = countries[position]
 			val itemView = holder.itemView
 
-			(position + 1).toString().also { itemView.findViewById<TextView>(R.id.position).text = it }
+			itemView.findViewById<TextView>(R.id.position).text = itemView.context.getString(R.string.position, position + 1)
 			itemView.findViewById<ImageView>(R.id.flag).setImageResource(countryItem.flag)
 			itemView.findViewById<TextView>(R.id.name).text = countryItem.name
 			itemView.findViewById<TextView>(R.id.parameter).text = countryItem.parameter.toString()
