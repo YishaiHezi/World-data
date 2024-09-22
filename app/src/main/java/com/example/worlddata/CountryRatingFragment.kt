@@ -92,10 +92,17 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 			val countryItem = countries[position]
 			val itemView = holder.itemView
 
-			itemView.findViewById<TextView>(R.id.position).text = itemView.context.getString(R.string.position, position + 1)
-			itemView.findViewById<ImageView>(R.id.flag).setImageResource(countryItem.flag)
-			itemView.findViewById<TextView>(R.id.name).text = countryItem.name
-			itemView.findViewById<TextView>(R.id.parameter).text = countryItem.parameter.toString()
+			val positionView: TextView = itemView.findViewById(R.id.position)
+			positionView.text = itemView.context.getString(R.string.position, position + 1)
+
+			val flagView: ImageView = itemView.findViewById(R.id.flag)
+			flagView.setImageResource(countryItem.flag)
+
+			val nameView: TextView = itemView.findViewById(R.id.name)
+			nameView.text = countryItem.name
+
+			val parameterView: TextView = itemView.findViewById(R.id.parameter)
+			parameterView.text = countryItem.parameter.toString()
 		}
 
 		class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
