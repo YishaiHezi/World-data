@@ -3,4 +3,5 @@
 	<string name="table_title">Rate by: </string>
 	<string name="map_button">Map</string>
 	<string name="chart_button">Chart</string>
+	<string name="position">%1$d</string>
 </resources>
