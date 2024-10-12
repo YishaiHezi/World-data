@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
@@ -22,6 +23,7 @@ import kotlinx.coroutines.launch
  *
  * @author Yishai Hezi
  */
+@AndroidEntryPoint
 class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 
 

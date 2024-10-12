@@ -1,13 +1,8 @@
 package data
 
-import android.util.Log
-import com.example.worlddata.CountryItem
 import com.example.worlddata.R
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-
-// todo: continue from here.
-
 
 
 class CountryRepository @Inject constructor(
@@ -15,13 +10,8 @@ class CountryRepository @Inject constructor(
 ) {
 
 
+	// todo: need to initialize the repository. if its empty or need an update - need to call the server. maybe it should be in the getCountries method.
 	suspend fun initializeCountries() {
-
-
-
-		Log.d("test_db", "initializeCountries!")
-
-
 		insertCountries(
 			listOf(
 				Country("United Arab Emirates", R.drawable.uae_flag, 1000, 10),
@@ -35,8 +25,6 @@ class CountryRepository @Inject constructor(
 
 	// Get all countries from the database
 	fun getCountries(): Flow<List<Country>> {
-
-		// todo: here I need to check if I need to update the countries from the server. need to add a check.
 		return countryDao.getCountries()
 	}
 
