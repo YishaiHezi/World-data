@@ -5,6 +5,9 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
+/**
+ * The repository for providing the countries.
+ */
 class CountryRepository @Inject constructor(
 	private val countryDao: CountryDao
 ) {
@@ -23,17 +26,25 @@ class CountryRepository @Inject constructor(
 	}
 
 
-	// Get all countries from the database
+	/**
+	 * Get all the countries from the database
+	 */
 	fun getCountries(): Flow<List<Country>> {
 		return countryDao.getCountries()
 	}
 
-	// Insert a list of countries into the database
+
+	/**
+	 * Insert a list of countries into the database
+	 */
 	private suspend fun insertCountries(countries: List<Country>) {
 		countryDao.insertCountries(countries)
 	}
 
-	// Delete all countries from the database
+
+	/**
+	 * Delete all countries from the database
+	 */
 	private suspend fun deleteAllCountries() {
 		countryDao.deleteAll()
 	}

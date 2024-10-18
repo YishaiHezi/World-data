@@ -9,6 +9,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+
+/**
+ * This is a module that hilt needs in order to know how to create the database and the DAO.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
