@@ -40,16 +40,22 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 
 		viewLifecycleOwner.lifecycleScope.launch {
 			repeatOnLifecycle(Lifecycle.State.STARTED) {
-				viewModel.countriesFlow.collect { countries ->
-					if (recyclerView.adapter == null) {
-						initRecyclerView(recyclerView, countries)
-					}
-					else if ((recyclerView.adapter as CountriesListAdapter).countries != countries){
-						(recyclerView.adapter as CountriesListAdapter).updateCountries(countries)
-					}
-
-				}
+				viewModel.countriesFlow.collect { countries -> updateCountries(recyclerView, countries) }
 			}
+		}
+	}
+
+
+	/**
+	 * Update the countries list.
+	 */
+	private fun updateCountries(recyclerView: RecyclerView, countries: List<CountryItem>){
+		val adapter = (recyclerView.adapter as? CountriesListAdapter)
+
+		if (adapter == null) {
+			initRecyclerView(recyclerView, countries)
+		} else {
+			adapter.updateCountries(countries)
 		}
 	}
 
