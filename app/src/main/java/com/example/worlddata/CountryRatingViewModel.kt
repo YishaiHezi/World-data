@@ -3,8 +3,10 @@ package com.example.worlddata
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.CountryRepository
+import data.ParameterType
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 
 
@@ -20,16 +22,27 @@ class CountryRatingViewModel @Inject constructor(
 
 
 	/**
-	 * A flow of the list of countries, from the repository.
+	 * The selected parameter by the user.
 	 */
-	val countriesFlow: Flow<List<CountryItem>> = countryRepository.getCountries().map {
+	private val selectedParameterFlow = MutableStateFlow(ParameterType.POPULATION)
 
-		// todo: Need to add logic that put the relevant parameter (not population).
 
-		it.map { country ->
-			CountryItem(country.name, country.flag, country.population)
-		}
+	/**
+	 * A flow of the list of countries, from the repository, sorted by the selected parameter.
+	 */
+	val countriesFlow: Flow<List<CountryItem>> = combine(
+		countryRepository.getCountries(),
+		selectedParameterFlow
+	) {
 
+	  countries, parameter ->
+		countries.map { country ->
+			CountryItem(
+				name = country.name,
+				flag = country.flag,
+				parameter = country.getParameter(parameter)
+			)
+		}.sortedByDescending { it.parameter }
 	}
 
 

@@ -49,6 +49,8 @@ dependencies {
 	implementation(libs.hilt.android)
 	implementation(libs.androidx.room.runtime)
 	implementation (libs.androidx.room.ktx)
+	implementation(libs.kotlinx.coroutines.core)
+	implementation(libs.kotlinx.coroutines.android)
 }
 
 kapt {
