@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
+<androidx.constraintlayout.widget.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/recycler_view"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-	tools:itemCount="6"
-	tools:listitem="@layout/country_item"/>
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/headline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:text="@string/country_rating_headline"
+		android:textAppearance="?attr/textAppearanceHeadline6"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<Spinner
+		android:id="@+id/spinner"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="8dp"
+		android:gravity="center"
+		android:padding="16dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/headline"/>
+
+	<ImageView
+		android:id="@+id/divider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/spinner"
+		app:srcCompat="@drawable/divider_horizontal_full"/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recycler_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/divider"
+		tools:itemCount="6"
+		tools:listitem="@layout/country_item"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
