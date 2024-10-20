@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -36,6 +38,9 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		val spinner: Spinner = view.findViewById(R.id.spinner)
+		initSpinner(spinner)
+
 		val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
 
 		viewLifecycleOwner.lifecycleScope.launch {
@@ -43,6 +48,16 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 				viewModel.countriesFlow.collect { countries -> updateCountries(recyclerView, countries) }
 			}
 		}
+	}
+
+
+	/**
+	 * Initialize the spinner.
+	 */
+	private fun initSpinner(spinner: Spinner) {
+		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_layout, listOf("population", "size")) // todo: populate this list
+		adapter.setDropDownViewResource(R.layout.spinner_item)
+		spinner.adapter = adapter
 	}
 
 
