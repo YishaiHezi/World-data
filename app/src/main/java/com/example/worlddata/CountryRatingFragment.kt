@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
@@ -17,6 +18,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import data.ParameterType
 import kotlinx.coroutines.launch
 
 
@@ -55,9 +57,21 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	 * Initialize the spinner.
 	 */
 	private fun initSpinner(spinner: Spinner) {
-		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_layout, listOf("population", "size")) // todo: populate this list
+		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_layout, ParameterType.entries)
 		adapter.setDropDownViewResource(R.layout.spinner_item)
 		spinner.adapter = adapter
+
+		spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+			override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+				val selectedParameter = parent?.getItemAtPosition(position) as ParameterType
+				viewModel.setSelectedParameter(selectedParameter)
+			}
+
+			override fun onNothingSelected(parent: AdapterView<*>?) {
+				viewModel.setSelectedParameter(ParameterType.POPULATION)
+			}
+
+		}
 	}
 
 

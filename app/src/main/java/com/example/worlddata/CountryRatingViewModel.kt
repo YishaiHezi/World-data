@@ -46,4 +46,11 @@ class CountryRatingViewModel @Inject constructor(
 	}
 
 
+	/**
+	 * Set the selected parameter.
+	 */
+	fun setSelectedParameter(parameter: ParameterType) {
+		selectedParameterFlow.value = parameter
+	}
+
 }
