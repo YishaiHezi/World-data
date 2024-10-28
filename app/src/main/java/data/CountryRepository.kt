@@ -17,9 +17,9 @@ class CountryRepository @Inject constructor(
 	suspend fun initializeCountries() {
 		insertCountries(
 			listOf(
-				Country("United Arab Emirates", R.drawable.uae_flag, 1000, 10),
-				Country("Israel", R.drawable.israel_flag, 2000, 10),
-				Country("Czech Republic", R.drawable.czech_republic_flag, 3000, 10),
+//				Country("United Arab Emirates", R.drawable.uae_flag, 1000, 10),
+//				Country("Israel", R.drawable.israel_flag, 2000, 10),
+//				Country("Czech Republic", R.drawable.czech_republic_flag, 3000, 10),
 			)
 		)
 

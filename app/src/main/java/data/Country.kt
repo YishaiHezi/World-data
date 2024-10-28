@@ -6,12 +6,12 @@ import androidx.room.PrimaryKey
 
 /**
  * The country data class.
- * The flag is a drawable resource id.
+ * The flag is the name of the drawable resource of the country's flag.
  */
 @Entity(tableName = "countries")
 data class Country(
 	@PrimaryKey val name: String,
-	val flag: Int,
+	val countryCode: String,
 	val population: Long,
 	val size: Long
 ) {

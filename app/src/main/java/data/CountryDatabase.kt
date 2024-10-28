@@ -15,7 +15,7 @@ import androidx.room.RoomDatabase
  *
  * @author Yishai Hezi
  */
-@Database(entities = [Country::class], version = 1, exportSchema = false)
+@Database(entities = [Country::class], version = 2, exportSchema = false)
 abstract class CountryDatabase : RoomDatabase() {
 
 	/**

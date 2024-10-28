@@ -35,15 +35,20 @@ class CountryRatingViewModel @Inject constructor(
 		selectedParameterFlow
 	) {
 
-	  countries, parameter ->
+			countries, parameter ->
 		countries.map { country ->
 			CountryItem(
 				name = country.name,
-				flag = country.flag,
+				flag = 0,
 				parameter = country.getParameter(parameter)
 			)
 		}.sortedByDescending { it.parameter }
 	}
+
+	// todo: get the correct flag from the country code
+//	private fun getDrawableId(countryName: String): Int {
+//		return application.resources.getIdentifier(flagName, "drawable", application.packageName)
+//	}
 
 
 	/**

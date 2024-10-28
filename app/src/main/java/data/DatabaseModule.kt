@@ -12,6 +12,8 @@ import javax.inject.Singleton
 
 /**
  * This is a module that hilt needs in order to know how to create the database and the DAO.
+ * "fallbackToDestructiveMigration" - It means that if I change the version of the DB (increase it by 1)
+ * and I won't provide a migration logic, it will delete the DB and create it from scratch.
  */
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,7 +26,9 @@ object DatabaseModule {
 			context,
 			CountryDatabase::class.java,
 			"country_database" // Name of the database
-		).build()
+		)
+			.fallbackToDestructiveMigration()
+			.build()
 	}
 
 	@Provides
