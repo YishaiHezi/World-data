@@ -35,11 +35,11 @@ class CountryRatingViewModel @Inject constructor(
 		selectedParameterFlow
 	) {
 
-			countries, parameter ->
+	  countries, parameter ->
 		countries.map { country ->
 			CountryItem(
 				name = country.name,
-				flag = 0,
+				flag = countryRepository.countryFlagMap[country.countryCode] ?: 0,
 				parameter = country.getParameter(parameter)
 			)
 		}.sortedByDescending { it.parameter }
