@@ -1,8 +1,8 @@
 package data
 
+import android.content.Context
 import com.example.worlddata.R
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 
@@ -18,20 +18,15 @@ class CountryRepository @Inject constructor(
 	 * Get all the countries from the database
 	 */
 	fun getCountries(): Flow<List<Country>> {
+		return countryDao.getCountries()
+	}
 
-		// todo: for testing. delete at the end.
-		return flow {
-			emit(listOf(
-				Country("Panama", "PA", 76453, 4456),
-				Country("Mexico", "MX", 4567, 23423),
-				Country("Madagascar", "MG", 43566, 9986775),
-				Country("Liberia", "LR", 2342, 97878),
-				Country("Greece", "GR", 2342, 5556),
-				Country("United States", "US", 987867, 21),
-				Country("Ukraine", "UA", 45, 23),
-			))
-		}
-//		return countryDao.getCountries()
+
+	/**
+	 * Insert countries from a JSON file into the database
+	 */
+	fun populateDB(context: Context){
+		JSONParser.readCountriesFromJSONToDB(context, countryDao)
 	}
 
 
