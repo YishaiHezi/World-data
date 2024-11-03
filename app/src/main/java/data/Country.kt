@@ -12,17 +12,24 @@ import androidx.room.PrimaryKey
 data class Country(
 	@PrimaryKey val name: String,
 	val countryCode: String,
-	val population: Long,
-	val size: Long
+	val capital: String,
+	val population: Double,
+	val area: Double,
+	val density: Double = population / area,
+	val gdp: Double?,
+	val gdpPerCapita: Double?
 ) {
 
 	/**
 	 * Returns the parameter value for the given parameter type.
 	 */
-	fun getParameter(parameter: ParameterType): Long {
+	fun getParameter(parameter: ParameterType): Double? {
 		return when (parameter) {
 			ParameterType.POPULATION -> this.population
-			ParameterType.SIZE -> this.size
+			ParameterType.AREA -> this.area
+			ParameterType.DENSITY -> this.density
+			ParameterType.GDP -> this.gdp
+			ParameterType.GDP_PER_CAPITA -> this.gdpPerCapita
 			// Add other parameters as needed
 		}
 	}
@@ -35,5 +42,9 @@ data class Country(
  */
 enum class ParameterType {
 	POPULATION,
-	SIZE
+	AREA,
+	DENSITY,
+	GDP,
+	GDP_PER_CAPITA
+
 }
