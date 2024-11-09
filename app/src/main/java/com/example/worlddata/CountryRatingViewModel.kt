@@ -1,5 +1,6 @@
 package com.example.worlddata
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.CountryRepository
@@ -36,7 +37,10 @@ class CountryRatingViewModel @Inject constructor(
 	) {
 
       countries, parameter ->
-        countries.mapNotNull { country ->
+		countries
+			.filter { it.isUNMember }
+			.mapNotNull { country ->
+
             country.getParameter(parameter)?.let { parameterValue ->
                 CountryItem(
                     name = country.name,
@@ -46,6 +50,12 @@ class CountryRatingViewModel @Inject constructor(
             }
         }.sortedByDescending { it.parameter }
 	}
+
+
+// todo: uncomment this for updating the DB. Delete at the end.
+//	fun startDb(context: Context){
+//		countryRepository.populateDB(context)
+//	}
 
 
 	/**

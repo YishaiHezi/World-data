@@ -37,6 +37,14 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	private val viewModel: CountryRatingViewModel by viewModels()
 
 
+// todo: uncomment this for updating the DB. Delete at the end.
+//	override fun onCreate(savedInstanceState: Bundle?) {
+//		super.onCreate(savedInstanceState)
+//
+//		context?.let { viewModel.startDb(it) }
+//	}
+
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
