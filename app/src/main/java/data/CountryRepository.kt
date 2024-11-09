@@ -26,7 +26,7 @@ class CountryRepository @Inject constructor(
 	 * Insert countries from a JSON file into the database
 	 */
 	fun populateDB(context: Context){
-		JSONParser.readCountriesFromJSONToDB(context, countryDao)
+		DeleteJSONParser.readCountriesFromJSONToDB(context, countryDao)
 	}
 
 

@@ -8,7 +8,11 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.InputStream
 
-object JSONParser {
+
+// todo: This file needs to be deleted at the end.
+
+
+object DeleteJSONParser {
 
     /**
      * Read countries from a JSON file and insert them into the database.
@@ -56,6 +60,7 @@ object JSONParser {
                     jsonObject.optInt("population").toDouble() / jsonObject.optInt("area").toDouble(),
                     jsonObject.optDouble("GDP"),
                     jsonObject.optDouble("GDPPerCapita"),
+                    jsonObject.optBoolean("isUNMember", false),
                 )
 
                 countries.add(country)
