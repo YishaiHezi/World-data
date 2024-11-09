@@ -6,7 +6,8 @@
         "countryCode": "PR",
         "name": "Puerto Rico",
         "GDPPerCapita": 36779.0594913858,
-        "population": 3205691
+        "population": 3205691,
+        "isUNMember": false
     },
     {
         "area": 6025,
@@ -139,7 +140,8 @@
         "capital": "Pago Pago",
         "countryCode": "AS",
         "name": "American Samoa",
-        "population": 43914
+        "population": 43914,
+        "isUNMember": false
     },
     {
         "area": 83879,
@@ -166,7 +168,8 @@
         "capital": "Oranjestad",
         "countryCode": "AW",
         "name": "Aruba",
-        "population": 106277
+        "population": 106277,
+        "isUNMember": false
     },
     {
         "area": 86600,
@@ -313,7 +316,8 @@
         "capital": "Hamilton",
         "countryCode": "BM",
         "name": "Bermuda",
-        "population": 63489
+        "population": 63489,
+        "isUNMember": false
     },
     {
         "area": 5770,
@@ -596,7 +600,8 @@
         "countryCode": "SX",
         "name": "Sint Maarten",
         "GDPPerCapita": 39432.6381247356,
-        "population": 41163
+        "population": 41163,
+        "isUNMember": false
     },
     {
         "area": 41290,
@@ -693,7 +698,8 @@
         "countryCode": "TC",
         "name": "Turks and Caicos Islands",
         "GDPPerCapita": 30438.4175881929,
-        "population": 46062
+        "population": 46062,
+        "isUNMember": false
     },
     {
         "area": 1284000,
@@ -738,7 +744,8 @@
         "capital": "Willemstad",
         "countryCode": "CW",
         "name": "Curaçao",
-        "population": 147862
+        "population": 147862,
+        "isUNMember": false
     },
     {
         "area": 513120,
@@ -1049,14 +1056,16 @@
         "capital": "Road Town",
         "countryCode": "VG",
         "name": "British Virgin Islands",
-        "population": 31538
+        "population": 31538,
+        "isUNMember": false
     },
     {
         "area": 350,
         "capital": "Charlotte Amalie",
         "countryCode": "VI",
         "name": "United States Virgin Islands",
-        "population": 104917
+        "population": 104917,
+        "isUNMember": false
     },
     {
         "area": 331340,
@@ -1113,7 +1122,8 @@
         "capital": "Tórshavn",
         "countryCode": "FO",
         "name": "Faroe Islands",
-        "population": 53270
+        "population": 53270,
+        "isUNMember": false
     },
     {
         "area": 549086,
@@ -1190,14 +1200,16 @@
         "capital": "Gibraltar",
         "countryCode": "GI",
         "name": "Gibraltar",
-        "population": 32688
+        "population": 32688,
+        "isUNMember": false
     },
     {
         "area": 410450,
         "capital": "Nuuk",
         "countryCode": "GL",
         "name": "Greenland",
-        "population": 56865
+        "population": 56865,
+        "isUNMember": false
     },
     {
         "area": 11300,
@@ -1254,7 +1266,8 @@
         "capital": "Hagåtña",
         "countryCode": "GU",
         "name": "Guam",
-        "population": 172952
+        "population": 172952,
+        "isUNMember": false
     },
     {
         "area": 36130,
@@ -1283,7 +1296,8 @@
         "countryCode": "HK",
         "name": "Hong Kong",
         "GDPPerCapita": 50696.5903184046,
-        "population": 7536100
+        "population": 7536100,
+        "isUNMember": false
     },
     {
         "area": 112490,
@@ -1368,7 +1382,8 @@
         "capital": "Douglas",
         "countryCode": "IM",
         "name": "Isle of Man",
-        "population": 84710
+        "population": 84710,
+        "isUNMember": false
     },
     {
         "area": 3287260,
@@ -1573,7 +1588,8 @@
         "capital": "George Town",
         "countryCode": "KY",
         "name": "Cayman Islands",
-        "population": 69310
+        "population": 69310,
+        "isUNMember": false
     },
     {
         "area": 2724900,
@@ -1734,7 +1750,8 @@
         "capital": "Marigot",
         "countryCode": "MF",
         "name": "Saint Martin",
-        "population": 32077
+        "population": 32077,
+        "isUNMember": false
     },
     {
         "area": 587295,
@@ -1803,14 +1820,16 @@
         "countryCode": "MO",
         "name": "Macau",
         "GDPPerCapita": 66835.0643341913,
-        "population": 704149
+        "population": 704149,
+        "isUNMember": false
     },
     {
         "area": 460,
         "capital": "Saipan",
         "countryCode": "MP",
         "name": "Northern Mariana Islands",
-        "population": 49796
+        "population": 49796,
+        "isUNMember": false
     },
     {
         "area": 1030700,
@@ -1907,7 +1926,8 @@
         "capital": "Nouméa",
         "countryCode": "NC",
         "name": "New Caledonia",
-        "population": 267940
+        "population": 267940,
+        "isUNMember": false
     },
     {
         "area": 1267000,
@@ -2024,7 +2044,8 @@
         "capital": "Papeetē",
         "countryCode": "PF",
         "name": "French Polynesia",
-        "population": 308872
+        "population": 308872,
+        "isUNMember": false
     },
     {
         "area": 462840,
