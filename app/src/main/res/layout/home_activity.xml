@@ -6,11 +6,11 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<androidx.constraintlayout.widget.ConstraintLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="?attr/colorPrimary"
-		android:padding="16dp">
+<!--	<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--		android:layout_width="match_parent"-->
+<!--		android:layout_height="wrap_content"-->
+<!--		android:background="?attr/colorPrimary"-->
+<!--		android:padding="16dp">-->
 
 		<!--		<Button-->
 		<!--			android:id="@+id/map_button"-->
@@ -41,7 +41,7 @@
 		<!--			app:layout_constraintEnd_toEndOf="parent"-->
 		<!--			app:layout_constraintTop_toTopOf="parent"/>-->
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+<!--	</androidx.constraintlayout.widget.ConstraintLayout>-->
 
 	<androidx.fragment.app.FragmentContainerView
 		android:id="@+id/fragment_container"

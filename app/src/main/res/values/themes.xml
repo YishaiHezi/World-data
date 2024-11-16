@@ -13,7 +13,7 @@
 
 		<item name="colorOnSurface">@color/gray_93</item>
 
-		<item name="colorDivider">@color/gray_12</item>
+		<item name="colorDefaultComponent">@color/gray_12</item>
 
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorPrimary</item>
