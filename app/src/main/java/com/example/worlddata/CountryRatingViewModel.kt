@@ -41,6 +41,7 @@ class CountryRatingViewModel @Inject constructor(
 			.map {
 				CountryItem(
 					name = it.name,
+					code = it.countryCode,
 					flag = countryRepository.countryFlagMap[it.countryCode] ?: 0,
 					value = it.getFormattedParameter(paramType)
 				)

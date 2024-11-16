@@ -1,5 +1,6 @@
 package com.example.worlddata
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +29,7 @@ import kotlinx.coroutines.launch
  * @author Yishai Hezi
  */
 @AndroidEntryPoint
-class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
+class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCountryClickListener {
 
 
 	/**
@@ -101,7 +102,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	 * Initialize the recycler view.
 	 */
 	private fun initRecyclerView(recyclerView: RecyclerView, countries: List<CountryItem>) {
-		recyclerView.adapter = CountriesListAdapter(countries)
+		recyclerView.adapter = CountriesListAdapter(countries, this)
 		addDividers(recyclerView)
 	}
 
@@ -122,10 +123,15 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 	}
 
 
+	override fun onCountryClicked(context: Context, countryCode: String) {
+		startActivity(CountryActivity.createStartIntent(context, countryCode))
+	}
+
+
 	/**
 	 * The adapter for the recycler view that shows all the countries.
 	 */
-	private class CountriesListAdapter(var countries: List<CountryItem>) :
+	private class CountriesListAdapter(var countries: List<CountryItem>, val onCountryClickListener: OnCountryClickListener) :
 		RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 		override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 			val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, parent, false)
@@ -152,6 +158,10 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 
 			val parameterView: TextView = itemView.findViewById(R.id.parameter)
 			parameterView.text = countryItem.value
+
+			itemView.setOnClickListener {
+				onCountryClickListener.onCountryClicked(itemView.context, countryItem.code)
+			}
 		}
 
 
@@ -169,6 +179,21 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 		 */
 		class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 	}
+
+
+}
+
+
+/**
+ * The interface for the click listener on a country.
+ */
+interface OnCountryClickListener{
+
+
+	/**
+	 * Runs when clicking on a country.
+	 */
+	fun onCountryClicked(context: Context, countryCode: String)
 
 
 }

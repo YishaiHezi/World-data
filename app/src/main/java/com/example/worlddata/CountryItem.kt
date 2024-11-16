@@ -6,6 +6,7 @@ package com.example.worlddata
  */
 data class CountryItem(
 	val name: String,
+	val code: String,
 	val flag: Int,
 	val value: String
 )
