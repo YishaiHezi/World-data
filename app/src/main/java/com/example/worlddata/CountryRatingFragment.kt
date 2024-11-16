@@ -151,7 +151,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment) {
 			nameView.text = countryItem.name
 
 			val parameterView: TextView = itemView.findViewById(R.id.parameter)
-			parameterView.text = countryItem.parameter.toString()
+			parameterView.text = countryItem.value
 		}
 
 

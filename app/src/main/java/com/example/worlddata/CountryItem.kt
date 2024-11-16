@@ -7,5 +7,5 @@ package com.example.worlddata
 data class CountryItem(
 	val name: String,
 	val flag: Int,
-	val parameter: Double // todo: it should be a String.
+	val value: String
 )

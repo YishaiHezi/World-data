@@ -2,6 +2,8 @@ package data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.text.NumberFormat
+import java.util.Locale
 
 
 /**
@@ -31,6 +33,23 @@ data class Country(
 			ParameterType.DENSITY -> this.density
 			ParameterType.GDP -> this.gdp
 			ParameterType.GDP_PER_CAPITA -> this.gdpPerCapita
+			// Add other parameters as needed
+		}
+	}
+
+
+	/**
+	 * Returns the formatted parameter value for the given parameter type.
+	 */
+	fun getFormattedParameter(type: ParameterType): String {
+		val numberFormat = NumberFormat.getInstance(Locale.getDefault())
+
+		return when (type) {
+			ParameterType.POPULATION -> numberFormat.format(this.population)
+			ParameterType.AREA -> numberFormat.format(this.area)
+			ParameterType.DENSITY -> numberFormat.format(this.density.toLong())
+			ParameterType.GDP -> if (this.gdp != null) numberFormat.format(this.gdp) else ""
+			ParameterType.GDP_PER_CAPITA -> if (this.gdpPerCapita != null) numberFormat.format(this.gdpPerCapita) else ""
 			// Add other parameters as needed
 		}
 	}

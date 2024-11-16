@@ -1,6 +1,5 @@
 package com.example.worlddata
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.CountryRepository
@@ -35,20 +34,17 @@ class CountryRatingViewModel @Inject constructor(
 		countryRepository.getCountries(),
 		selectedParameterFlow
 	) {
-
-      countries, parameter ->
+	  countries, paramType ->
 		countries
-			.filter { it.isUNMember }
-			.mapNotNull { country ->
-
-            country.getParameter(parameter)?.let { parameterValue ->
-                CountryItem(
-                    name = country.name,
-                    flag = countryRepository.countryFlagMap[country.countryCode] ?: 0,
-                    parameter = parameterValue
-                )
-            }
-        }.sortedByDescending { it.parameter }
+			.filter { it.isUNMember && it.getParameter(paramType) != null }
+			.sortedByDescending { it.getParameter(paramType) }
+			.map {
+				CountryItem(
+					name = it.name,
+					flag = countryRepository.countryFlagMap[it.countryCode] ?: 0,
+					value = it.getFormattedParameter(paramType)
+				)
+			}
 	}
 
 
