@@ -66,8 +66,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 	 * Initialize the spinner.
 	 */
 	private fun initSpinner(spinner: Spinner) {
-		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_layout, ParameterType.entries)
-		adapter.setDropDownViewResource(R.layout.spinner_item)
+		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, ParameterType.entries)
 		spinner.adapter = adapter
 
 		spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
