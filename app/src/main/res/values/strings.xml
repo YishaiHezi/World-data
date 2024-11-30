@@ -8,4 +8,12 @@
 	<!-- country rating: -->
 	<string name="country_rating_headline">Rate By:</string>
 
+	<!-- country display-->
+	<string name="capital">Capital: %1$s</string>
+	<string name="population">Population: %1$f</string>
+	<string name="area">Area: %1$f</string>
+	<string name="density">Density: %1$f</string>
+	<string name="gdp">GDP: %1$f</string>
+	<string name="gdp_per_capita">GDP Per Capita: %1$f</string>
+
 </resources>

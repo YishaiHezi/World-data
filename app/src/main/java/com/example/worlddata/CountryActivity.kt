@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import data.Country
 import kotlinx.coroutines.launch
+import utils.updateVisibility
 
 
 /**
@@ -53,6 +54,28 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
         val nameView: TextView = findViewById(R.id.country_name)
         nameView.text = name
+
+        val capitalTextView: TextView = findViewById(R.id.capital_view)
+        capitalTextView.text = getString(R.string.capital, country.capital)
+
+        val populationTextView: TextView = findViewById(R.id.population_view)
+        populationTextView.text = getString(R.string.population, country.population)
+
+        val areaTextView: TextView = findViewById(R.id.area_view)
+        areaTextView.text = getString(R.string.area, country.area)
+
+        val densityTextView: TextView = findViewById(R.id.density_view)
+        densityTextView.text = getString(R.string.density, country.density)
+
+        val gdpTextView: TextView = findViewById(R.id.gdp_view)
+        gdpTextView.updateVisibility(country.gdp != null) {
+            it.text = getString(R.string.gdp, country.gdp)
+        }
+
+        val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
+        gdpPCTextView.updateVisibility(country.gdpPerCapita != null) {
+            it.text = getString(R.string.gdp_per_capita, country.gdpPerCapita)
+        }
     }
 
 
