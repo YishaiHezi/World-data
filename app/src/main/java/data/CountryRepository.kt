@@ -15,6 +15,14 @@ class CountryRepository @Inject constructor(
 
 
 	/**
+	 * Get a country by its country code.
+	 */
+	fun getCountry(countryCode: String): Flow<Country> {
+		return countryDao.getCountry(countryCode)
+	}
+
+
+	/**
 	 * Get all the countries from the database
 	 */
 	fun getCountries(): Flow<List<Country>> {

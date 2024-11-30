@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -63,10 +62,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         /**
          * Create a start intent for this activity.
          */
-        fun createStartIntent(context: Context, countryCode: String, @DrawableRes flag: Int): Intent {
+        fun createStartIntent(context: Context, countryCode: String): Intent {
             val intent = Intent(context, CountryActivity::class.java)
             intent.putExtra("country_code", countryCode)
-            intent.putExtra("flag", flag)
             return intent
         }
 

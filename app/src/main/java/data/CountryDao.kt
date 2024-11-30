@@ -25,4 +25,7 @@ interface CountryDao {
 
 	@Query("DELETE FROM countries")
 	suspend fun deleteAll()
+
+	@Query("SELECT * FROM countries WHERE countryCode = :code LIMIT 1")
+	fun getCountry(code: String): Flow<Country>
 }

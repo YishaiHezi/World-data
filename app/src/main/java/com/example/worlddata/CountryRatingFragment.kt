@@ -122,8 +122,8 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 	}
 
 
-	override fun onCountryClicked(context: Context, countryCode: String) {
-		startActivity(CountryActivity.createStartIntent(context, countryCode))
+	override fun onCountryClicked(context: Context, country: CountryItem) {
+		startActivity(CountryActivity.createStartIntent(context, country.code))
 	}
 
 
@@ -159,7 +159,7 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 			parameterView.text = countryItem.value
 
 			itemView.setOnClickListener {
-				onCountryClickListener.onCountryClicked(itemView.context, countryItem.code)
+				onCountryClickListener.onCountryClicked(itemView.context, countryItem)
 			}
 		}
 
@@ -192,7 +192,7 @@ interface OnCountryClickListener{
 	/**
 	 * Runs when clicking on a country.
 	 */
-	fun onCountryClicked(context: Context, countryCode: String)
+	fun onCountryClicked(context: Context, country: CountryItem)
 
 
 }
