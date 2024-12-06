@@ -2,8 +2,7 @@ package data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.text.NumberFormat
-import java.util.Locale
+import utils.CountryFormatter
 
 
 /**
@@ -41,20 +40,51 @@ data class Country(
 	/**
 	 * Returns the formatted parameter value for the given parameter type.
 	 */
-	fun getFormattedParameter(type: ParameterType): String {
-		val numberFormat = NumberFormat.getInstance(Locale.getDefault())
-
+	fun getFormattedParameter(type: ParameterType): String? {
 		return when (type) {
-			ParameterType.POPULATION -> numberFormat.format(this.population)
-			ParameterType.AREA -> numberFormat.format(this.area)
-			ParameterType.DENSITY -> numberFormat.format(this.density.toLong())
-			ParameterType.GDP -> if (this.gdp != null) numberFormat.format(this.gdp) else ""
-			ParameterType.GDP_PER_CAPITA -> if (this.gdpPerCapita != null) numberFormat.format(this.gdpPerCapita) else ""
+			ParameterType.POPULATION -> CountryFormatter.formatPopulation(this.population)
+			ParameterType.AREA -> CountryFormatter.formatArea(this.area)
+			ParameterType.DENSITY -> CountryFormatter.formatDensity(this.density)
+			ParameterType.GDP -> CountryFormatter.formatGDP(this.gdp)
+			ParameterType.GDP_PER_CAPITA -> CountryFormatter.formatGDPPerCapita(this.gdpPerCapita)
 			// Add other parameters as needed
 		}
 	}
 
+
+	/**
+	 * Converts the country to a formatted country.
+	 */
+	fun toFormattedCountry(): FormattedCountry{
+		return FormattedCountry(
+			name = this.name,
+			countryCode = this.countryCode,
+			capital = this.capital,
+			population = CountryFormatter.formatPopulation(this.population),
+			area = CountryFormatter.formatArea(this.area),
+			density = CountryFormatter.formatDensity(this.density),
+			gdp = CountryFormatter.formatGDP(this.gdp),
+			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita))
+	}
+
+
+
 }
+
+
+/**
+ * The formatted country data class.
+ */
+data class FormattedCountry(
+	val name: String,
+	val countryCode: String,
+	val capital: String,
+	val population: String,
+	val area: String,
+	val density: String,
+	val gdp: String?,
+	val gdpPerCapita: String?
+)
 
 
 /**

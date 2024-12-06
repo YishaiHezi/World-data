@@ -4,9 +4,10 @@ import androidx.annotation.DrawableRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import data.Country
 import data.CountryRepository
+import data.FormattedCountry
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 
@@ -35,7 +36,9 @@ class CountryViewModel @Inject constructor(
     /**
      * A flow of the country, from the repository.
      */
-    val countryFlow: Flow<Country> = countryRepository.getCountry(countryCode)
+    val countryFlow: Flow<FormattedCountry> = countryRepository.getCountry(countryCode).map {
+        country -> country.toFormattedCountry()
+    }
 
 
 }

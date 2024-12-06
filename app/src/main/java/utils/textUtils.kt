@@ -18,8 +18,8 @@ fun TextView.setTextOrHide(text: String?) {
 /**
  * Update the visibility of the TextView based on the given condition, and apply the given block.
  */
-fun TextView.updateVisibility(condition: Boolean, block: (TextView) -> Unit) {
-    if (condition) {
+fun TextView.updateVisibility(condition: Boolean?, block: (TextView) -> Unit) {
+    if (condition == true) {
         block(this)
         this.visibility = android.view.View.VISIBLE
     } else {

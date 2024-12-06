@@ -39,11 +39,12 @@ class CountryRatingViewModel @Inject constructor(
 			.filter { it.isUNMember && it.getParameter(paramType) != null }
 			.sortedByDescending { it.getParameter(paramType) }
 			.map {
+				val country = it.toFormattedCountry()
 				CountryItem(
-					name = it.name,
-					code = it.countryCode,
-					flag = countryRepository.countryFlagMap[it.countryCode] ?: 0,
-					value = it.getFormattedParameter(paramType)
+					name = country.name,
+					code = country.countryCode,
+					flag = countryRepository.countryFlagMap[country.countryCode] ?: 0,
+					value = it.getFormattedParameter(paramType) ?: ""
 				)
 			}
 	}

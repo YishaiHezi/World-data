@@ -11,7 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
-import data.Country
+import data.FormattedCountry
 import kotlinx.coroutines.launch
 import utils.updateVisibility
 
@@ -45,7 +45,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Update the UI from the given country.
      */
-    private fun updateUi(country: Country) {
+    private fun updateUi(country: FormattedCountry) {
         val flag = viewModel.flag
         val name = country.name
 
@@ -68,12 +68,12 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         densityTextView.text = getString(R.string.density, country.density)
 
         val gdpTextView: TextView = findViewById(R.id.gdp_view)
-        gdpTextView.updateVisibility(country.gdp != null) {
+        gdpTextView.updateVisibility(!country.gdp.isNullOrEmpty()) {
             it.text = getString(R.string.gdp, country.gdp)
         }
 
         val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
-        gdpPCTextView.updateVisibility(country.gdpPerCapita != null) {
+        gdpPCTextView.updateVisibility(!country.gdpPerCapita.isNullOrEmpty()) {
             it.text = getString(R.string.gdp_per_capita, country.gdpPerCapita)
         }
     }
