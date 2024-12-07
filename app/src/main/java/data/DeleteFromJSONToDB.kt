@@ -8,11 +8,13 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.InputStream
 
-
+/**
+ * This file has the logic for updating the DB from the JSON file in assets folder.
+ */
 // todo: This file needs to be deleted at the end.
 
 
-object DeleteJSONParser {
+object DeleteFromJSONToDB {
 
     /**
      * Read countries from a JSON file and insert them into the database.
@@ -55,12 +57,13 @@ object DeleteJSONParser {
                     jsonObject.optString("name"),
                     jsonObject.optString("countryCode"),
                     jsonObject.optString("capital"),
-                    jsonObject.optInt("population").toDouble(),
-                    jsonObject.optInt("area").toDouble(),
-                    jsonObject.optInt("population").toDouble() / jsonObject.optInt("area").toDouble(),
+                    jsonObject.optDouble("population"),
+                    jsonObject.optDouble("area"),
+                    jsonObject.optDouble("population") / jsonObject.optDouble("area"),
                     jsonObject.optDouble("GDP"),
                     jsonObject.optDouble("GDPPerCapita"),
                     jsonObject.optBoolean("isUNMember", false),
+                    jsonObject.optString("coatOfArms"),
                 )
 
                 countries.add(country)

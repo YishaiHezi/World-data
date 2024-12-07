@@ -5,6 +5,10 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
 
+
+/**
+ * This file has the logic for updating the JSON file in assets folder.
+ */
 // todo: This file needs to be deleted at the end.
 
 
