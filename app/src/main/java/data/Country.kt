@@ -19,7 +19,8 @@ data class Country(
 	val density: Double = population / area,
 	val gdp: Double?,
 	val gdpPerCapita: Double?,
-	val isUNMember: Boolean = false
+	val isUNMember: Boolean = false,
+	val coatOfArms: String = ""
 ) {
 
 	/**
