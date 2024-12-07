@@ -11,7 +11,7 @@ import org.json.JSONArray
 import java.io.InputStream
 
 /**
- * This file has the logic for updating the DB from the JSON file (countriesData.json) in assets folder.
+ * This file has the logic for updating the DB from the JSON file (countries_data.json) in assets folder.
  */
 // todo: This file needs to be deleted at the end.
 
@@ -48,7 +48,7 @@ object UpdateDBFromJSON {
 
         try {
             // Read the JSON file from assets
-            val inputStream: InputStream = context.assets.open("countriesData.json")
+            val inputStream: InputStream = context.assets.open("countries_data.json")
             val jsonString = inputStream.bufferedReader().use { it.readText() }
 
             // Parse the JSON data

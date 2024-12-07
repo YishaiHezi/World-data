@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import data.FormattedCountry
 import kotlinx.coroutines.launch
@@ -51,6 +52,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
         val flagView: ImageView = findViewById(R.id.flag)
         flagView.setImageResource(flag)
+
+        val coatOfArmsView: ImageView = findViewById(R.id.coat_of_arms)
+        Glide.with(this).load(country.coatOfArms).into(coatOfArmsView)
 
         val nameView: TextView = findViewById(R.id.country_name)
         nameView.text = name

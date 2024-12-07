@@ -65,7 +65,8 @@ data class Country(
 			area = CountryFormatter.formatArea(this.area),
 			density = CountryFormatter.formatDensity(this.density),
 			gdp = CountryFormatter.formatGDP(this.gdp),
-			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita))
+			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita),
+			coatOfArms = this.coatOfArms)
 	}
 
 
@@ -84,7 +85,8 @@ data class FormattedCountry(
 	val area: String,
 	val density: String,
 	val gdp: String?,
-	val gdpPerCapita: String?
+	val gdpPerCapita: String?,
+	val coatOfArms: String = ""
 )
 
 
