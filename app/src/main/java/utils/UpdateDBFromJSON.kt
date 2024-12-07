@@ -1,7 +1,9 @@
-package data
+package utils
 
 import android.content.Context
 import android.util.Log
+import data.Country
+import data.CountryDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -9,12 +11,12 @@ import org.json.JSONArray
 import java.io.InputStream
 
 /**
- * This file has the logic for updating the DB from the JSON file in assets folder.
+ * This file has the logic for updating the DB from the JSON file (countriesData.json) in assets folder.
  */
 // todo: This file needs to be deleted at the end.
 
 
-object DeleteFromJSONToDB {
+object UpdateDBFromJSON {
 
     /**
      * Read countries from a JSON file and insert them into the database.

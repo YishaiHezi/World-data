@@ -3,6 +3,7 @@ package data
 import android.content.Context
 import com.example.worlddata.R
 import kotlinx.coroutines.flow.Flow
+import utils.UpdateDBFromJSON
 import javax.inject.Inject
 
 
@@ -34,7 +35,7 @@ class CountryRepository @Inject constructor(
 	 * Insert countries from a JSON file into the database
 	 */
 	fun populateDB(context: Context){
-		DeleteFromJSONToDB.readCountriesFromJSONToDB(context, countryDao)
+		UpdateDBFromJSON.readCountriesFromJSONToDB(context, countryDao)
 	}
 
 

@@ -1,4 +1,4 @@
-package data
+package utils
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*

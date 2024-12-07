@@ -1,4 +1,4 @@
-package data
+package utils
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
