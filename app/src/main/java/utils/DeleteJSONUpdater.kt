@@ -44,7 +44,7 @@ fun main() {
     )
 
 
-    val filePath = "/Users/yishai.hezi/AndroidStudioProjects/world-data/app/src/main/assets/countriesData.json"
+    val filePath = "/Users/yishai.hezi/AndroidStudioProjects/world-data/app/src/main/assets/countries_data.json"
 
     // Read JSON content from the file
     val jsonContent = File(filePath).readText()

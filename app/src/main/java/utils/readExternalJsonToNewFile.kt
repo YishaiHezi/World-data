@@ -33,13 +33,13 @@ data class Country2(
 
 /**
  * This file has the logic for creating a new JSON file to be in assets folder
- * (instead of countriesData.json, I can just copy the content of the new file to countriesData.json),
+ * (instead of countries_data.json, I can just copy the content of the new file to countries_data.json),
  * from another JSON file (json_response.json).
  */
 fun main() {
     // Read JSON files
     val coatOfArmsJson = File("/Users/yishai.hezi/AndroidStudioProjects/world-data/app/src/main/assets/json_response.json").readText()
-    val countriesJson = File("/Users/yishai.hezi/AndroidStudioProjects/world-data/app/src/main/assets/countriesData.json").readText()
+    val countriesJson = File("/Users/yishai.hezi/AndroidStudioProjects/world-data/app/src/main/assets/countries_data.json").readText()
 
     // Parse JSON files
     val json = Json { ignoreUnknownKeys = true } // Allows skipping unknown fields
@@ -51,7 +51,7 @@ fun main() {
 
     // Update countries with coat of arms data
     countriesList.forEach { country ->
-        country.coatOfArms = coatOfArmsMap[country.countryCode]?.coatOfArms?.svg
+        country.coatOfArms = coatOfArmsMap[country.countryCode]?.coatOfArms?.png
     }
 
     // Serialize updated list back to JSON
