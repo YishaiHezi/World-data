@@ -53,6 +53,8 @@ dependencies {
 	implementation(libs.kotlinx.coroutines.core)
 	implementation(libs.kotlinx.coroutines.android)
 	implementation(libs.kotlinx.serialization.json)
+	implementation(libs.glide)
+	annotationProcessor(libs.compiler)
 }
 
 kapt {
