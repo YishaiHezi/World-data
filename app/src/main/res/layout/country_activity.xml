@@ -23,6 +23,18 @@
         app:layout_goneMarginEnd="16dp"
         tools:src="@drawable/ic_flag_gr" />
 
+    <TextView
+        android:id="@+id/flag_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/flag"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="@id/flag"
+        app:layout_constraintStart_toStartOf="@id/flag"
+        app:layout_constraintTop_toBottomOf="@id/flag" />
+
     <ImageView
         android:id="@+id/coat_of_arms"
         android:layout_width="wrap_content"
@@ -36,7 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/flag"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:src="@drawable/ic_flag_ad" />
+
+    <TextView
+        android:id="@+id/coat_of_arms_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/coat_of_arms"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="?attr/colorOnSurface"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/coat_of_arms"
+        app:layout_constraintStart_toStartOf="@id/coat_of_arms"
+        app:layout_constraintTop_toBottomOf="@id/coat_of_arms"
+        tools:visibility="visible" />
+
 
     <TextView
         android:id="@+id/country_name"
@@ -44,9 +71,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="?attr/textAppearanceHeadline4"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flag"
+        app:layout_constraintTop_toBottomOf="@id/flag_name"
         tools:text="Greece" />
 
     <ImageView
@@ -68,6 +96,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +111,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +126,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +141,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +156,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,6 +171,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
