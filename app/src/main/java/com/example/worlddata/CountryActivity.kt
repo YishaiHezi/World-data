@@ -57,11 +57,11 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         val name = country.name
 
         val flagView: ImageView = findViewById(R.id.flag)
-        flagView.setImageResource(flag)
+        initFlag(flagView, flag)
 
         val coatOfArmsView: ImageView = findViewById(R.id.coat_of_arms)
         val coatOfArmsNameView: TextView = findViewById(R.id.coat_of_arms_name)
-        initCoatOfArms(country, coatOfArmsView, coatOfArmsNameView)
+        initCoatOfArms(coatOfArmsView, coatOfArmsNameView, country.coatOfArms)
 
         val nameView: TextView = findViewById(R.id.country_name)
         nameView.text = name
@@ -91,11 +91,33 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
 
     /**
+     * Initialize the flag image from the given flag resource.
+     */
+    private fun initFlag(flagView: ImageView, flag: Int){
+        flagView.setImageResource(flag)
+        flagView.setOnClickListener {
+            FullScreenImageDialogFragment.newInstance(flag).show(supportFragmentManager, "fullScreenImageDialog")
+        }
+    }
+
+
+    /**
+     * Initialize the coat of arms image and name from the given coat of arms url.
+     */
+    private fun initCoatOfArms(coatOfArmsView: ImageView, coatOfArmsNameView: TextView, coatOfArmsUrl: String) {
+        loadCoatOfArms(coatOfArmsView, coatOfArmsNameView, coatOfArmsUrl)
+        coatOfArmsView.setOnClickListener {
+            FullScreenImageDialogFragment.newInstance(coatOfArmsUrl).show(supportFragmentManager, "fullScreenImageDialog")
+        }
+    }
+
+
+    /**
      * Initialize the coat of arms image and name from the given country.
      */
-    private fun initCoatOfArms(country: FormattedCountry, coatOfArmsView: ImageView, coatOfArmsNameView: TextView) {
+    private fun loadCoatOfArms(coatOfArmsView: ImageView, coatOfArmsNameView: TextView, coatOfArmsUrl: String) {
         Glide.with(this)
-            .load(country.coatOfArms)
+            .load(coatOfArmsUrl)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                     coatOfArmsView.visibility = View.GONE
