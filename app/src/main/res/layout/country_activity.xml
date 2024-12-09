@@ -10,9 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        app:layout_goneMarginEnd="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:adjustViewBounds="true"
         android:elevation="8dp"
         android:importantForAccessibility="no"
@@ -21,14 +20,15 @@
         app:layout_constraintEnd_toStartOf="@id/coat_of_arms"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_flag_us" />
+        app:layout_goneMarginEnd="16dp"
+        tools:src="@drawable/ic_flag_gr" />
 
     <ImageView
         android:id="@+id/coat_of_arms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/flag"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/us_dont_commit" />
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/country_name"
