@@ -12,6 +12,9 @@
 		<item name="colorOnSecondary">@color/black</item>
 
 		<item name="colorOnSurface">@color/gray_93</item>
+		<item name="colorOnSurfaceEmphasisHigh">@color/gray_93_alpha_83</item>
+		<item name="colorOnSurfaceEmphasisMedium">@color/gray_93_alpha_65</item>
+		<item name="colorOnSurfaceEmphasisLow">@color/gray_93_alpha_45</item>
 
 		<item name="colorDefaultComponent">@color/gray_12</item>
 

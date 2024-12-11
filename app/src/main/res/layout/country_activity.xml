@@ -30,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/flag"
         android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:textColor="?attr/colorOnSurface"
+        android:textColor="?attr/colorOnSurfaceEmphasisHigh"
         app:layout_constraintEnd_toEndOf="@id/flag"
         app:layout_constraintStart_toStartOf="@id/flag"
         app:layout_constraintTop_toBottomOf="@id/flag" />
@@ -57,7 +57,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/coat_of_arms"
         android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:textColor="?attr/colorOnSurface"
+        android:textColor="?attr/colorOnSurfaceEmphasisHigh"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/coat_of_arms"
         app:layout_constraintStart_toStartOf="@id/coat_of_arms"

@@ -4,4 +4,7 @@
 	<attr name="colorOnSurfaceLight" format="color" />
 	<attr name="textColorPrimary" format="color" />
 	<attr name="colorDefaultComponent" format="color" />
+	<attr name="colorOnSurfaceEmphasisHigh" format="color" />
+	<attr name="colorOnSurfaceEmphasisMedium" format="color" />
+	<attr name="colorOnSurfaceEmphasisLow" format="color" />
 </resources>

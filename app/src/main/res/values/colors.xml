@@ -10,6 +10,9 @@
 	<color name="black">#FF000000</color>
 
 	<color name="gray_93">#292A30</color>
+	<color name="gray_93_alpha_83">#D4292A30</color>
+	<color name="gray_93_alpha_65">#A6292A30</color>
+	<color name="gray_93_alpha_45">#73292A30</color>
 	<color name="gray_90">#2F3037</color>
 	<color name="gray_75">#3C3E47</color>
 	<color name="gray_68">#525357</color>
