@@ -17,5 +17,6 @@
 	<string name="gdp_per_capita">GDP Per Capita: %1$s</string>
     <string name="flag">Flag</string>
 	<string name="coat_of_arms">Coat Of Arms</string>
+    <string name="search_country">Search a country…</string>
 
 </resources>

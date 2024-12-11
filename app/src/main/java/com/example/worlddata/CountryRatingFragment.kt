@@ -2,11 +2,14 @@ package com.example.worlddata
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
@@ -53,10 +56,14 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 		initSpinner(spinner)
 
 		val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+		val adapter = initRecyclerView(recyclerView)
+
+		val editText: EditText = view.findViewById(R.id.edit_text)
+		initEditText(editText, adapter)
 
 		viewLifecycleOwner.lifecycleScope.launch {
 			repeatOnLifecycle(Lifecycle.State.STARTED) {
-				viewModel.countriesFlow.collect { countries -> updateCountries(recyclerView, countries) }
+				viewModel.countriesFlow.collect { countries -> adapter.updateCountries(countries) }
 			}
 		}
 	}
@@ -84,25 +91,30 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 
 
 	/**
-	 * Update the countries list.
+	 * Initialize the recycler view.
 	 */
-	private fun updateCountries(recyclerView: RecyclerView, countries: List<CountryItem>){
-		val adapter = (recyclerView.adapter as? CountriesListAdapter)
+	private fun initRecyclerView(recyclerView: RecyclerView) : CountriesListAdapter {
+		val adapter = CountriesListAdapter(this)
+		recyclerView.adapter = adapter
+		addDividers(recyclerView)
 
-		if (adapter == null) {
-			initRecyclerView(recyclerView, countries)
-		} else {
-			adapter.updateCountries(countries)
-		}
+		return adapter
 	}
 
 
 	/**
-	 * Initialize the recycler view.
+	 * Initialize the edit text.
 	 */
-	private fun initRecyclerView(recyclerView: RecyclerView, countries: List<CountryItem>) {
-		recyclerView.adapter = CountriesListAdapter(countries, this)
-		addDividers(recyclerView)
+	private fun initEditText(editText: EditText, adapter: CountriesListAdapter){
+		editText.addTextChangedListener(object : TextWatcher {
+			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+				adapter.filterCountries(s.toString())
+			}
+
+			override fun afterTextChanged(s: Editable?) {}
+		})
 	}
 
 
@@ -130,20 +142,36 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 	/**
 	 * The adapter for the recycler view that shows all the countries.
 	 */
-	private class CountriesListAdapter(var countries: List<CountryItem>, val onCountryClickListener: OnCountryClickListener) :
+	private class CountriesListAdapter(val onCountryClickListener: OnCountryClickListener) :
 		RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+
+		/**
+		 * All the countries in the world.
+		 */
+		var allCountries: List<CountryItem> = emptyList()
+
+
+		/**
+		 * The countries to show after filtering.
+		 */
+		var countriesToDisplay: List<CountryItem> = emptyList()
+
+
 		override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 			val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, parent, false)
 
 			return CountryViewHolder(view)
 		}
 
+
 		override fun getItemCount(): Int {
-			return countries.size
+			return countriesToDisplay.size
 		}
 
+
 		override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-			val countryItem = countries[position]
+			val countryItem = countriesToDisplay[position]
 			val itemView = holder.itemView
 
 			val positionView: TextView = itemView.findViewById(R.id.position)
@@ -168,7 +196,21 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 		 * Update the countries list.
 		 */
 		fun updateCountries(newCountries: List<CountryItem>) {
-			countries = newCountries
+			allCountries = newCountries
+			countriesToDisplay = newCountries
+			notifyDataSetChanged()
+		}
+
+
+		/**
+		 * Filter the countries based on the query.
+		 */
+		fun filterCountries(query: String) {
+			countriesToDisplay = if (query.isEmpty()) {
+				allCountries
+			} else {
+				allCountries.filter { it.name.startsWith(query, ignoreCase = true) }
+			}
 			notifyDataSetChanged()
 		}
 
