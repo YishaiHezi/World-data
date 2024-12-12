@@ -1,5 +1,6 @@
 package com.example.worlddata
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.CountryRepository
@@ -50,10 +51,10 @@ class CountryRatingViewModel @Inject constructor(
 	}
 
 
-// todo: uncomment this for updating the DB. Delete at the end.
-//	fun startDb(context: Context){
-//		countryRepository.populateDB(context)
-//	}
+// todo: this is for updating the DB. Delete at the end.
+	fun startDb(context: Context){
+		countryRepository.populateDB(context)
+	}
 
 
 	/**
