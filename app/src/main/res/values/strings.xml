@@ -21,5 +21,6 @@
 	<string name="coat_of_arms">Coat Of Arms</string>
     <string name="search_country">Search a country…</string>
     <string name="located_in">Located in: %1$s</string>
+    <string name="timezones">Timezones: %1$s</string>
 
 </resources>

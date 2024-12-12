@@ -179,7 +179,7 @@
         tools:text="Located in: Europe" />
 
     <TextView
-        android:id="@+id/density_view"
+        android:id="@+id/timezones_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -191,6 +191,21 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/continent_view"
+        tools:text="Timezones: UTC+2" />
+
+    <TextView
+        android:id="@+id/density_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timezones_view"
         tools:text="Density: 33.6/km2" />
 
     <TextView

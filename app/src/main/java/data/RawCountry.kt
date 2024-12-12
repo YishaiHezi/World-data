@@ -23,5 +23,5 @@ data class RawCountry(
     var continents: List<String>? = null,
     var currency: List<String>? = null,
     var languages: List<String>? = null,
-    var timezones: List<String>? = null, // new
+    var timezones: List<String>? = null,
 )

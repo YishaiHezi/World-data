@@ -62,6 +62,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         updatePopulation(country)
         updateArea(country)
         updateContinent(country)
+        updateTimezones(country)
         updateDensity(country)
         updateGdp(country)
         updateGdpPerCapita(country)
@@ -181,7 +182,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
 
     /**
-     * Initialize the area from the given country.
+     * Initialize the continents from the given country.
      */
     private fun updateContinent(country: FormattedCountry){
         val continentTextView: TextView = findViewById(R.id.continent_view)
@@ -189,6 +190,19 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         val continents = country.continents
         continentTextView.updateVisibility(continents != null){
             it.text = getString(R.string.located_in, continents)
+        }
+    }
+
+
+    /**
+     * Initialize the timezones from the given country.
+     */
+    private fun updateTimezones(country: FormattedCountry){
+        val timezonesTextView: TextView = findViewById(R.id.timezones_view)
+
+        val timezones = country.timezones
+        timezonesTextView.updateVisibility(timezones != null){
+            it.text = getString(R.string.located_in, timezones)
         }
     }
 

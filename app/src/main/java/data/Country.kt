@@ -74,7 +74,7 @@ data class Country(
 			officialName = this.officialName,
 			continents = this.continents?.joinToString(separator = ", "),
 			currency = this.currency?.joinToString(separator = ", "),
-			timezones = this.timezones?.joinToString(separator = ", ")
+			timezones = this.timezones?.joinToString(prefix = "UTC ", separator = ", ") { it.replace("UTC", "").replace(":00", "") }
 		)
 	}
 
