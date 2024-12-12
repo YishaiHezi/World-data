@@ -73,7 +73,12 @@ class CountryRepository @Inject constructor(
 			rawCountry.gdp,
 			rawCountry.gdpPerCapita,
 			rawCountry.isUNMember,
-			rawCountry.coatOfArms
+			rawCountry.coatOfArms,
+			rawCountry.officialName,
+			rawCountry.continents,
+			rawCountry.currency,
+			rawCountry.languages,
+			rawCountry.timezones
 		)
 	}
 
@@ -92,7 +97,12 @@ class CountryRepository @Inject constructor(
 			country.gdp,
 			country.gdpPerCapita,
 			country.isUNMember,
-			country.coatOfArms
+			country.coatOfArms,
+			country.officialName,
+			country.continents,
+			country.currency,
+			country.languages,
+			country.timezones
 		)
 	}
 
