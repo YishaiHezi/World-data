@@ -10,6 +10,7 @@
 
 	<!-- country display-->
 	<string name="capital">Capital: %1$s</string>
+	<string name="language">National language: %1$s</string>
 	<string name="population">Population: %1$s</string>
 	<string name="area">Area: %1$s</string>
 	<string name="density">Density: %1$s</string>

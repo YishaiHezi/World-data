@@ -69,6 +69,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         val capitalTextView: TextView = findViewById(R.id.capital_view)
         capitalTextView.text = getString(R.string.capital, country.capital)
 
+        val languageTextView: TextView = findViewById(R.id.language_view)
+        languageTextView.text = getString(R.string.language, country.languages)
+
         val populationTextView: TextView = findViewById(R.id.population_view)
         populationTextView.text = getString(R.string.population, country.population)
 

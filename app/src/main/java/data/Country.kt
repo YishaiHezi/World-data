@@ -69,7 +69,9 @@ data class Country(
 			density = CountryFormatter.formatDensity(this.density),
 			gdp = CountryFormatter.formatGDP(this.gdp),
 			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita),
-			coatOfArms = this.coatOfArms)
+			coatOfArms = this.coatOfArms,
+			languages = this.languages?.joinToString(separator = ", ")
+		)
 	}
 
 
@@ -89,7 +91,8 @@ data class FormattedCountry(
 	val density: String,
 	val gdp: String?,
 	val gdpPerCapita: String?,
-	val coatOfArms: String = ""
+	val coatOfArms: String = "",
+	val languages: String?
 )
 
 
