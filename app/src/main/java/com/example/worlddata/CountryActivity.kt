@@ -53,50 +53,26 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Update the UI from the given country.
      */
     private fun updateUi(country: FormattedCountry) {
-        val flag = viewModel.flag
-        val name = country.name
-
-        val flagView: ImageView = findViewById(R.id.flag)
-        initFlag(flagView, flag)
-
-        val coatOfArmsView: ImageView = findViewById(R.id.coat_of_arms)
-        val coatOfArmsNameView: TextView = findViewById(R.id.coat_of_arms_name)
-        initCoatOfArms(coatOfArmsView, coatOfArmsNameView, country.coatOfArms)
-
-        val nameView: TextView = findViewById(R.id.country_name)
-        nameView.text = name
-
-        val capitalTextView: TextView = findViewById(R.id.capital_view)
-        capitalTextView.text = getString(R.string.capital, country.capital)
-
-        val languageTextView: TextView = findViewById(R.id.language_view)
-        languageTextView.text = getString(R.string.language, country.languages)
-
-        val populationTextView: TextView = findViewById(R.id.population_view)
-        populationTextView.text = getString(R.string.population, country.population)
-
-        val areaTextView: TextView = findViewById(R.id.area_view)
-        areaTextView.text = getString(R.string.area, country.area)
-
-        val densityTextView: TextView = findViewById(R.id.density_view)
-        densityTextView.text = getString(R.string.density, country.density)
-
-        val gdpTextView: TextView = findViewById(R.id.gdp_view)
-        gdpTextView.updateVisibility(!country.gdp.isNullOrEmpty()) {
-            it.text = getString(R.string.gdp, country.gdp)
-        }
-
-        val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
-        gdpPCTextView.updateVisibility(!country.gdpPerCapita.isNullOrEmpty()) {
-            it.text = getString(R.string.gdp_per_capita, country.gdpPerCapita)
-        }
+        initFlag()
+        initCoatOfArms(country)
+        initName(country)
+        initCapital(country)
+        initLanguage(country)
+        initPopulation(country)
+        initArea(country)
+        initDensity(country)
+        initGdp(country)
+        initGdpPerCapita(country)
     }
 
 
     /**
      * Initialize the flag image from the given flag resource.
      */
-    private fun initFlag(flagView: ImageView, flag: Int){
+    private fun initFlag(){
+        val flag = viewModel.flag
+        val flagView: ImageView = findViewById(R.id.flag)
+
         flagView.setImageResource(flag)
         flagView.setOnClickListener {
             FullScreenImageDialogFragment.newInstance(flag).show(supportFragmentManager, "fullScreenImageDialog")
@@ -107,7 +83,11 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Initialize the coat of arms image and name from the given coat of arms url.
      */
-    private fun initCoatOfArms(coatOfArmsView: ImageView, coatOfArmsNameView: TextView, coatOfArmsUrl: String) {
+    private fun initCoatOfArms(country: FormattedCountry) {
+        val coatOfArmsUrl = country.coatOfArms
+        val coatOfArmsView: ImageView = findViewById(R.id.coat_of_arms)
+        val coatOfArmsNameView: TextView = findViewById(R.id.coat_of_arms_name)
+
         loadCoatOfArms(coatOfArmsView, coatOfArmsNameView, coatOfArmsUrl)
         coatOfArmsView.setOnClickListener {
             FullScreenImageDialogFragment.newInstance(coatOfArmsUrl).show(supportFragmentManager, "fullScreenImageDialog")
@@ -136,6 +116,81 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
             })
             .into(coatOfArmsView)
+    }
+
+
+    /**
+     * Initialize the country name from the given country.
+     */
+    private fun initName(country: FormattedCountry){
+        val nameView: TextView = findViewById(R.id.country_name)
+        nameView.text = country.name
+    }
+
+
+    /**
+     * Initialize the capital from the given country.
+     */
+    private fun initCapital(country: FormattedCountry){
+        val capitalTextView: TextView = findViewById(R.id.capital_view)
+        capitalTextView.text = getString(R.string.capital, country.capital)
+    }
+
+
+    /**
+     * Initialize the language from the given country.
+     */
+    private fun initLanguage(country: FormattedCountry){
+        val languageTextView: TextView = findViewById(R.id.language_view)
+        languageTextView.text = getString(R.string.language, country.languages)
+    }
+
+
+    /**
+     * Initialize the population from the given country.
+     */
+    private fun initPopulation(country: FormattedCountry){
+        val populationTextView: TextView = findViewById(R.id.population_view)
+        populationTextView.text = getString(R.string.population, country.population)
+
+    }
+
+
+    /**
+     * Initialize the area from the given country.
+     */
+    private fun initArea(country: FormattedCountry){
+        val areaTextView: TextView = findViewById(R.id.area_view)
+        areaTextView.text = getString(R.string.area, country.area)
+    }
+
+
+    /**
+     * Initialize the density from the given country.
+     */
+    private fun initDensity(country: FormattedCountry){
+        val densityTextView: TextView = findViewById(R.id.density_view)
+        densityTextView.text = getString(R.string.density, country.density)
+    }
+
+
+    /**
+     * Initialize the gdp from the given country.
+     */
+    private fun initGdp(country: FormattedCountry){
+        val gdpTextView: TextView = findViewById(R.id.gdp_view)
+        gdpTextView.text = getString(R.string.gdp, country.gdp)
+    }
+
+
+    /**
+     * Initialize the gdp per capita from the given country.
+     */
+    private fun initGdpPerCapita(country: FormattedCountry){
+        val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
+        gdpPCTextView.updateVisibility(!country.gdpPerCapita.isNullOrEmpty()) {
+            it.text = getString(R.string.gdp_per_capita, country.gdpPerCapita)
+        }
     }
 
 
