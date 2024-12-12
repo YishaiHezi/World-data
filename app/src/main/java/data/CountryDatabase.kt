@@ -2,6 +2,7 @@ package data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 /**
  * This is a Room Database that stores all the countries and their parameters.
@@ -15,7 +16,8 @@ import androidx.room.RoomDatabase
  *
  * @author Yishai Hezi
  */
-@Database(entities = [RawCountry::class], version = 12, exportSchema = false)
+@Database(entities = [RawCountry::class], version = 15, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class CountryDatabase : RoomDatabase() {
 
 	/**
