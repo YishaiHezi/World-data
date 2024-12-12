@@ -18,7 +18,12 @@ data class Country(
 	val gdp: Double?,
 	val gdpPerCapita: Double?,
 	val isUNMember: Boolean = false,
-	val coatOfArms: String = ""
+	val coatOfArms: String = "",
+	val officialName: String? = null,
+	val continents: List<String>? = null,
+	val currency: List<String>? = null,
+	val languages: List<String>? = null,
+	val timezones: List<String>? = null
 ) {
 
 	/**
