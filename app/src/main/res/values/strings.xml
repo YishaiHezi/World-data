@@ -9,6 +9,7 @@
 	<string name="country_rating_headline">Rate By:</string>
 
 	<!-- country display-->
+	<string name="official_name">Official name: %1$s</string>
 	<string name="capital">Capital: %1$s</string>
 	<string name="language">National language: %1$s</string>
 	<string name="population">Population: %1$s</string>

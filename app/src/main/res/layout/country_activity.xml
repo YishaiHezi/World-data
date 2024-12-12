@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/country_name" />
 
     <TextView
-        android:id="@+id/capital_view"
+        android:id="@+id/official_name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -101,6 +101,21 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:text="Official name: Hellenic Republic" />
+
+    <TextView
+        android:id="@+id/capital_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/official_name_view"
         tools:text="Capital: Athens" />
 
     <TextView

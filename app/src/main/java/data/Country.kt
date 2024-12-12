@@ -70,7 +70,8 @@ data class Country(
 			gdp = CountryFormatter.formatGDP(this.gdp),
 			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita),
 			coatOfArms = this.coatOfArms,
-			languages = this.languages?.joinToString(separator = ", ")
+			languages = this.languages?.joinToString(separator = ", "),
+			officialName = this.officialName
 		)
 	}
 
@@ -92,7 +93,8 @@ data class FormattedCountry(
 	val gdp: String?,
 	val gdpPerCapita: String?,
 	val coatOfArms: String = "",
-	val languages: String?
+	val languages: String?,
+	val officialName: String? = null
 )
 
 
