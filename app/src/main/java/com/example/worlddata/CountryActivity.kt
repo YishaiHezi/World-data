@@ -221,7 +221,11 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      */
     private fun updateGdp(country: FormattedCountry){
         val gdpTextView: TextView = findViewById(R.id.gdp_view)
-        gdpTextView.text = getString(R.string.gdp, country.gdp)
+
+        val gdp = country.gdp
+        gdpTextView.updateVisibility(gdp != null){
+            it.text = getString(R.string.gdp, gdp)
+        }
     }
 
 
@@ -230,8 +234,10 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      */
     private fun updateGdpPerCapita(country: FormattedCountry){
         val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
-        gdpPCTextView.updateVisibility(!country.gdpPerCapita.isNullOrEmpty()) {
-            it.text = getString(R.string.gdp_per_capita, country.gdpPerCapita)
+
+        val gdpPC = country.gdpPerCapita
+        gdpPCTextView.updateVisibility(!gdpPC.isNullOrEmpty()) {
+            it.text = getString(R.string.gdp_per_capita, gdpPC)
         }
     }
 
