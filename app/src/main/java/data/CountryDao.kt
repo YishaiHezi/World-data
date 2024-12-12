@@ -18,14 +18,14 @@ import kotlinx.coroutines.flow.Flow
 interface CountryDao {
 
 	@Query("SELECT * FROM countries")
-	fun getCountries(): Flow<List<Country>>
+	fun getCountries(): Flow<List<RawCountry>>
 
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
-	suspend fun insertCountries(countries: List<Country>)
+	suspend fun insertCountries(countries: List<RawCountry>)
 
 	@Query("DELETE FROM countries")
 	suspend fun deleteAll()
 
 	@Query("SELECT * FROM countries WHERE countryCode = :code LIMIT 1")
-	fun getCountry(code: String): Flow<Country>
+	fun getCountry(code: String): Flow<RawCountry>
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import data.Country
 import data.CountryDao
+import data.RawCountry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,8 +44,8 @@ object UpdateDBFromJSON {
     /**
      * Parse the JSON file and return a list of countries.
      */
-    private fun parseJSON(context: Context): List<Country> {
-        val countries = mutableListOf<Country>()
+    private fun parseJSON(context: Context): List<RawCountry> {
+        val countries = mutableListOf<RawCountry>()
 
         try {
             // Read the JSON file from assets
@@ -55,9 +56,9 @@ object UpdateDBFromJSON {
             val jsonArray = JSONArray(jsonString)
             for (i in 0 until jsonArray.length()) {
                 val jsonObject = jsonArray.getJSONObject(i)
-                val country = Country(
-                    jsonObject.optString("name"),
+                val country = RawCountry(
                     jsonObject.optString("countryCode"),
+                    jsonObject.optString("name"),
                     jsonObject.optString("capital"),
                     jsonObject.optDouble("population"),
                     jsonObject.optDouble("area"),

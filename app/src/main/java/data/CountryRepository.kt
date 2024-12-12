@@ -3,6 +3,7 @@ package data
 import android.content.Context
 import com.example.worlddata.R
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import utils.UpdateDBFromJSON
 import javax.inject.Inject
 
@@ -19,7 +20,9 @@ class CountryRepository @Inject constructor(
 	 * Get a country by its country code.
 	 */
 	fun getCountry(countryCode: String): Flow<Country> {
-		return countryDao.getCountry(countryCode)
+		val rawCountry = countryDao.getCountry(countryCode)
+
+		return rawCountry.map { toCountry(it) }
 	}
 
 
@@ -27,7 +30,7 @@ class CountryRepository @Inject constructor(
 	 * Get all the countries from the database
 	 */
 	fun getCountries(): Flow<List<Country>> {
-		return countryDao.getCountries()
+		return countryDao.getCountries().map { rawCountries -> rawCountries.map(::toCountry) }
 	}
 
 
@@ -43,7 +46,8 @@ class CountryRepository @Inject constructor(
 	 * Insert a list of countries into the database
 	 */
 	private suspend fun insertCountries(countries: List<Country>) {
-		countryDao.insertCountries(countries)
+		val rawCountries = countries.map { toRawCountry(it) }
+		countryDao.insertCountries(rawCountries)
 	}
 
 
@@ -52,6 +56,44 @@ class CountryRepository @Inject constructor(
 	 */
 	private suspend fun deleteAllCountries() {
 		countryDao.deleteAll()
+	}
+
+
+	/**
+	 * Converts a raw country to a country.
+	 */
+	private fun toCountry(rawCountry: RawCountry): Country {
+		return Country(
+			rawCountry.name,
+			rawCountry.countryCode,
+			rawCountry.capital,
+			rawCountry.population,
+			rawCountry.area,
+			rawCountry.density,
+			rawCountry.gdp,
+			rawCountry.gdpPerCapita,
+			rawCountry.isUNMember,
+			rawCountry.coatOfArms
+		)
+	}
+
+
+	/**
+	 * Converts a country to a raw country.
+	 */
+	private fun toRawCountry(country: Country): RawCountry {
+		return RawCountry(
+			country.name,
+			country.countryCode,
+			country.capital,
+			country.population,
+			country.area,
+			country.density,
+			country.gdp,
+			country.gdpPerCapita,
+			country.isUNMember,
+			country.coatOfArms
+		)
 	}
 
 

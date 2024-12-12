@@ -1,7 +1,5 @@
 package data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import utils.CountryFormatter
 
 
@@ -9,9 +7,9 @@ import utils.CountryFormatter
  * The country data class.
  * The flag is the name of the drawable resource of the country's flag.
  */
-@Entity(tableName = "countries")
+
 data class Country(
-	@PrimaryKey val name: String,
+	val name: String,
 	val countryCode: String,
 	val capital: String,
 	val population: Double,
