@@ -61,6 +61,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         updateLanguage(country)
         updatePopulation(country)
         updateArea(country)
+        updateContinent(country)
         updateDensity(country)
         updateGdp(country)
         updateGdpPerCapita(country)
@@ -176,6 +177,19 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     private fun updateArea(country: FormattedCountry){
         val areaTextView: TextView = findViewById(R.id.area_view)
         areaTextView.text = getString(R.string.area, country.area)
+    }
+
+
+    /**
+     * Initialize the area from the given country.
+     */
+    private fun updateContinent(country: FormattedCountry){
+        val continentTextView: TextView = findViewById(R.id.continent_view)
+
+        val continents = country.continents
+        continentTextView.updateVisibility(continents != null){
+            it.text = getString(R.string.located_in, continents)
+        }
     }
 
 

@@ -19,9 +19,9 @@ data class RawCountry(
     val gdpPerCapita: Double?,
     val isUNMember: Boolean = false,
     val coatOfArms: String = "",
-    var officialName: String? = null, // new
-    var continents: List<String>? = null, // new
-    var currency: List<String>? = null, // new
-    var languages: List<String>? = null, // new
+    var officialName: String? = null,
+    var continents: List<String>? = null,
+    var currency: List<String>? = null,
+    var languages: List<String>? = null,
     var timezones: List<String>? = null, // new
 )
