@@ -73,13 +73,15 @@ class CountryRatingFragment : Fragment(R.layout.country_rating_fragment), OnCoun
 	 * Initialize the spinner.
 	 */
 	private fun initSpinner(spinner: Spinner) {
-		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, ParameterType.entries)
+		val titleToParameter = ParameterType.entries.associateBy { it.title }
+		val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, ParameterType.entries.map { it.title })
 		spinner.adapter = adapter
 
 		spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 			override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-				val selectedParameter = parent?.getItemAtPosition(position) as ParameterType
-				viewModel.setSelectedParameter(selectedParameter)
+				val title = parent?.getItemAtPosition(position)
+				val parameter = titleToParameter[title]
+				viewModel.setSelectedParameter(parameter)
 			}
 
 			override fun onNothingSelected(parent: AdapterView<*>?) {

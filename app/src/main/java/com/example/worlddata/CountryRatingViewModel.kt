@@ -60,8 +60,8 @@ class CountryRatingViewModel @Inject constructor(
 	/**
 	 * Set the selected parameter.
 	 */
-	fun setSelectedParameter(parameter: ParameterType) {
-		selectedParameterFlow.value = parameter
+	fun setSelectedParameter(parameter: ParameterType?) {
+		selectedParameterFlow.value = parameter ?: ParameterType.POPULATION
 	}
 
 }

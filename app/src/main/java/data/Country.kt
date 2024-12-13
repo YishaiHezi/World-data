@@ -107,11 +107,11 @@ data class FormattedCountry(
 /**
  * The parameter type enum.
  */
-enum class ParameterType {
-	POPULATION,
-	AREA,
-	DENSITY,
-	GDP,
-	GDP_PER_CAPITA
+enum class ParameterType(val title: String) {
+	POPULATION("Population"),
+	AREA("Area"),
+	DENSITY("Density"),
+	GDP("GDP"),
+	GDP_PER_CAPITA("GDP per capita")
 
 }
