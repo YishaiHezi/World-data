@@ -7,4 +7,9 @@
 	<attr name="colorOnSurfaceEmphasisHigh" format="color" />
 	<attr name="colorOnSurfaceEmphasisMedium" format="color" />
 	<attr name="colorOnSurfaceEmphasisLow" format="color" />
+
+
+	<!-- text appearance -->
+	<attr name="textAppearanceHeadline4" format="reference" />
+	<attr name="textAppearanceSubtitle2" format="reference" />
 </resources>

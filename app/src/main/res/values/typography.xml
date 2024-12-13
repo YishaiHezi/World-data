@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <!-- Headlines -->
+    <style name="TextAppearance.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!-- Subtitles -->
+    <style name="TextAppearance.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+
+
+</resources>

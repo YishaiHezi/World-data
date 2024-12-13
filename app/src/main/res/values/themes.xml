@@ -20,6 +20,10 @@
 
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorPrimary</item>
-		<!-- Customize your theme here. -->
+
+
+		<!-- Text appearance -->
+		<item name="textAppearanceHeadline4">@style/TextAppearance.Headline4</item>
+		<item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
 	</style>
 </resources>
