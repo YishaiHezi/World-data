@@ -202,7 +202,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
         val timezones = country.timezones
         timezonesTextView.updateVisibility(timezones != null){
-            it.text = getString(R.string.located_in, timezones)
+            it.text = getString(R.string.timezones, timezones)
         }
     }
 
