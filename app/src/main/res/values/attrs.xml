@@ -10,6 +10,8 @@
 
 
 	<!-- text appearance -->
+	<attr name="textAppearanceHeadline6" format="reference" />
+	<attr name="textAppearanceHeadline5" format="reference" />
 	<attr name="textAppearanceHeadline4" format="reference" />
 	<attr name="textAppearanceSubtitle2" format="reference" />
 	<attr name="textAppearanceBody1" format="reference" />
