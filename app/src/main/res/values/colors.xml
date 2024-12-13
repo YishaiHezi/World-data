@@ -20,8 +20,10 @@
 	<color name="gray_32">#A9AFB2</color>
 	<color name="gray_12">#DEE2E3</color>
 
-	<color name="gray_16_alpha_30">#4DD0DADC</color>
+	<color name="gray_16">#D0DADC</color>
+	<color name="gray_16_alpha_80">#CCD0DADC</color>
 	<color name="gray_16_alpha_60">#99D0DADC</color>
+	<color name="gray_16_alpha_30">#4DD0DADC</color>
 
 	<color name="white">#FFFFFFFF</color>
 

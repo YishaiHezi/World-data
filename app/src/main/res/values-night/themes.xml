@@ -10,11 +10,24 @@
 		<item name="colorSecondary">@color/green_light</item>
 		<item name="colorSecondaryVariant">@color/green_light_plus</item>
 		<item name="colorOnSecondary">@color/black</item>
+		<item name="colorOnSurface">@color/gray_16</item>
+		<item name="colorOnSurfaceEmphasisHigh">@color/gray_16_alpha_80</item>
+		<item name="colorOnSurfaceEmphasisMedium">@color/gray_16_alpha_60</item>
+		<item name="colorOnSurfaceEmphasisLow">@color/gray_16_alpha_30</item>
 
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorPrimary</item>
-		<!-- Customize your theme here. -->
 
 		<item name="colorDefaultComponent">@color/gray_68</item>
+
+
+		<!-- Text appearance -->
+		<item name="textAppearanceHeadline6">@style/TextAppearance.Headline6</item>
+		<item name="textAppearanceHeadline5">@style/TextAppearance.Headline5</item>
+		<item name="textAppearanceHeadline4">@style/TextAppearance.Headline4</item>
+		<item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+		<item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+
+
 	</style>
 </resources>
