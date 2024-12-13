@@ -12,4 +12,5 @@
 	<!-- text appearance -->
 	<attr name="textAppearanceHeadline4" format="reference" />
 	<attr name="textAppearanceSubtitle2" format="reference" />
+	<attr name="textAppearanceBody1" format="reference" />
 </resources>
