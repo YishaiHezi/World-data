@@ -82,9 +82,10 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/divider_horizontal"
+        android:src="@drawable/divider_horizontal_full"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/country_name" />
@@ -107,9 +108,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/official_name"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/official_name" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/official_name_view"
@@ -120,14 +121,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="Hellenic Republic" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/capital_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/capital"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/capital" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/capital_view"
@@ -138,14 +146,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="Athens" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/language_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/language"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/language" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/language_view"
@@ -156,14 +171,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="Greek" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/population_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/population"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/population" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/population_view"
@@ -174,14 +196,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="12M" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/area_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/area"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/area" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/area_view"
@@ -192,14 +221,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="21,000 km" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/continent_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/located_in"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/located_in" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/continent_view"
@@ -210,14 +246,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="Europe" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/timezones_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/timezones"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/timezones" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/timezones_view"
@@ -228,14 +271,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="UTC +2" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/density_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/density"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/density" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/density_view"
@@ -246,14 +296,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="24 people" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/gdp_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/gdp"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/gdp" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/gdp_view"
@@ -264,14 +321,21 @@
                 android:textColor="?attr/colorOnSurface"
                 tools:text="423 $" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/divider_horizontal_full" />
+
             <TextView
                 android:id="@+id/gdp_pc_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@string/gdp_per_capita"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="?attr/colorOnSurface"
-                android:text="@string/gdp_per_capita" />
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/gdp_pc_view"
