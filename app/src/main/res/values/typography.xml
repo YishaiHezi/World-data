@@ -10,7 +10,7 @@
     </style>
 
     <style name="TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textSize">20sp</item>
+        <!-- fill -->
     </style>
 
 
