@@ -51,12 +51,6 @@ class CountryRatingViewModel @Inject constructor(
 	}
 
 
-// todo: this is for updating the DB. Delete at the end.
-	fun startDb(context: Context){
-		countryRepository.populateDB(context)
-	}
-
-
 	/**
 	 * Set the selected parameter.
 	 */

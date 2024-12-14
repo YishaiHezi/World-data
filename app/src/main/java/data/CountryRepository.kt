@@ -35,14 +35,6 @@ class CountryRepository @Inject constructor(
 
 
 	/**
-	 * Insert countries from a JSON file into the database
-	 */
-	fun populateDB(context: Context){
-		UpdateDBFromJSON.readCountriesFromJSONToDB(context, countryDao)
-	}
-
-
-	/**
 	 * Insert a list of countries into the database
 	 */
 	private suspend fun insertCountries(countries: List<Country>) {

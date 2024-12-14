@@ -3,9 +3,6 @@ package utils
 import android.content.Context
 import data.CountryDao
 import data.RawCountry
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.io.InputStream
@@ -47,7 +44,7 @@ object UpdateDBFromJSON {
     /**
      * Read countries from a JSON file and insert them into the database.
      */
-    fun readCountriesFromJSONToDB(context: Context, countryDao: CountryDao){
+    suspend fun readCountriesFromJSONToDB(context: Context, countryDao: CountryDao){
         insertCountriesFromJSON(context, countryDao)
     }
 
@@ -55,14 +52,13 @@ object UpdateDBFromJSON {
     /**
      * Insert countries from a JSON file into the database.
      */
-    private fun insertCountriesFromJSON(context: Context, countryDao: CountryDao) {
-        CoroutineScope(Dispatchers.IO).launch {
-            // Parse JSON
-            val countries = parseJSON(context)
+    private suspend fun insertCountriesFromJSON(context: Context, countryDao: CountryDao) {
+        // Parse JSON
+        val countries = parseJSON(context)
 
-            // Insert parsed countries into the database
-            countryDao.insertCountries(countries)
-        }
+        // Insert parsed countries into the database
+        countryDao.insertCountries(countries)
+
     }
 
 
