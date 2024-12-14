@@ -13,7 +13,6 @@ import utils.UpdateDBFromJSON
  * This is a factory class that creates a database.
  * "fallbackToDestructiveMigration" - It means that if I change the version of the DB (increase it by 1)
  * and I won't provide a migration logic, it will delete the DB and create it from scratch.
- *
  */
 object DatabaseFactory {
 
