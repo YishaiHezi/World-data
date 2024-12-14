@@ -67,14 +67,14 @@ data class Country(
 			population = CountryFormatter.formatPopulation(this.population),
 			area = CountryFormatter.formatArea(this.area),
 			density = CountryFormatter.formatDensity(this.density),
-			gdp = CountryFormatter.formatGDP(this.gdp),
-			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita),
+			gdp = CountryFormatter.formatGDP(this.gdp) ?: "",
+			gdpPerCapita = CountryFormatter.formatGDPPerCapita(this.gdpPerCapita) ?: "",
 			coatOfArms = this.coatOfArms,
-			languages = this.languages?.joinToString(separator = ", "),
-			officialName = this.officialName,
-			continents = this.continents?.joinToString(separator = ", "),
-			currency = this.currency?.joinToString(separator = ", "),
-			timezones = this.timezones?.joinToString(prefix = "UTC ", separator = ", ") { it.replace("UTC", "").replace(":00", "") }
+			languages = this.languages?.joinToString(separator = ", ") ?: "",
+			officialName = this.officialName ?: "",
+			continents = this.continents?.joinToString(separator = ", ") ?: "",
+			currency = this.currency?.joinToString(separator = ", ") ?: "",
+			timezones = this.timezones?.joinToString(prefix = "UTC ", separator = ", ") { it.replace("UTC", "").replace(":00", "") } ?: ""
 		)
 	}
 
@@ -93,14 +93,14 @@ data class FormattedCountry(
 	val population: String,
 	val area: String,
 	val density: String,
-	val gdp: String?,
-	val gdpPerCapita: String?,
+	val gdp: String = "",
+	val gdpPerCapita: String = "",
 	val coatOfArms: String = "",
-	val languages: String?,
-	val officialName: String? = null,
-	val continents: String? = null,
-	val currency: String? = null,
-	val timezones: String? = null
+	val languages: String = "",
+	val officialName: String = "",
+	val continents: String = "",
+	val currency: String = "",
+	val timezones: String = ""
 )
 
 

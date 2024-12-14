@@ -135,12 +135,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the country official name from the given country.
      */
     private fun updateOfficialName(country: FormattedCountry){
+        val officialNameHeadline: TextView = findViewById(R.id.official_name_headline)
         val officialNameView: TextView = findViewById(R.id.official_name_view)
-
-        val officialName = country.officialName
-        officialNameView.updateVisibility(officialName != null){
-            it.text = getString(R.string.official_name, officialName)
-        }
+        updateData(officialNameHeadline, officialNameView, data = country.officialName)
     }
 
 
@@ -148,8 +145,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the capital from the given country.
      */
     private fun updateCapital(country: FormattedCountry){
+        val capitalHeadline: TextView = findViewById(R.id.capital_headline)
         val capitalTextView: TextView = findViewById(R.id.capital_view)
-        capitalTextView.text = getString(R.string.capital, country.capital)
+        updateData(capitalHeadline, capitalTextView, data = country.capital)
     }
 
 
@@ -157,8 +155,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the language from the given country.
      */
     private fun updateLanguage(country: FormattedCountry){
+        val languageHeadline: TextView = findViewById(R.id.language_headline)
         val languageTextView: TextView = findViewById(R.id.language_view)
-        languageTextView.text = getString(R.string.language, country.languages)
+        updateData(languageHeadline, languageTextView, data = country.languages)
     }
 
 
@@ -166,9 +165,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the population from the given country.
      */
     private fun updatePopulation(country: FormattedCountry){
+        val populationHeadline: TextView = findViewById(R.id.population_headline)
         val populationTextView: TextView = findViewById(R.id.population_view)
-        populationTextView.text = getString(R.string.population, country.population)
-
+        updateData(populationHeadline, populationTextView, data = country.population)
     }
 
 
@@ -176,8 +175,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the area from the given country.
      */
     private fun updateArea(country: FormattedCountry){
+        val areaHeadline: TextView = findViewById(R.id.area_headline)
         val areaTextView: TextView = findViewById(R.id.area_view)
-        areaTextView.text = getString(R.string.area, country.area)
+        updateData(areaHeadline, areaTextView, data = country.area)
     }
 
 
@@ -185,12 +185,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the continents from the given country.
      */
     private fun updateContinent(country: FormattedCountry){
+        val continentHeadline: TextView = findViewById(R.id.continent_headline)
         val continentTextView: TextView = findViewById(R.id.continent_view)
-
-        val continents = country.continents
-        continentTextView.updateVisibility(continents != null){
-            it.text = getString(R.string.located_in, continents)
-        }
+        updateData(continentHeadline, continentTextView, data = country.continents)
     }
 
 
@@ -198,12 +195,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the timezones from the given country.
      */
     private fun updateTimezones(country: FormattedCountry){
+        val timezonesHeadline: TextView = findViewById(R.id.timezones_headline)
         val timezonesTextView: TextView = findViewById(R.id.timezones_view)
-
-        val timezones = country.timezones
-        timezonesTextView.updateVisibility(timezones != null){
-            it.text = getString(R.string.timezones, timezones)
-        }
+        updateData(timezonesHeadline, timezonesTextView, data = country.timezones)
     }
 
 
@@ -211,8 +205,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the density from the given country.
      */
     private fun updateDensity(country: FormattedCountry){
+        val densityHeadline: TextView = findViewById(R.id.density_headline)
         val densityTextView: TextView = findViewById(R.id.density_view)
-        densityTextView.text = getString(R.string.density, country.density)
+        updateData(densityHeadline, densityTextView, data = country.density)
     }
 
 
@@ -220,12 +215,9 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the gdp from the given country.
      */
     private fun updateGdp(country: FormattedCountry){
+        val gdpHeadline: TextView = findViewById(R.id.gdp_headline)
         val gdpTextView: TextView = findViewById(R.id.gdp_view)
-
-        val gdp = country.gdp
-        gdpTextView.updateVisibility(gdp != null){
-            it.text = getString(R.string.gdp, gdp)
-        }
+        updateData(gdpHeadline, gdpTextView, data = country.gdp)
     }
 
 
@@ -233,12 +225,18 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
      * Initialize the gdp per capita from the given country.
      */
     private fun updateGdpPerCapita(country: FormattedCountry){
+        val gdpPCHeadline: TextView = findViewById(R.id.gdp_pc_headline)
         val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
+        updateData(gdpPCHeadline, gdpPCTextView, data = country.gdpPerCapita)
+    }
 
-        val gdpPC = country.gdpPerCapita
-        gdpPCTextView.updateVisibility(!gdpPC.isNullOrEmpty()) {
-            it.text = getString(R.string.gdp_per_capita, gdpPC)
-        }
+
+    /**
+     * Update the headline and subtitle views with the given data.
+     */
+    private fun updateData(headlineView: TextView, subtitleView: TextView, data: String){
+        subtitleView.text = data
+        updateVisibility(headlineView, subtitleView, condition = data.isNotEmpty())
     }
 
 

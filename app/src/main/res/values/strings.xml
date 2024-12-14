@@ -9,18 +9,19 @@
 	<string name="country_rating_headline">Rate By:</string>
 
 	<!-- country display-->
-	<string name="official_name">Official name: %1$s</string>
-	<string name="capital">Capital: %1$s</string>
-	<string name="language">National language: %1$s</string>
-	<string name="population">Population: %1$s</string>
-	<string name="area">Area: %1$s</string>
-	<string name="density">Density: %1$s</string>
-	<string name="gdp">GDP: %1$s</string>
-	<string name="gdp_per_capita">GDP Per Capita: %1$s</string>
-    <string name="flag">Flag</string>
+	<string name="flag">Flag</string>
 	<string name="coat_of_arms">Coat Of Arms</string>
-    <string name="search_country">Search a country…</string>
-    <string name="located_in">Located in: %1$s</string>
-    <string name="timezones">Timezones: %1$s</string>
+	<string name="search_country">Search a country…</string>
+
+	<string name="official_name">Official name:</string>
+	<string name="capital">Capital:</string>
+	<string name="language">National language:</string>
+	<string name="population">Population:</string>
+	<string name="area">Area:</string>
+	<string name="density">Density:</string>
+	<string name="gdp">GDP:</string>
+	<string name="gdp_per_capita">GDP Per Capita:</string>
+    <string name="located_in">Located in:</string>
+    <string name="timezones">Timezones:</string>
 
 </resources>
