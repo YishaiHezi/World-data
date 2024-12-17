@@ -4,6 +4,7 @@ plugins {
 	id("kotlin-kapt")
 	id("com.google.dagger.hilt.android")
 	kotlin("plugin.serialization") version "2.0.21"
+	alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -33,6 +34,10 @@ android {
 	kotlinOptions {
 		jvmTarget = "1.8"
 	}
+
+	buildFeatures {
+		compose = true
+	}
 }
 
 dependencies {
@@ -55,6 +60,14 @@ dependencies {
 	implementation(libs.kotlinx.serialization.json)
 	implementation(libs.glide)
 	annotationProcessor(libs.compiler)
+
+	val composeBom = platform("androidx.compose:compose-bom:2024.10.01")
+	implementation(composeBom)
+	androidTestImplementation(composeBom)
+	implementation(libs.androidx.material3)
+	implementation(libs.androidx.ui.tooling.preview)
+	debugImplementation(libs.androidx.ui.tooling)
+	implementation(libs.androidx.activity.compose)
 }
 
 kapt {
