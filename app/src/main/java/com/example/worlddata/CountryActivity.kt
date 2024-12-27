@@ -9,18 +9,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import data.FormattedCountry
 import kotlinx.coroutines.launch
-import utils.updateVisibility
 
 
 /**
@@ -56,16 +61,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         updateFlag()
         updateCoatOfArms(country)
         updateName(country)
-        updateOfficialName(country)
-        updateCapital(country)
-        updateLanguage(country)
-        updatePopulation(country)
-        updateArea(country)
-        updateContinent(country)
-        updateTimezones(country)
-        updateDensity(country)
-        updateGdp(country)
-        updateGdpPerCapita(country)
+        updatePager(country)
     }
 
 
@@ -132,112 +128,39 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
 
 
     /**
-     * Initialize the country official name from the given country.
+     * Update the tab layout and view pager from the given country.
      */
-    private fun updateOfficialName(country: FormattedCountry){
-        val officialNameHeadline: TextView = findViewById(R.id.official_name_headline)
-        val officialNameView: TextView = findViewById(R.id.official_name_view)
-        updateData(officialNameHeadline, officialNameView, data = country.officialName)
+    private fun updatePager(country: FormattedCountry){
+        val tabLayout: TabLayout = findViewById(R.id.tab_layout)
+        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
+
+        viewPager.adapter = ViewPagerAdapter(this, country)
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Information"
+                1 -> tab.text = "Map"
+            }
+        }.attach()
     }
 
 
     /**
-     * Initialize the capital from the given country.
+     * The adapter for the view pager.
      */
-    private fun updateCapital(country: FormattedCountry){
-        val capitalHeadline: TextView = findViewById(R.id.capital_headline)
-        val capitalTextView: TextView = findViewById(R.id.capital_view)
-        updateData(capitalHeadline, capitalTextView, data = country.capital)
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val country: FormattedCountry) : FragmentStateAdapter(fragmentActivity) {
+
+        override fun getItemCount(): Int = 2
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> CountryInformationFragment.newInstance(country)
+                1 -> CountryInformationFragment.newInstance(country) // todo: put here the map fragment
+                else -> CountryInformationFragment.newInstance(country)
+            }
+        }
     }
 
-
-    /**
-     * Initialize the language from the given country.
-     */
-    private fun updateLanguage(country: FormattedCountry){
-        val languageHeadline: TextView = findViewById(R.id.language_headline)
-        val languageTextView: TextView = findViewById(R.id.language_view)
-        updateData(languageHeadline, languageTextView, data = country.languages)
-    }
-
-
-    /**
-     * Initialize the population from the given country.
-     */
-    private fun updatePopulation(country: FormattedCountry){
-        val populationHeadline: TextView = findViewById(R.id.population_headline)
-        val populationTextView: TextView = findViewById(R.id.population_view)
-        updateData(populationHeadline, populationTextView, data = country.population)
-    }
-
-
-    /**
-     * Initialize the area from the given country.
-     */
-    private fun updateArea(country: FormattedCountry){
-        val areaHeadline: TextView = findViewById(R.id.area_headline)
-        val areaTextView: TextView = findViewById(R.id.area_view)
-        updateData(areaHeadline, areaTextView, data = country.area)
-    }
-
-
-    /**
-     * Initialize the continents from the given country.
-     */
-    private fun updateContinent(country: FormattedCountry){
-        val continentHeadline: TextView = findViewById(R.id.continent_headline)
-        val continentTextView: TextView = findViewById(R.id.continent_view)
-        updateData(continentHeadline, continentTextView, data = country.continents)
-    }
-
-
-    /**
-     * Initialize the timezones from the given country.
-     */
-    private fun updateTimezones(country: FormattedCountry){
-        val timezonesHeadline: TextView = findViewById(R.id.timezones_headline)
-        val timezonesTextView: TextView = findViewById(R.id.timezones_view)
-        updateData(timezonesHeadline, timezonesTextView, data = country.timezones)
-    }
-
-
-    /**
-     * Initialize the density from the given country.
-     */
-    private fun updateDensity(country: FormattedCountry){
-        val densityHeadline: TextView = findViewById(R.id.density_headline)
-        val densityTextView: TextView = findViewById(R.id.density_view)
-        updateData(densityHeadline, densityTextView, data = country.density)
-    }
-
-
-    /**
-     * Initialize the gdp from the given country.
-     */
-    private fun updateGdp(country: FormattedCountry){
-        val gdpHeadline: TextView = findViewById(R.id.gdp_headline)
-        val gdpTextView: TextView = findViewById(R.id.gdp_view)
-        updateData(gdpHeadline, gdpTextView, data = country.gdp)
-    }
-
-
-    /**
-     * Initialize the gdp per capita from the given country.
-     */
-    private fun updateGdpPerCapita(country: FormattedCountry){
-        val gdpPCHeadline: TextView = findViewById(R.id.gdp_pc_headline)
-        val gdpPCTextView: TextView = findViewById(R.id.gdp_pc_view)
-        updateData(gdpPCHeadline, gdpPCTextView, data = country.gdpPerCapita)
-    }
-
-
-    /**
-     * Update the headline and subtitle views with the given data.
-     */
-    private fun updateData(headlineView: TextView, subtitleView: TextView, data: String){
-        subtitleView.text = data
-        updateVisibility(headlineView, subtitleView, condition = data.isNotEmpty())
-    }
 
 
     companion object {
