@@ -75,6 +75,7 @@ dependencies {
 	implementation(libs.androidx.activity.compose)
 	implementation(libs.coil)
 	implementation(libs.coil.svg)
+	implementation (libs.lottie)
 }
 
 kapt {

@@ -155,7 +155,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> CountryInformationFragment.newInstance(country)
-                1 -> CountryInformationFragment.newInstance(country) // todo: put here the map fragment
+                1 -> FullScreenImageFragment.newInstance("https://upload.wikimedia.org/wikipedia/commons/d/dc/USA_orthographic.svg") // todo: put here the real image
                 else -> CountryInformationFragment.newInstance(country)
             }
         }

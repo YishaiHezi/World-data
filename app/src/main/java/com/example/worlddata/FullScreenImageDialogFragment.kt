@@ -24,7 +24,7 @@ class FullScreenImageDialogFragment : DialogFragment(R.layout.full_screen_dialog
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val image = view.findViewById<ImageView>(R.id.image)
+        val image: ImageView = view.findViewById(R.id.image)
         val url = arguments?.getString("url")
         val resource = arguments?.getInt("resource")
 
