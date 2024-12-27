@@ -5,6 +5,7 @@ plugins {
 	id("com.google.dagger.hilt.android")
 	kotlin("plugin.serialization") version "2.0.21"
 	alias(libs.plugins.compose.compiler)
+	id("kotlin-parcelize")
 }
 
 android {
@@ -72,6 +73,8 @@ dependencies {
 	implementation(libs.androidx.ui.tooling.preview)
 	debugImplementation(libs.androidx.ui.tooling)
 	implementation(libs.androidx.activity.compose)
+	implementation(libs.coil)
+	implementation(libs.coil.svg)
 }
 
 kapt {

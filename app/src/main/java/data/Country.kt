@@ -1,5 +1,7 @@
 package data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import utils.CountryFormatter
 
 
@@ -86,6 +88,7 @@ data class Country(
 /**
  * The formatted country data class.
  */
+@Parcelize
 data class FormattedCountry(
 	val name: String,
 	val countryCode: String,
@@ -101,7 +104,7 @@ data class FormattedCountry(
 	val continents: String = "",
 	val currency: String = "",
 	val timezones: String = ""
-)
+) : Parcelable
 
 
 /**
