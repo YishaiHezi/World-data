@@ -1,6 +1,7 @@
 package com.example.worlddata
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -8,12 +9,17 @@ import androidx.fragment.app.Fragment
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.load
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 
 
 /**
  * Shows a remote image in full screen (support svg files).
  */
-class FullScreenImageFragment : Fragment(R.layout.full_screen_image_fragment) {
+class FullScreenImageFragment : Fragment(R.layout.full_screen_image_fragment), OnMapReadyCallback {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,6 +38,22 @@ class FullScreenImageFragment : Fragment(R.layout.full_screen_image_fragment) {
             )
             crossfade(true)
         }
+
+
+        // todo: for google maps:
+//        val mapFragment: SupportMapFragment? = childFragmentManager.findFragmentById(R.id.country_map) as? SupportMapFragment
+//        mapFragment?.getMapAsync(this)
+    }
+
+
+    // todo: for google maps:
+    override fun onMapReady(googleMap: GoogleMap) {
+        Log.d("test_y", "onMapReady() called with: googleMap = $googleMap")
+
+
+        googleMap.uiSettings.isZoomControlsEnabled = true
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(0.0, 0.0), 2.0F))
+
     }
 
 

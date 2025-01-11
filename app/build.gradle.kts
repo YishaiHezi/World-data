@@ -6,6 +6,7 @@ plugins {
 	kotlin("plugin.serialization") version "2.0.21"
 	alias(libs.plugins.compose.compiler)
 	id("kotlin-parcelize")
+	id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -76,8 +77,16 @@ dependencies {
 	implementation(libs.coil)
 	implementation(libs.coil.svg)
 	implementation (libs.lottie)
+	implementation (libs.play.services.maps)
 }
 
 kapt {
 	correctErrorTypes = true
+}
+
+secrets {
+	propertiesFileName = "secrets.properties"
+	defaultPropertiesFileName = "local.defaults.properties"
+	ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+	ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
