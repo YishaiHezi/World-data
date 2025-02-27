@@ -17,7 +17,7 @@ class FullScreenImageDialogFragment : DialogFragment(R.layout.full_screen_dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setStyle(STYLE_NORMAL, R.style.Theme_WorldData)
+        setStyle(STYLE_NORMAL, R.style.ImageDialog)
     }
 
 
