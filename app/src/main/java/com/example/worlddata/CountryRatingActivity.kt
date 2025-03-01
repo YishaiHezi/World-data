@@ -1,6 +1,7 @@
 package com.example.worlddata
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -210,6 +211,20 @@ class CountryRatingActivity : AppCompatActivity(R.layout.country_rating_activity
          * The view holder for the recycler view.
          */
         class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    }
+
+
+    companion object{
+
+
+        /**
+         * Create an intent to start this activity.
+         */
+        fun createStartIntent(context: Context): Intent {
+            return Intent(context, CountryRatingActivity::class.java)
+        }
+
+
     }
 
 

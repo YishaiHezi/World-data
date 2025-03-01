@@ -22,9 +22,8 @@
 			android:value="${MAPS_API_KEY}" />
 
 		<activity
-			android:name=".CountryRatingActivity"
-			android:exported="true"
-			android:theme="@style/Theme.WorldData">
+			android:name=".HomeActivity"
+			android:exported="true">
 
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -32,6 +31,10 @@
 			</intent-filter>
 
 		</activity>
+
+		<activity
+			android:name=".CountryRatingActivity"
+			android:theme="@style/Theme.WorldData"/>
 
 		<activity
 			android:name=".CountryActivity"

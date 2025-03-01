@@ -5,6 +5,12 @@
 	<string name="chart_button">Chart</string>
 	<string name="position">%1$d</string>
 
+
+	<!-- Home screen -->
+	<string name="home_headline">What do you want to do?</string>
+	<string name="quiz_button">Take a Quiz!</string>
+	<string name="explore_button">Explore Countries!</string>
+
 	<!-- country rating: -->
 	<string name="country_rating_headline">Rate By:</string>
 
