@@ -21,6 +21,9 @@
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorPrimary</item>
 
+		<!-- this is the color of "land" on a map -->
+		<item name="colorLand">@color/green_light_mint</item>
+
 
 		<!-- Text appearance -->
 		<item name="textAppearanceHeadline6">@style/TextAppearance.Headline6</item>

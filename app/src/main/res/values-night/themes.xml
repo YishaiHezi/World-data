@@ -20,6 +20,9 @@
 
 		<item name="colorDefaultComponent">@color/gray_68</item>
 
+		<!-- this is the color of "land" on a map -->
+		<item name="colorLand">@color/green_deep_forest</item>
+
 
 		<!-- Text appearance -->
 		<item name="textAppearanceHeadline6">@style/TextAppearance.Headline6</item>

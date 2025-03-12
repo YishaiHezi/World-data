@@ -7,6 +7,7 @@
 	<attr name="colorOnSurfaceEmphasisHigh" format="color" />
 	<attr name="colorOnSurfaceEmphasisMedium" format="color" />
 	<attr name="colorOnSurfaceEmphasisLow" format="color" />
+	<attr name="colorLand" format="color" />
 
 
 	<!-- text appearance -->

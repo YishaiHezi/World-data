@@ -33,4 +33,6 @@
 
 	<color name="green_light">#70C573</color>
 	<color name="green_light_plus">#66BB6A</color>
+	<color name="green_light_mint">#c3e9ac</color>
+	<color name="green_deep_forest">#2E4920</color>
 </resources>
