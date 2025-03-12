@@ -31,6 +31,597 @@
 		<item name="textAppearanceHeadline4">@style/TextAppearance.Headline4</item>
 		<item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
 		<item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+
+
+
+
+		<!-- Afghanistan -->
+		<item name="color_af">@color/green_light_mint</item>
+
+		<!-- Albania -->
+		<item name="color_al">@color/green_light_mint</item>
+
+		<!-- Algeria -->
+		<item name="color_dz">@color/green_light_mint</item>
+
+		<!-- Andorra -->
+		<item name="color_ad">@color/green_light_mint</item>
+
+		<!-- Angola -->
+		<item name="color_ao">@color/green_light_mint</item>
+
+		<!-- Antigua and Barbuda -->
+		<item name="color_ag">@color/green_light_mint</item>
+
+		<!-- Argentina -->
+		<item name="color_ar">@color/green_light_mint</item>
+
+		<!-- Armenia -->
+		<item name="color_am">@color/green_light_mint</item>
+
+		<!-- Australia -->
+		<item name="color_au">@color/green_light_mint</item>
+
+		<!-- Austria -->
+		<item name="color_at">@color/green_light_mint</item>
+
+		<!-- Azerbaijan -->
+		<item name="color_az">@color/green_light_mint</item>
+
+		<!-- Bahamas -->
+		<item name="color_bs">@color/green_light_mint</item>
+
+		<!-- Bahrain -->
+		<item name="color_bh">@color/green_light_mint</item>
+
+		<!-- Bangladesh -->
+		<item name="color_bd">@color/green_light_mint</item>
+
+		<!-- Barbados -->
+		<item name="color_bb">@color/green_light_mint</item>
+
+		<!-- Belarus -->
+		<item name="color_by">@color/green_light_mint</item>
+
+		<!-- Belgium -->
+		<item name="color_be">@color/green_light_mint</item>
+
+		<!-- Belize -->
+		<item name="color_bz">@color/green_light_mint</item>
+
+		<!-- Benin -->
+		<item name="color_bj">@color/green_light_mint</item>
+
+		<!-- Bhutan -->
+		<item name="color_bt">@color/green_light_mint</item>
+
+		<!-- Bolivia -->
+		<item name="color_bo">@color/green_light_mint</item>
+
+		<!-- Bosnia and Herzegovina -->
+		<item name="color_ba">@color/green_light_mint</item>
+
+		<!-- Botswana -->
+		<item name="color_bw">@color/green_light_mint</item>
+
+		<!-- Brazil -->
+		<item name="color_br">@color/green_light_mint</item>
+
+		<!-- Brunei -->
+		<item name="color_bn">@color/green_light_mint</item>
+
+		<!-- Bulgaria -->
+		<item name="color_bg">@color/green_light_mint</item>
+
+		<!-- Burkina Faso -->
+		<item name="color_bf">@color/green_light_mint</item>
+
+		<!-- Burundi -->
+		<item name="color_bi">@color/green_light_mint</item>
+
+		<!-- Cambodia -->
+		<item name="color_kh">@color/green_light_mint</item>
+
+		<!-- Cameroon -->
+		<item name="color_cm">@color/green_light_mint</item>
+
+		<!-- Canada -->
+		<item name="color_ca">@color/green_light_mint</item>
+
+		<!-- Cape Verde -->
+		<item name="color_cv">@color/green_light_mint</item>
+
+		<!-- Central African Republic -->
+		<item name="color_cf">@color/green_light_mint</item>
+
+		<!-- Chad -->
+		<item name="color_td">@color/green_light_mint</item>
+
+		<!-- Chile -->
+		<item name="color_cl">@color/green_light_mint</item>
+
+		<!-- China -->
+		<item name="color_cn">@color/green_light_mint</item>
+
+		<!-- Colombia -->
+		<item name="color_co">@color/green_light_mint</item>
+
+		<!-- Comoros -->
+		<item name="color_km">@color/green_light_mint</item>
+
+		<!-- Costa Rica -->
+		<item name="color_cr">@color/green_light_mint</item>
+
+		<!-- Croatia -->
+		<item name="color_hr">@color/green_light_mint</item>
+
+		<!-- Cuba -->
+		<item name="color_cu">@color/green_light_mint</item>
+
+		<!-- Cyprus -->
+		<item name="color_cy">@color/green_light_mint</item>
+
+		<!-- Czech Republic -->
+		<item name="color_cz">@color/green_light_mint</item>
+
+		<!-- Democratic Republic of the Congo -->
+		<item name="color_cd">@color/green_light_mint</item>
+
+		<!-- Congo -->
+		<item name="color_cg">@color/green_light_mint</item>
+
+		<!-- Denmark -->
+		<item name="color_dk">@color/green_light_mint</item>
+
+		<!-- Djibouti -->
+		<item name="color_dj">@color/green_light_mint</item>
+
+		<!-- Dominica -->
+		<item name="color_dm">@color/green_light_mint</item>
+
+		<!-- Dominican Republic -->
+		<item name="color_do">@color/green_light_mint</item>
+
+		<!-- Egypt -->
+		<item name="color_eg">@color/green_light_mint</item>
+
+		<!-- El Salvador -->
+		<item name="color_sv">@color/green_light_mint</item>
+
+		<!-- Equatorial Guinea -->
+		<item name="color_gq">@color/green_light_mint</item>
+
+		<!-- Eritrea -->
+		<item name="color_er">@color/green_light_mint</item>
+
+		<!-- Estonia -->
+		<item name="color_ee">@color/green_light_mint</item>
+
+		<!-- Eswatini -->
+		<item name="color_sz">@color/green_light_mint</item>
+
+		<!-- Ethiopia -->
+		<item name="color_et">@color/green_light_mint</item>
+
+		<!-- Fiji -->
+		<item name="color_fj">@color/green_light_mint</item>
+
+		<!-- Finland -->
+		<item name="color_fi">@color/green_light_mint</item>
+
+		<!-- France -->
+		<item name="color_fr">@color/green_light_mint</item>
+
+		<!-- Gabon -->
+		<item name="color_ga">@color/green_light_mint</item>
+
+		<!-- Gambia -->
+		<item name="color_gm">@color/green_light_mint</item>
+
+		<!-- Georgia -->
+		<item name="color_ge">@color/green_light_mint</item>
+
+		<!-- Germany -->
+		<item name="color_de">@color/green_light_mint</item>
+
+		<!-- Ghana -->
+		<item name="color_gh">@color/green_light_mint</item>
+
+		<!-- Greece -->
+		<item name="color_gr">@color/green_light_mint</item>
+
+		<!-- Grenada -->
+		<item name="color_gd">@color/green_light_mint</item>
+
+		<!-- Guatemala -->
+		<item name="color_gt">@color/green_light_mint</item>
+
+		<!-- Guinea -->
+		<item name="color_gn">@color/green_light_mint</item>
+
+		<!-- Guinea-Bissau -->
+		<item name="color_gw">@color/green_light_mint</item>
+
+		<!-- Guyana -->
+		<item name="color_gy">@color/green_light_mint</item>
+
+		<!-- Haiti -->
+		<item name="color_ht">@color/green_light_mint</item>
+
+		<!-- Honduras -->
+		<item name="color_hn">@color/green_light_mint</item>
+
+		<!-- Hungary -->
+		<item name="color_hu">@color/green_light_mint</item>
+
+		<!-- Iceland -->
+		<item name="color_is">@color/green_light_mint</item>
+
+		<!-- India -->
+		<item name="color_in">@color/green_light_mint</item>
+
+		<!-- Indonesia -->
+		<item name="color_id">@color/green_light_mint</item>
+
+		<!-- Iran -->
+		<item name="color_ir">@color/green_light_mint</item>
+
+		<!-- Iraq -->
+		<item name="color_iq">@color/green_light_mint</item>
+
+		<!-- Ireland -->
+		<item name="color_ie">@color/green_light_mint</item>
+
+		<!-- Israel -->
+		<item name="color_il">@color/green_light_mint</item>
+
+		<!-- Italy -->
+		<item name="color_it">@color/green_light_mint</item>
+
+		<!-- Jamaica -->
+		<item name="color_jm">@color/green_light_mint</item>
+
+		<!-- Japan -->
+		<item name="color_jp">@color/green_light_mint</item>
+
+		<!-- Jordan -->
+		<item name="color_jo">@color/green_light_mint</item>
+
+		<!-- Kazakhstan -->
+		<item name="color_kz">@color/green_light_mint</item>
+
+		<!-- Kenya -->
+		<item name="color_ke">@color/green_light_mint</item>
+
+		<!-- Kiribati -->
+		<item name="color_ki">@color/green_light_mint</item>
+
+		<!-- Korea, North -->
+		<item name="color_kp">@color/green_light_mint</item>
+
+		<!-- Korea, South -->
+		<item name="color_kr">@color/green_light_mint</item>
+
+		<!-- Kuwait -->
+		<item name="color_kw">@color/green_light_mint</item>
+
+		<!-- Kyrgyzstan -->
+		<item name="color_kg">@color/green_light_mint</item>
+
+		<!-- Laos -->
+		<item name="color_la">@color/green_light_mint</item>
+
+		<!-- Latvia -->
+		<item name="color_lv">@color/green_light_mint</item>
+
+		<!-- Lebanon -->
+		<item name="color_lb">@color/green_light_mint</item>
+
+		<!-- Lesotho -->
+		<item name="color_ls">@color/green_light_mint</item>
+
+		<!-- Liberia -->
+		<item name="color_lr">@color/green_light_mint</item>
+
+		<!-- Libya -->
+		<item name="color_ly">@color/green_light_mint</item>
+
+		<!-- Liechtenstein -->
+		<item name="color_li">@color/green_light_mint</item>
+
+		<!-- Lithuania -->
+		<item name="color_lt">@color/green_light_mint</item>
+
+		<!-- Luxembourg -->
+		<item name="color_lu">@color/green_light_mint</item>
+
+		<!-- Madagascar -->
+		<item name="color_mg">@color/green_light_mint</item>
+
+		<!-- Malawi -->
+		<item name="color_mw">@color/green_light_mint</item>
+
+		<!-- Malaysia -->
+		<item name="color_my">@color/green_light_mint</item>
+
+		<!-- Maldives -->
+		<item name="color_mv">@color/green_light_mint</item>
+
+		<!-- Mali -->
+		<item name="color_ml">@color/green_light_mint</item>
+
+		<!-- Malta -->
+		<item name="color_mt">@color/green_light_mint</item>
+
+		<!-- Marshall Islands -->
+		<item name="color_mh">@color/green_light_mint</item>
+
+		<!-- Mauritania -->
+		<item name="color_mr">@color/green_light_mint</item>
+
+		<!-- Mauritius -->
+		<item name="color_mu">@color/green_light_mint</item>
+
+		<!-- Mexico -->
+		<item name="color_mx">@color/green_light_mint</item>
+
+		<!-- Micronesia -->
+		<item name="color_fm">@color/green_light_mint</item>
+
+		<!-- Moldova -->
+		<item name="color_md">@color/green_light_mint</item>
+
+		<!-- Monaco -->
+		<item name="color_mc">@color/green_light_mint</item>
+
+		<!-- Mongolia -->
+		<item name="color_mn">@color/green_light_mint</item>
+
+		<!-- Montenegro -->
+		<item name="color_me">@color/green_light_mint</item>
+
+		<!-- Morocco -->
+		<item name="color_ma">@color/green_light_mint</item>
+
+		<!-- Mozambique -->
+		<item name="color_mz">@color/green_light_mint</item>
+
+		<!-- Myanmar -->
+		<item name="color_mm">@color/green_light_mint</item>
+
+		<!-- Namibia -->
+		<item name="color_na">@color/green_light_mint</item>
+
+		<!-- Nauru -->
+		<item name="color_nr">@color/green_light_mint</item>
+
+		<!-- Nepal -->
+		<item name="color_np">@color/green_light_mint</item>
+
+		<!-- Netherlands -->
+		<item name="color_nl">@color/green_light_mint</item>
+
+		<!-- New Zealand -->
+		<item name="color_nz">@color/green_light_mint</item>
+
+		<!-- Nicaragua -->
+		<item name="color_ni">@color/green_light_mint</item>
+
+		<!-- Niger -->
+		<item name="color_ne">@color/green_light_mint</item>
+
+		<!-- Nigeria -->
+		<item name="color_ng">@color/green_light_mint</item>
+
+		<!-- North Macedonia -->
+		<item name="color_mk">@color/green_light_mint</item>
+
+		<!-- Norway -->
+		<item name="color_no">@color/green_light_mint</item>
+
+		<!-- Oman -->
+		<item name="color_om">@color/green_light_mint</item>
+
+		<!-- Pakistan -->
+		<item name="color_pk">@color/green_light_mint</item>
+
+		<!-- Palau -->
+		<item name="color_pw">@color/green_light_mint</item>
+
+		<!-- Panama -->
+		<item name="color_pa">@color/green_light_mint</item>
+
+		<!-- Papua New Guinea -->
+		<item name="color_pg">@color/green_light_mint</item>
+
+		<!-- Paraguay -->
+		<item name="color_py">@color/green_light_mint</item>
+
+		<!-- Peru -->
+		<item name="color_pe">@color/green_light_mint</item>
+
+		<!-- Philippines -->
+		<item name="color_ph">@color/green_light_mint</item>
+
+		<!-- Poland -->
+		<item name="color_pl">@color/green_light_mint</item>
+
+		<!-- Portugal -->
+		<item name="color_pt">@color/green_light_mint</item>
+
+		<!-- Qatar -->
+		<item name="color_qa">@color/green_light_mint</item>
+
+		<!-- Romania -->
+		<item name="color_ro">@color/green_light_mint</item>
+
+		<!-- Russia -->
+		<item name="color_ru">@color/green_light_mint</item>
+
+		<!-- Rwanda -->
+		<item name="color_rw">@color/green_light_mint</item>
+
+		<!-- Saint Kitts and Nevis -->
+		<item name="color_kn">@color/green_light_mint</item>
+
+		<!-- Saint Lucia -->
+		<item name="color_lc">@color/green_light_mint</item>
+
+		<!-- Saint Vincent and the Grenadines -->
+		<item name="color_vc">@color/green_light_mint</item>
+
+		<!-- Samoa -->
+		<item name="color_ws">@color/green_light_mint</item>
+
+		<!-- San Marino -->
+		<item name="color_sm">@color/green_light_mint</item>
+
+		<!-- São Tomé and Príncipe -->
+		<item name="color_st">@color/green_light_mint</item>
+
+		<!-- Saudi Arabia -->
+		<item name="color_sa">@color/green_light_mint</item>
+
+		<!-- Senegal -->
+		<item name="color_sn">@color/green_light_mint</item>
+
+		<!-- Serbia -->
+		<item name="color_rs">@color/green_light_mint</item>
+
+		<!-- Seychelles -->
+		<item name="color_sc">@color/green_light_mint</item>
+
+		<!-- Sierra Leone -->
+		<item name="color_sl">@color/green_light_mint</item>
+
+		<!-- Singapore -->
+		<item name="color_sg">@color/green_light_mint</item>
+
+		<!-- Slovakia -->
+		<item name="color_sk">@color/green_light_mint</item>
+
+		<!-- Slovenia -->
+		<item name="color_si">@color/green_light_mint</item>
+
+		<!-- Solomon Islands -->
+		<item name="color_sb">@color/green_light_mint</item>
+
+		<!-- Somalia -->
+		<item name="color_so">@color/green_light_mint</item>
+
+		<!-- South Africa -->
+		<item name="color_za">@color/green_light_mint</item>
+
+		<!-- South Sudan -->
+		<item name="color_ss">@color/green_light_mint</item>
+
+		<!-- Spain -->
+		<item name="color_es">@color/green_light_mint</item>
+
+		<!-- Sri Lanka -->
+		<item name="color_lk">@color/green_light_mint</item>
+
+		<!-- Sudan -->
+		<item name="color_sd">@color/green_light_mint</item>
+
+		<!-- Suriname -->
+		<item name="color_sr">@color/green_light_mint</item>
+
+		<!-- Sweden -->
+		<item name="color_se">@color/green_light_mint</item>
+
+		<!-- Switzerland -->
+		<item name="color_ch">@color/green_light_mint</item>
+
+		<!-- Syria -->
+		<item name="color_sy">@color/green_light_mint</item>
+
+		<!-- Taiwan -->
+		<item name="color_tw">@color/green_light_mint</item>
+
+		<!-- Tajikistan -->
+		<item name="color_tj">@color/green_light_mint</item>
+
+		<!-- Tanzania -->
+		<item name="color_tz">@color/green_light_mint</item>
+
+		<!-- Thailand -->
+		<item name="color_th">@color/green_light_mint</item>
+
+		<!-- Timor-Leste -->
+		<item name="color_tl">@color/green_light_mint</item>
+
+		<!-- Togo -->
+		<item name="color_tg">@color/green_light_mint</item>
+
+		<!-- Tonga -->
+		<item name="color_to">@color/green_light_mint</item>
+
+		<!-- Trinidad and Tobago -->
+		<item name="color_tt">@color/green_light_mint</item>
+
+		<!-- Tunisia -->
+		<item name="color_tn">@color/green_light_mint</item>
+
+		<!-- Turkey -->
+		<item name="color_tr">@color/green_light_mint</item>
+
+		<!-- Turkmenistan -->
+		<item name="color_tm">@color/green_light_mint</item>
+
+		<!-- Tuvalu -->
+		<item name="color_tv">@color/green_light_mint</item>
+
+		<!-- Uganda -->
+		<item name="color_ug">@color/green_light_mint</item>
+
+		<!-- Ukraine -->
+		<item name="color_ua">@color/green_light_mint</item>
+
+		<!-- United Arab Emirates -->
+		<item name="color_ae">@color/green_light_mint</item>
+
+		<!-- United Kingdom -->
+		<item name="color_gb">@color/green_light_mint</item>
+
+		<!-- United States -->
+		<item name="color_us">@color/green_light_mint</item>
+
+		<!-- Uruguay -->
+		<item name="color_uy">@color/green_light_mint</item>
+
+		<!-- Uzbekistan -->
+		<item name="color_uz">@color/green_light_mint</item>
+
+		<!-- Vanuatu -->
+		<item name="color_vu">@color/green_light_mint</item>
+
+		<!-- Vatican City -->
+		<item name="color_va">@color/green_light_mint</item>
+
+		<!-- Venezuela -->
+		<item name="color_ve">@color/green_light_mint</item>
+
+		<!-- Vietnam -->
+		<item name="color_vn">@color/green_light_mint</item>
+
+		<!-- Western Sahara -->
+		<item name="color_eh">@color/green_light_mint</item>
+
+		<!-- Yemen -->
+		<item name="color_ye">@color/green_light_mint</item>
+
+		<!-- Zambia -->
+		<item name="color_zm">@color/green_light_mint</item>
+
+		<!-- Zimbabwe -->
+		<item name="color_zw">@color/green_light_mint</item>
+
+		<!-- Côte d'Ivoire (Ivory coast) -->
+		<item name="color_ci">@color/green_light_mint</item>
+
+
+
 	</style>
 
 </resources>
