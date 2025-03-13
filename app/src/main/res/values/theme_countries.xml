@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.af" parent="Theme.WorldData">
+        <item name="color_af">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.al" parent="Theme.WorldData">
+        <item name="color_al">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.dz" parent="Theme.WorldData">
+        <item name="color_dz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ad" parent="Theme.WorldData">
+        <item name="color_ad">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ao" parent="Theme.WorldData">
+        <item name="color_ao">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ag" parent="Theme.WorldData">
+        <item name="color_ag">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ar" parent="Theme.WorldData">
+        <item name="color_ar">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.am" parent="Theme.WorldData">
+        <item name="color_am">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.au" parent="Theme.WorldData">
+        <item name="color_au">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.at" parent="Theme.WorldData">
+        <item name="color_at">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.az" parent="Theme.WorldData">
+        <item name="color_az">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bs" parent="Theme.WorldData">
+        <item name="color_bs">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bh" parent="Theme.WorldData">
+        <item name="color_bh">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bd" parent="Theme.WorldData">
+        <item name="color_bd">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bb" parent="Theme.WorldData">
+        <item name="color_bb">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.by" parent="Theme.WorldData">
+        <item name="color_by">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.be" parent="Theme.WorldData">
+        <item name="color_be">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bz" parent="Theme.WorldData">
+        <item name="color_bz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bj" parent="Theme.WorldData">
+        <item name="color_bj">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bt" parent="Theme.WorldData">
+        <item name="color_bt">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bo" parent="Theme.WorldData">
+        <item name="color_bo">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ba" parent="Theme.WorldData">
+        <item name="color_ba">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bw" parent="Theme.WorldData">
+        <item name="color_bw">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.br" parent="Theme.WorldData">
+        <item name="color_br">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bn" parent="Theme.WorldData">
+        <item name="color_bn">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bg" parent="Theme.WorldData">
+        <item name="color_bg">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bf" parent="Theme.WorldData">
+        <item name="color_bf">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.bi" parent="Theme.WorldData">
+        <item name="color_bi">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.kh" parent="Theme.WorldData">
+        <item name="color_kh">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cm" parent="Theme.WorldData">
+        <item name="color_cm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ca" parent="Theme.WorldData">
+        <item name="color_ca">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cv" parent="Theme.WorldData">
+        <item name="color_cv">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cf" parent="Theme.WorldData">
+        <item name="color_cf">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.td" parent="Theme.WorldData">
+        <item name="color_td">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cl" parent="Theme.WorldData">
+        <item name="color_cl">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cn" parent="Theme.WorldData">
+        <item name="color_cn">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.co" parent="Theme.WorldData">
+        <item name="color_co">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.km" parent="Theme.WorldData">
+        <item name="color_km">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cr" parent="Theme.WorldData">
+        <item name="color_cr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.hr" parent="Theme.WorldData">
+        <item name="color_hr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cu" parent="Theme.WorldData">
+        <item name="color_cu">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cy" parent="Theme.WorldData">
+        <item name="color_cy">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cz" parent="Theme.WorldData">
+        <item name="color_cz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cd" parent="Theme.WorldData">
+        <item name="color_cd">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.cg" parent="Theme.WorldData">
+        <item name="color_cg">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.dk" parent="Theme.WorldData">
+        <item name="color_dk">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.dj" parent="Theme.WorldData">
+        <item name="color_dj">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.dm" parent="Theme.WorldData">
+        <item name="color_dm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.do" parent="Theme.WorldData">
+        <item name="color_do">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.eg" parent="Theme.WorldData">
+        <item name="color_eg">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.sv" parent="Theme.WorldData">
+        <item name="color_sv">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gq" parent="Theme.WorldData">
+        <item name="color_gq">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.er" parent="Theme.WorldData">
+        <item name="color_er">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ee" parent="Theme.WorldData">
+        <item name="color_ee">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.sz" parent="Theme.WorldData">
+        <item name="color_sz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.et" parent="Theme.WorldData">
+        <item name="color_et">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.fj" parent="Theme.WorldData">
+        <item name="color_fj">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.fi" parent="Theme.WorldData">
+        <item name="color_fi">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.fr" parent="Theme.WorldData">
+        <item name="color_fr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ga" parent="Theme.WorldData">
+        <item name="color_ga">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gm" parent="Theme.WorldData">
+        <item name="color_gm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ge" parent="Theme.WorldData">
+        <item name="color_ge">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.de" parent="Theme.WorldData">
+        <item name="color_de">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gh" parent="Theme.WorldData">
+        <item name="color_gh">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gr" parent="Theme.WorldData">
+        <item name="color_gr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gd" parent="Theme.WorldData">
+        <item name="color_gd">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gt" parent="Theme.WorldData">
+        <item name="color_gt">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gn" parent="Theme.WorldData">
+        <item name="color_gn">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gw" parent="Theme.WorldData">
+        <item name="color_gw">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gy" parent="Theme.WorldData">
+        <item name="color_gy">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ht" parent="Theme.WorldData">
+        <item name="color_ht">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.hn" parent="Theme.WorldData">
+        <item name="color_hn">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.hu" parent="Theme.WorldData">
+        <item name="color_hu">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.is" parent="Theme.WorldData">
+        <item name="color_is">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.in" parent="Theme.WorldData">
+        <item name="color_in">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.id" parent="Theme.WorldData">
+        <item name="color_id">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ir" parent="Theme.WorldData">
+        <item name="color_ir">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.iq" parent="Theme.WorldData">
+        <item name="color_iq">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ie" parent="Theme.WorldData">
+        <item name="color_ie">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.il" parent="Theme.WorldData">
+        <item name="color_il">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ng" parent="Theme.WorldData">
+        <item name="color_ng">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mk" parent="Theme.WorldData">
+        <item name="color_mk">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.no" parent="Theme.WorldData">
+        <item name="color_no">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.om" parent="Theme.WorldData">
+        <item name="color_om">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.pk" parent="Theme.WorldData">
+        <item name="color_pk">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.pw" parent="Theme.WorldData">
+        <item name="color_pw">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.pa" parent="Theme.WorldData">
+        <item name="color_pa">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.pg" parent="Theme.WorldData">
+        <item name="color_pg">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.py" parent="Theme.WorldData">
+        <item name="color_py">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.pe" parent="Theme.WorldData">
+        <item name="color_pe">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ph" parent="Theme.WorldData">
+        <item name="color_ph">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.pl" parent="Theme.WorldData">
+        <item name="color_pl">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.pt" parent="Theme.WorldData">
+        <item name="color_pt">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.qa" parent="Theme.WorldData">
+        <item name="color_qa">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ro" parent="Theme.WorldData">
+        <item name="color_ro">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ru" parent="Theme.WorldData">
+        <item name="color_ru">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.rw" parent="Theme.WorldData">
+        <item name="color_rw">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kn" parent="Theme.WorldData">
+        <item name="color_kn">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.lc" parent="Theme.WorldData">
+        <item name="color_lc">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.vc" parent="Theme.WorldData">
+        <item name="color_vc">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ws" parent="Theme.WorldData">
+        <item name="color_ws">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sm" parent="Theme.WorldData">
+        <item name="color_sm">@color/green_deep_forest</item>
+    </style>
+
+
+    <style name="Theme.st" parent="Theme.WorldData">
+        <item name="color_st">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sa" parent="Theme.WorldData">
+        <item name="color_sa">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sn" parent="Theme.WorldData">
+        <item name="color_sn">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.rs" parent="Theme.WorldData">
+        <item name="color_rs">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sc" parent="Theme.WorldData">
+        <item name="color_sc">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sl" parent="Theme.WorldData">
+        <item name="color_sl">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sg" parent="Theme.WorldData">
+        <item name="color_sg">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sk" parent="Theme.WorldData">
+        <item name="color_sk">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.si" parent="Theme.WorldData">
+        <item name="color_si">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sb" parent="Theme.WorldData">
+        <item name="color_sb">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.so" parent="Theme.WorldData">
+        <item name="color_so">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.za" parent="Theme.WorldData">
+        <item name="color_za">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ss" parent="Theme.WorldData">
+        <item name="color_ss">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.es" parent="Theme.WorldData">
+        <item name="color_es">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.lk" parent="Theme.WorldData">
+        <item name="color_lk">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sd" parent="Theme.WorldData">
+        <item name="color_sd">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.sr" parent="Theme.WorldData">
+        <item name="color_sr">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.se" parent="Theme.WorldData">
+        <item name="color_se">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ch" parent="Theme.WorldData">
+        <item name="color_ch">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.sy" parent="Theme.WorldData">
+        <item name="color_sy">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tw" parent="Theme.WorldData">
+        <item name="color_tw">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tj" parent="Theme.WorldData">
+        <item name="color_tj">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tz" parent="Theme.WorldData">
+        <item name="color_tz">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.th" parent="Theme.WorldData">
+        <item name="color_th">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tl" parent="Theme.WorldData">
+        <item name="color_tl">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tg" parent="Theme.WorldData">
+        <item name="color_tg">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.to" parent="Theme.WorldData">
+        <item name="color_to">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tt" parent="Theme.WorldData">
+        <item name="color_tt">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tn" parent="Theme.WorldData">
+        <item name="color_tn">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tr" parent="Theme.WorldData">
+        <item name="color_tr">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tm" parent="Theme.WorldData">
+        <item name="color_tm">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.tv" parent="Theme.WorldData">
+        <item name="color_tv">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ug" parent="Theme.WorldData">
+        <item name="color_ug">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ua" parent="Theme.WorldData">
+        <item name="color_ua">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ae" parent="Theme.WorldData">
+        <item name="color_ae">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.gb" parent="Theme.WorldData">
+        <item name="color_gb">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.us" parent="Theme.WorldData">
+        <item name="color_us">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.uy" parent="Theme.WorldData">
+        <item name="color_uy">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.uz" parent="Theme.WorldData">
+        <item name="color_uz">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.vu" parent="Theme.WorldData">
+        <item name="color_vu">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.va" parent="Theme.WorldData">
+        <item name="color_va">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ve" parent="Theme.WorldData">
+        <item name="color_ve">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.vn" parent="Theme.WorldData">
+        <item name="color_vn">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.eh" parent="Theme.WorldData">
+        <item name="color_eh">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ye" parent="Theme.WorldData">
+        <item name="color_ye">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.zm" parent="Theme.WorldData">
+        <item name="color_zm">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.zw" parent="Theme.WorldData">
+        <item name="color_zw">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.it" parent="Theme.WorldData">
+        <item name="color_it">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.jm" parent="Theme.WorldData">
+        <item name="color_jm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.jp" parent="Theme.WorldData">
+        <item name="color_jp">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.jo" parent="Theme.WorldData">
+        <item name="color_jo">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kz" parent="Theme.WorldData">
+        <item name="color_kz">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ke" parent="Theme.WorldData">
+        <item name="color_ke">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ki" parent="Theme.WorldData">
+        <item name="color_ki">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kp" parent="Theme.WorldData">
+        <item name="color_kp">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kr" parent="Theme.WorldData">
+        <item name="color_kr">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kw" parent="Theme.WorldData">
+        <item name="color_kw">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.kg" parent="Theme.WorldData">
+        <item name="color_kg">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.la" parent="Theme.WorldData">
+        <item name="color_la">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.lv" parent="Theme.WorldData">
+        <item name="color_lv">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.lb" parent="Theme.WorldData">
+        <item name="color_lb">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ls" parent="Theme.WorldData">
+        <item name="color_ls">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.lr" parent="Theme.WorldData">
+        <item name="color_lr">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.ly" parent="Theme.WorldData">
+        <item name="color_ly">@color/green_deep_forest</item>
+    </style>
+    <style name="Theme.li" parent="Theme.WorldData">
+        <item name="color_li">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.lt" parent="Theme.WorldData">
+        <item name="color_lt">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.lu" parent="Theme.WorldData">
+        <item name="color_lu">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mg" parent="Theme.WorldData">
+        <item name="color_mg">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mw" parent="Theme.WorldData">
+        <item name="color_mw">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.my" parent="Theme.WorldData">
+        <item name="color_my">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mv" parent="Theme.WorldData">
+        <item name="color_mv">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ml" parent="Theme.WorldData">
+        <item name="color_ml">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mt" parent="Theme.WorldData">
+        <item name="color_mt">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mh" parent="Theme.WorldData">
+        <item name="color_mh">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mr" parent="Theme.WorldData">
+        <item name="color_mr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mu" parent="Theme.WorldData">
+        <item name="color_mu">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mx" parent="Theme.WorldData">
+        <item name="color_mx">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.fm" parent="Theme.WorldData">
+        <item name="color_fm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.md" parent="Theme.WorldData">
+        <item name="color_md">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mc" parent="Theme.WorldData">
+        <item name="color_mc">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mn" parent="Theme.WorldData">
+        <item name="color_mn">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.me" parent="Theme.WorldData">
+        <item name="color_me">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ma" parent="Theme.WorldData">
+        <item name="color_ma">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mz" parent="Theme.WorldData">
+        <item name="color_mz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.mm" parent="Theme.WorldData">
+        <item name="color_mm">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.na" parent="Theme.WorldData">
+        <item name="color_na">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.nr" parent="Theme.WorldData">
+        <item name="color_nr">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.np" parent="Theme.WorldData">
+        <item name="color_np">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.nl" parent="Theme.WorldData">
+        <item name="color_nl">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.nz" parent="Theme.WorldData">
+        <item name="color_nz">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ni" parent="Theme.WorldData">
+        <item name="color_ni">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ne" parent="Theme.WorldData">
+        <item name="color_ne">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.ci" parent="Theme.WorldData">
+        <item name="color_ci">@color/green_deep_forest</item>
+    </style>
+
+
+</resources>
