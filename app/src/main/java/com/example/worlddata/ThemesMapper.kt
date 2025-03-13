@@ -10,7 +10,7 @@ object ThemesMapper {
     /**
      * Returns the theme of the given country code.
      */
-    fun getThemeResource(countryCode: String): Int = when (countryCode) {
+    fun getThemeResource(countryCode: String?): Int = when (countryCode) {
         "af" -> R.style.Theme_af
         "al" -> R.style.Theme_al
         "dz" -> R.style.Theme_dz
