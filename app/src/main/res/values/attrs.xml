@@ -227,6 +227,8 @@
 	<attr name="color_eh" format="reference" />
 	<attr name="color_cg" format="reference" />
 	<attr name="color_ci" format="reference" />
+	<attr name="color_ce" format="reference" />
+	<attr name="color_gf" format="reference" />
 
 
 

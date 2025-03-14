@@ -190,6 +190,9 @@
 		<!-- Equatorial Guinea -->
 		<item name="color_gq">@color/green_light_mint</item>
 
+		<!-- French Guiana -->
+		<item name="color_gf">@color/green_light_mint</item>
+
 		<!-- Eritrea -->
 		<item name="color_er">@color/green_light_mint</item>
 
@@ -619,6 +622,8 @@
 		<!-- Côte d'Ivoire (Ivory coast) -->
 		<item name="color_ci">@color/green_light_mint</item>
 
+		<!-- Ecuador -->
+		<item name="color_ce">@color/green_light_mint</item>
 
 
 	</style>

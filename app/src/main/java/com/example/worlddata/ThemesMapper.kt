@@ -206,6 +206,8 @@ object ThemesMapper {
         "zm" -> R.style.Theme_zm
         "zw" -> R.style.Theme_zw
         "ci" -> R.style.Theme_ci
+        "ce" -> R.style.Theme_ce
+        "gf" -> R.style.Theme_gf
         else -> R.style.Theme_WorldData
     }
 

@@ -707,5 +707,13 @@
         <item name="color_ci">@color/green_deep_forest</item>
     </style>
 
+    <style name="Theme.ce" parent="Theme.WorldData">
+        <item name="color_ce">@color/green_deep_forest</item>
+    </style>
+
+    <style name="Theme.gf" parent="Theme.WorldData">
+        <item name="color_gf">@color/green_deep_forest</item>
+    </style>
+
 
 </resources>
