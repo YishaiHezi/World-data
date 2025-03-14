@@ -24,7 +24,7 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import data.FormattedCountry
+import data.Country
 import kotlinx.coroutines.launch
 
 
@@ -57,7 +57,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Update the UI from the given country.
      */
-    private fun updateUi(country: FormattedCountry) {
+    private fun updateUi(country: Country) {
         updateFlag()
         updateCoatOfArms(country)
         updateName(country)
@@ -82,7 +82,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Initialize the coat of arms image and name from the given coat of arms url.
      */
-    private fun updateCoatOfArms(country: FormattedCountry) {
+    private fun updateCoatOfArms(country: Country) {
         val coatOfArmsUrl = country.coatOfArms
         val coatOfArmsView: ImageView = findViewById(R.id.coat_of_arms)
         val coatOfArmsNameView: TextView = findViewById(R.id.coat_of_arms_name)
@@ -121,7 +121,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Initialize the country name from the given country.
      */
-    private fun updateName(country: FormattedCountry){
+    private fun updateName(country: Country){
         val nameView: TextView = findViewById(R.id.country_name)
         nameView.text = country.name
     }
@@ -130,7 +130,7 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * Update the tab layout and view pager from the given country.
      */
-    private fun updatePager(country: FormattedCountry){
+    private fun updatePager(country: Country){
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
 
@@ -148,14 +148,14 @@ class CountryActivity : AppCompatActivity(R.layout.country_activity) {
     /**
      * The adapter for the view pager.
      */
-    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val country: FormattedCountry) : FragmentStateAdapter(fragmentActivity) {
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val country: Country) : FragmentStateAdapter(fragmentActivity) {
 
         override fun getItemCount(): Int = 2
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> CountryInformationFragment.newInstance(country)
-                1 -> FullScreenImageFragment.newInstance(country.countryCode.lowercase())
+                1 -> FullScreenImageFragment.newInstance(country.countryCode.lowercase(), country.continents?.first())
                 else -> CountryInformationFragment.newInstance(country)
             }
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import data.Country
 import data.FormattedCountry
 import utils.updateVisibility
 
@@ -154,10 +155,10 @@ class CountryInformationFragment : Fragment(R.layout.country_information_fragmen
         /**
          * Creates a new instance of the fragment.
          */
-        fun newInstance(country: FormattedCountry): CountryInformationFragment {
+        fun newInstance(country: Country): CountryInformationFragment {
             val fragment = CountryInformationFragment()
             val args = Bundle()
-            args.putParcelable("country", country)
+            args.putParcelable("country", country.toFormattedCountry())
             fragment.arguments = args
 
             return fragment
