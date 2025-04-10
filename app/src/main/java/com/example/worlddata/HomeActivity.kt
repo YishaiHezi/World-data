@@ -5,10 +5,11 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -54,30 +55,34 @@ class HomeActivity : AppCompatActivity() {
             Text(
                 text = stringResource(R.string.home_headline),
                 style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(bottom = 64.dp)
             )
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(32.dp)
+
+            Spacer(modifier = Modifier.height(64.dp))
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = ::onTakeQuizClick
             ) {
-                Button(
-                    onClick = ::onTakeQuizClick,
-                    modifier = Modifier.size(150.dp)) {
-                    Text(
-                        text = stringResource(R.string.quiz_button),
-                        style = MaterialTheme.typography.titleLarge,
-                        textAlign = TextAlign.Center
-                    )
-                }
-                Button(
-                    onClick = ::onExploreClick,
-                    modifier = Modifier.size(150.dp)
-                ) {
-                    Text(
-                        text = stringResource(R.string.explore_button),
-                        style = MaterialTheme.typography.titleLarge,
-                        textAlign = TextAlign.Center
-                    )
-                }
+                Text(
+                    modifier = Modifier.padding(vertical = 16.dp),
+                    text = stringResource(R.string.quiz_button),
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = ::onExploreClick
+            ) {
+                Text(
+                    modifier = Modifier.padding(vertical = 16.dp),
+                    text = stringResource(R.string.explore_button),
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
