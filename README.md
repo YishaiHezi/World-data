@@ -4,9 +4,7 @@ Where am I:
 
 - I want to create a quiz. that is what I do in the quiz branch.
 
-- I need to make the Country activity to look better.
-I want to show every country's location on a map. I want it to be like in the World atlas Mx app (hemisphere). 
-that is what I do in the maps branch.
+- I want to show every country's location on a map in the country activity. that is what I do in the maps branch.
 
 
 *In the future:*
