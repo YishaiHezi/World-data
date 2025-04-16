@@ -17,17 +17,25 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.worlddata.ui.theme.AppTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
+import nl.dionsegijn.konfetti.compose.KonfettiView
+import nl.dionsegijn.konfetti.core.Party
+import nl.dionsegijn.konfetti.core.Position
+import nl.dionsegijn.konfetti.core.emitter.Emitter
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -36,13 +44,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 class QuizActivity : AppCompatActivity() {
 
 
-    @Preview(showBackground = true)
-    @Composable
-    fun PreviewMyScreen() {
-        AppTheme {
-            QuizScreen()
-        }
-    }
+//    @Preview(showBackground = true)
+//    @Composable
+//    fun PreviewMyScreen() {
+//        AppTheme {
+//            QuizScreen()
+//        }
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,9 +68,24 @@ class QuizActivity : AppCompatActivity() {
      * The screen for this activity.
      */
     @Composable
-    fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
-        val state by viewModel.uiState.collectAsState()
-        QuizScreen(state)
+    private fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
+        val uiState by viewModel.uiState.collectAsState()
+        var showConfetti by remember { mutableStateOf(false) }
+
+        LaunchedEffect(uiState.question) {
+            showConfetti = false
+        }
+
+        val onAnswerClick: (String) -> Unit = { answer ->
+            if (answer == uiState.correctAnswer) {
+                showConfetti = true
+            }
+        }
+
+        QuizScreen(uiState, onAnswerClick)
+
+        if (showConfetti)
+            ShowConfetti()
     }
 
 
@@ -70,7 +93,7 @@ class QuizActivity : AppCompatActivity() {
      * Shows a screen with image, question, and answers.
      */
     @Composable
-    fun QuizScreen(state: UiState) {
+    private fun QuizScreen(uiState: UiState, onAnswerClick: (String) -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -79,13 +102,13 @@ class QuizActivity : AppCompatActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = state.imageRes),
+                painter = painterResource(id = uiState.imageRes),
                 contentDescription = "Image for the question",
                 modifier = Modifier.shadow(8.dp)
             )
 
             Text(
-                text = state.question,
+                text = uiState.question,
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
@@ -95,11 +118,11 @@ class QuizActivity : AppCompatActivity() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                state.answers.chunked(2).forEach { rowAnswers ->
+                uiState.answers.chunked(2).forEach { rowAnswers ->
                     if (rowAnswers.size == 2)
-                        TwoChoices(rowAnswers[0], rowAnswers[1])
+                        TwoChoices(rowAnswers[0], rowAnswers[1], onAnswerClick)
                     else
-                        SingleChoice(rowAnswers[0])
+                        SingleChoice(rowAnswers[0], onAnswerClick)
                 }
             }
 
@@ -111,10 +134,10 @@ class QuizActivity : AppCompatActivity() {
      * Shows 2 answers next to each other.
      */
     @Composable
-    fun TwoChoices(answer1: String, answer2: String) {
+    private fun TwoChoices(choice1: String, choice2: String, onAnswerClick: (String) -> Unit) {
         Row {
             Button(
-                onClick = { /* TODO */ },
+                onClick = { onAnswerClick(choice1) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -122,13 +145,13 @@ class QuizActivity : AppCompatActivity() {
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Text(
-                    text = answer1,
+                    text = choice1,
                     style = MaterialTheme.typography.titleLarge,
                     textAlign = TextAlign.Center
                 )
             }
             Button(
-                onClick = { /* TODO */ },
+                onClick = { onAnswerClick(choice2) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -136,7 +159,7 @@ class QuizActivity : AppCompatActivity() {
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Text(
-                    text = answer2,
+                    text = choice2,
                     style = MaterialTheme.typography.titleLarge,
                     textAlign = TextAlign.Center
                 )
@@ -149,7 +172,7 @@ class QuizActivity : AppCompatActivity() {
      * Shows a single answer.
      */
     @Composable
-    fun SingleChoice(answer: String) {
+    private fun SingleChoice(choice: String, onAnswerClick: (String) -> Unit) {
         Row {
             Spacer(modifier = Modifier
                 .weight(0.5f)
@@ -157,7 +180,7 @@ class QuizActivity : AppCompatActivity() {
                 .padding(8.dp))
 
             Button(
-                onClick = { /* TODO */ },
+                onClick = { onAnswerClick(choice) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -165,7 +188,7 @@ class QuizActivity : AppCompatActivity() {
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Text(
-                    text = answer,
+                    text = choice,
                     style = MaterialTheme.typography.titleLarge
                 )
             }
@@ -175,6 +198,43 @@ class QuizActivity : AppCompatActivity() {
                 .aspectRatio(1f)
                 .padding(8.dp))
         }
+    }
+
+
+    /**
+     * Shows a confetti animation.
+     */
+    @Composable
+    private fun ShowConfetti(){
+        // This is confetti from left to right.
+        KonfettiView(
+            modifier = Modifier.fillMaxSize(),
+            parties = listOf(
+                Party(
+                    angle = 300,
+                    maxSpeed = 50f,
+                    damping = 0.9f,
+                    spread = 30,
+                    emitter = Emitter(duration = 1, TimeUnit.SECONDS).perSecond(100),
+                    position = Position.Relative(0.0, 0.5)
+                )
+            )
+        )
+
+        // This is confetti from right to left.
+        KonfettiView(
+            modifier = Modifier.fillMaxSize(),
+            parties = listOf(
+                Party(
+                    angle = 240,
+                    maxSpeed = 50f,
+                    damping = 0.9f,
+                    spread = 30,
+                    emitter = Emitter(duration = 1, TimeUnit.SECONDS).perSecond(100),
+                    position = Position.Relative(1.0, 0.5)
+                )
+            )
+        )
     }
 
 

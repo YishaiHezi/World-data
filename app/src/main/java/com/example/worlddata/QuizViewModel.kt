@@ -16,7 +16,7 @@ class QuizViewModel : ViewModel() {
      */
     private val mutableUiState = MutableStateFlow(
         UiState(
-            imageRes = R.drawable.ic_flag_fi,
+            imageRes = R.drawable.ic_flag_af,
             question = "This is a test question! what flag is this?",
             answers = listOf("Saudi Arabia", "Pakistan", "Turkey", "Afghanistan"),
             correctAnswer = "Afghanistan"
