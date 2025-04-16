@@ -1,5 +1,6 @@
 package com.example.worlddata
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -101,7 +102,7 @@ class HomeActivity : AppCompatActivity() {
      * Called when the "Take a Quiz" button is clicked.
      */
     fun onTakeQuizClick() {
-
+        startActivity(Intent(this, QuizActivity::class.java))
     }
 
 
