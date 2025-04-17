@@ -27,15 +27,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.worlddata.ui.theme.AppTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
-import nl.dionsegijn.konfetti.compose.KonfettiView
-import nl.dionsegijn.konfetti.core.Party
-import nl.dionsegijn.konfetti.core.Position
-import nl.dionsegijn.konfetti.core.emitter.Emitter
-import java.util.concurrent.TimeUnit
+import com.example.worlddata.ui.theme.correctGreen
+import com.example.worlddata.ui.theme.wrongRed
 
 
 /**
@@ -70,22 +69,23 @@ class QuizActivity : AppCompatActivity() {
     @Composable
     private fun QuizScreen(viewModel: QuizViewModel = viewModel()) {
         val uiState by viewModel.uiState.collectAsState()
-        var showConfetti by remember { mutableStateOf(false) }
+        var userAnswer by remember { mutableStateOf(AnswerState.Unanswered) }
 
         LaunchedEffect(uiState.question) {
-            showConfetti = false
+            userAnswer = AnswerState.Unanswered
         }
 
         val onAnswerClick: (String) -> Unit = { answer ->
-            if (answer == uiState.correctAnswer) {
-                showConfetti = true
-            }
+            userAnswer = if (answer == uiState.correctAnswer)
+                AnswerState.Correct
+            else
+                AnswerState.Wrong
         }
 
-        QuizScreen(uiState, onAnswerClick)
+        QuizScreen(uiState, onAnswerClick, userAnswer)
 
-        if (showConfetti)
-            ShowConfetti()
+        if (userAnswer == AnswerState.Correct)
+            ShowCenteredConfetti()
     }
 
 
@@ -93,7 +93,7 @@ class QuizActivity : AppCompatActivity() {
      * Shows a screen with image, question, and answers.
      */
     @Composable
-    private fun QuizScreen(uiState: UiState, onAnswerClick: (String) -> Unit) {
+    private fun QuizScreen(uiState: UiState, onAnswerClick: (String) -> Unit, userAnswer: AnswerState) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -113,6 +113,9 @@ class QuizActivity : AppCompatActivity() {
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
             )
+
+            if (userAnswer != AnswerState.Unanswered)
+                ShowMessage(userAnswer)
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -202,40 +205,27 @@ class QuizActivity : AppCompatActivity() {
 
 
     /**
-     * Shows a confetti animation.
+     * Shows a "Correct!" / "Wrong..." message to the user based on its answer.
      */
     @Composable
-    private fun ShowConfetti(){
-        // This is confetti from left to right.
-        KonfettiView(
-            modifier = Modifier.fillMaxSize(),
-            parties = listOf(
-                Party(
-                    angle = 300,
-                    maxSpeed = 50f,
-                    damping = 0.9f,
-                    spread = 30,
-                    emitter = Emitter(duration = 1, TimeUnit.SECONDS).perSecond(100),
-                    position = Position.Relative(0.0, 0.5)
-                )
-            )
-        )
+    private fun ShowMessage(userAnswer: AnswerState){
+        val text = if (userAnswer == AnswerState.Correct) "Correct!" else "Wrong!"
+        val color = if (userAnswer == AnswerState.Correct) MaterialTheme.colorScheme.correctGreen else MaterialTheme.colorScheme.wrongRed
 
-        // This is confetti from right to left.
-        KonfettiView(
-            modifier = Modifier.fillMaxSize(),
-            parties = listOf(
-                Party(
-                    angle = 240,
-                    maxSpeed = 50f,
-                    damping = 0.9f,
-                    spread = 30,
-                    emitter = Emitter(duration = 1, TimeUnit.SECONDS).perSecond(100),
-                    position = Position.Relative(1.0, 0.5)
-                )
-            )
+        Text(
+            text = text,
+            fontSize = 64.sp,
+            style = MaterialTheme.typography.headlineLarge,
+            color = color,
+            fontWeight = FontWeight.Bold
         )
     }
 
-
 }
+
+enum class AnswerState {
+    Unanswered,
+    Correct,
+    Wrong
+}
+
