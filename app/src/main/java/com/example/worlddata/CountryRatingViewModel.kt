@@ -1,8 +1,8 @@
 package com.example.worlddata
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import data.CountriesCodes.countryFlagMap
 import data.CountryRepository
 import data.ParameterType
 import kotlinx.coroutines.flow.Flow
@@ -44,7 +44,7 @@ class CountryRatingViewModel @Inject constructor(
 				CountryItem(
 					name = country.name,
 					code = country.countryCode,
-					flag = countryRepository.countryFlagMap[country.countryCode] ?: 0,
+					flag = countryFlagMap[country.countryCode] ?: 0,
 					value = it.getFormattedParameter(paramType) ?: ""
 				)
 			}

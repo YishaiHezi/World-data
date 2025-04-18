@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import data.CountriesCodes.countryFlagMap
 import data.CountryRepository
 import data.FormattedCountry
 import kotlinx.coroutines.flow.Flow
@@ -30,7 +31,7 @@ class CountryViewModel @Inject constructor(
     /**
      * The flag of the country.
      */
-    @DrawableRes val flag: Int = countryRepository.countryFlagMap[countryCode] ?: 0
+    @DrawableRes val flag: Int = countryFlagMap[countryCode] ?: 0
 
 
     /**
