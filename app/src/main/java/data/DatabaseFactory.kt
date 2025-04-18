@@ -21,11 +21,11 @@ object DatabaseFactory {
      * Create the country database.
      */
     fun createCountryDatabase(context: Context): WorldDatabase {
-        val db = Room.databaseBuilder(context, WorldDatabase::class.java, "country_database")
+        val db = Room.databaseBuilder(context, WorldDatabase::class.java, "world_database")
             .fallbackToDestructiveMigration()
             .build()
 
-        populateDBIfNeeded(context, db, "is_country_db_populated")
+        populateDBIfNeeded(context, db, "is_country_table_populated")
 
         return db
     }
