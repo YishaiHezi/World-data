@@ -2,6 +2,8 @@ package utils
 
 import android.content.Context
 import data.CountryDao
+import data.QuestionDao
+import data.QuestionEntity
 import data.RawCountry
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -38,23 +40,55 @@ data class JsonCountry(
     val timezones: List<String>,
 )
 
+@Serializable
+data class JsonQuestion(
+    val questionText: String,
+    val options: List<String>,
+    val correctAnswer: String
+)
 
-object UpdateDBFromJSON {
+
+object DBUpdater {
+
 
     /**
-     * Read countries from a JSON file and insert them into the database.
+     * Insert questions from a JSON file into the database.
      */
-    suspend fun readCountriesFromJSONToDB(context: Context, countryDao: CountryDao){
-        insertCountriesFromJSON(context, countryDao)
+    suspend fun insertQuestionsFromJSON(context: Context, questionDao: QuestionDao) {
+        // Parse JSON
+        val questions = parseQuestionsJSON(context)
+
+        // Insert parsed questions into the database
+        questionDao.insertQuestions(questions)
+    }
+
+
+    /**
+     * Parse the JSON file and return a list of [QuestionEntity].
+     */
+    private fun parseQuestionsJSON(context: Context): List<QuestionEntity>{
+        val inputStream: InputStream = context.assets.open("questions_data.json")
+        val jsonString = inputStream.bufferedReader().use { it.readText() }
+
+        val jsonQuestions = Json.decodeFromString<List<JsonQuestion>>(jsonString)
+
+        return jsonQuestions.map {
+            QuestionEntity(
+                questionText = it.questionText,
+                options = it.options,
+                correctAnswer = it.correctAnswer,
+                chosenAnswer = null
+            )
+        }
     }
 
 
     /**
      * Insert countries from a JSON file into the database.
      */
-    private suspend fun insertCountriesFromJSON(context: Context, countryDao: CountryDao) {
+    suspend fun insertCountriesFromJSON(context: Context, countryDao: CountryDao) {
         // Parse JSON
-        val countries = parseJSON(context)
+        val countries = parseCountriesJSON(context)
 
         // Insert parsed countries into the database
         countryDao.insertCountries(countries)
@@ -65,7 +99,7 @@ object UpdateDBFromJSON {
     /**
      * Parse the JSON file and return a list of [RawCountry].
      */
-    private fun parseJSON(context: Context): List<RawCountry> {
+    private fun parseCountriesJSON(context: Context): List<RawCountry> {
             val inputStream: InputStream = context.assets.open("countries_data.json")
             val jsonString = inputStream.bufferedReader().use { it.readText() }
 
@@ -90,9 +124,6 @@ object UpdateDBFromJSON {
                     timezones = it.timezones
                 )
             }
-
-
-
     }
 
 }

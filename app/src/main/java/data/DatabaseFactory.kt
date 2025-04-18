@@ -6,7 +6,9 @@ import data.DatabaseModule.provideCountryDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import utils.UpdateDBFromJSON
+import utils.DBUpdater
+import androidx.core.content.edit
+import data.DatabaseModule.provideQuestionDao
 
 
 /**
@@ -25,7 +27,13 @@ object DatabaseFactory {
             .fallbackToDestructiveMigration()
             .build()
 
-        populateDBIfNeeded(context, db, "is_country_table_populated")
+        populateTableIfNeeded(context, "is_country_table_populated") {
+            DBUpdater.insertCountriesFromJSON(context, provideCountryDao(db))
+        }
+
+        populateTableIfNeeded(context, "is_question_table_populated") {
+            DBUpdater.insertQuestionsFromJSON(context, provideQuestionDao(db))
+        }
 
         return db
     }
@@ -34,23 +42,19 @@ object DatabaseFactory {
     /**
      * Populate the database if it is empty.
      */
-    private fun populateDBIfNeeded(context: Context, db: WorldDatabase, preferencesKey: String) {
+    private fun populateTableIfNeeded(context: Context, tableKey: String, populateBlock: suspend () -> Unit) {
         val sharedPreferences = context.getSharedPreferences("db_prefs", Context.MODE_PRIVATE)
 
-        val isDbPopulated = sharedPreferences.getBoolean(preferencesKey, false)
+        val isTablePopulated = sharedPreferences.getBoolean(tableKey, false)
 
-        if (!isDbPopulated) {
+        if (!isTablePopulated) {
             val result = CoroutineScope(Dispatchers.IO).async {
-                UpdateDBFromJSON.readCountriesFromJSONToDB(context, provideCountryDao(db))
+                populateBlock()
             }
 
             result.invokeOnCompletion { cause ->
-                if (cause == null)
-                    sharedPreferences.edit().putBoolean(preferencesKey, true).apply()
-                else
-                    sharedPreferences.edit().putBoolean(preferencesKey, false).apply()
+                sharedPreferences.edit { putBoolean(tableKey, cause == null) }
             }
-
         }
     }
 
