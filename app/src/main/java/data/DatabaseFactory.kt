@@ -20,8 +20,8 @@ object DatabaseFactory {
     /**
      * Create the country database.
      */
-    fun createCountryDatabase(context: Context): CountryDatabase {
-        val db = Room.databaseBuilder(context, CountryDatabase::class.java, "country_database")
+    fun createCountryDatabase(context: Context): WorldDatabase {
+        val db = Room.databaseBuilder(context, WorldDatabase::class.java, "country_database")
             .fallbackToDestructiveMigration()
             .build()
 
@@ -34,7 +34,7 @@ object DatabaseFactory {
     /**
      * Populate the database if it is empty.
      */
-    private fun populateDBIfNeeded(context: Context, db: CountryDatabase, preferencesKey: String) {
+    private fun populateDBIfNeeded(context: Context, db: WorldDatabase, preferencesKey: String) {
         val sharedPreferences = context.getSharedPreferences("db_prefs", Context.MODE_PRIVATE)
 
         val isDbPopulated = sharedPreferences.getBoolean(preferencesKey, false)

@@ -20,12 +20,17 @@ object DatabaseModule {
 
 	@Provides
 	@Singleton
-	fun provideDatabase(@ApplicationContext context: Context): CountryDatabase {
+	fun provideDatabase(@ApplicationContext context: Context): WorldDatabase {
 		return DatabaseFactory.createCountryDatabase(context)
 	}
 
 	@Provides
-	fun provideCountryDao(database: CountryDatabase): CountryDao {
+	fun provideCountryDao(database: WorldDatabase): CountryDao {
 		return database.countryDao()
+	}
+
+	@Provides
+	fun provideQuestionDao(database: WorldDatabase): QuestionDao {
+		return database.questionDao()
 	}
 }
