@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,11 +35,14 @@ import androidx.compose.ui.unit.sp
 import com.example.worlddata.ui.theme.AppTheme
 import com.example.worlddata.ui.theme.correctGreen
 import com.example.worlddata.ui.theme.wrongRed
+import dagger.hilt.android.AndroidEntryPoint
+import data.Question
 
 
 /**
  * The main screen that displays a question with multiple choices to answer.
  */
+@AndroidEntryPoint
 class QuizActivity : AppCompatActivity() {
 
 
@@ -73,10 +78,17 @@ class QuizActivity : AppCompatActivity() {
     @Composable
     private fun QuizScreen() {
         val uiState by viewModel.uiState.collectAsState()
-        QuizScreen(uiState)
 
-        if (uiState.chosenAnswer == uiState.correctAnswer)
-            ShowCenteredConfetti()
+        when(val state = uiState){
+            is Loading -> LoadingScreen()
+            is QuestionState -> {
+                val question = state.question
+                QuestionScreen(question)
+
+                if (question.chosenAnswer == question.correctAnswer)
+                    ShowCenteredConfetti()
+            }
+        }
     }
 
 
@@ -84,7 +96,7 @@ class QuizActivity : AppCompatActivity() {
      * Shows a screen with image, question, and answers.
      */
     @Composable
-    private fun QuizScreen(uiState: UiState) {
+    private fun QuestionScreen(question: Question) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -92,34 +104,51 @@ class QuizActivity : AppCompatActivity() {
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(
-                painter = painterResource(id = uiState.imageRes),
-                contentDescription = "Image for the question",
-                modifier = Modifier.shadow(8.dp)
-            )
+
+            question.imageRes?.let {
+                Image(
+                    painter = painterResource(id = it),
+                    contentDescription = "Image for the question",
+                    modifier = Modifier.shadow(8.dp)
+                )
+            }
 
             Text(
-                text = uiState.question,
+                text = question.questionText,
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
             )
 
-            if (uiState.chosenAnswer != null)
-                ShowMessage(uiState)
+            question.chosenAnswer?.let {
+                ShowMessage(question)
+            }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                uiState.answers.chunked(2).forEach { rowAnswers ->
+                question.options.chunked(2).forEach { rowAnswers ->
                     if (rowAnswers.size == 2)
-                        TwoChoices(rowAnswers[0], rowAnswers[1], uiState)
+                        TwoChoices(rowAnswers[0], rowAnswers[1], question)
                     else
-                        SingleChoice(rowAnswers[0], uiState)
+                        SingleChoice(rowAnswers[0], question)
                 }
             }
+        }
+    }
 
+
+    /**
+     * Shows a loading screen.
+     */
+    @Composable
+    fun LoadingScreen() {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
         }
     }
 
@@ -131,17 +160,17 @@ class QuizActivity : AppCompatActivity() {
     private fun TwoChoices(
         choice1: String,
         choice2: String,
-        uiState: UiState
+        question: Question
     ) {
         Row {
             Button(
-                onClick = { onAnswerClicked(uiState, choice1) },
+                onClick = { onAnswerClicked(question, choice1) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .padding(8.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice1, uiState))
+                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice1, question))
             ) {
                 Text(
                     text = choice1,
@@ -150,13 +179,13 @@ class QuizActivity : AppCompatActivity() {
                 )
             }
             Button(
-                onClick = { onAnswerClicked(uiState, choice2) },
+                onClick = { onAnswerClicked(question, choice2) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .padding(8.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice2, uiState))
+                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice2, question))
             ) {
                 Text(
                     text = choice2,
@@ -172,7 +201,7 @@ class QuizActivity : AppCompatActivity() {
      * Shows a single answer.
      */
     @Composable
-    private fun SingleChoice(choice: String, uiState: UiState) {
+    private fun SingleChoice(choice: String, question: Question) {
         Row {
             Spacer(
                 modifier = Modifier
@@ -182,13 +211,13 @@ class QuizActivity : AppCompatActivity() {
             )
 
             Button(
-                onClick = { onAnswerClicked(uiState, choice) },
+                onClick = { onAnswerClicked(question, choice) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .padding(8.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice, uiState))
+                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice, question))
             ) {
                 Text(
                     text = choice,
@@ -210,14 +239,14 @@ class QuizActivity : AppCompatActivity() {
      * Returns the required background color for a button based on its text and the ui state.
      */
     @Composable
-    private fun buttonColor(buttonText: String, uiState: UiState): Color {
-        if (uiState.chosenAnswer == null)
+    private fun buttonColor(buttonText: String, question: Question): Color {
+        if (question.chosenAnswer == null)
             return MaterialTheme.colorScheme.primary
 
-        if (buttonText == uiState.correctAnswer)
+        if (buttonText == question.correctAnswer)
             return MaterialTheme.colorScheme.correctGreen
 
-        if (buttonText == uiState.chosenAnswer)
+        if (buttonText == question.chosenAnswer)
             return MaterialTheme.colorScheme.wrongRed
 
         return MaterialTheme.colorScheme.primary
@@ -228,8 +257,8 @@ class QuizActivity : AppCompatActivity() {
      * Shows a "Correct!" / "Wrong..." message to the user based on its answer.
      */
     @Composable
-    private fun ShowMessage(uiState: UiState) {
-        val isUserCorrect = uiState.chosenAnswer == uiState.correctAnswer
+    private fun ShowMessage(question: Question) {
+        val isUserCorrect = question.chosenAnswer == question.correctAnswer
         val text = if (isUserCorrect) "Correct!" else "Wrong!"
         val color = if (isUserCorrect) MaterialTheme.colorScheme.correctGreen else MaterialTheme.colorScheme.wrongRed
 
@@ -246,8 +275,8 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Invoked when the user clicks on answer.
      */
-    private fun onAnswerClicked(uiState: UiState, answer: String) {
-        if (uiState.chosenAnswer == null)
+    private fun onAnswerClicked(question: Question, answer: String) {
+        if (question.chosenAnswer == null)
             viewModel.onUserClickAnswer(answer)
     }
 

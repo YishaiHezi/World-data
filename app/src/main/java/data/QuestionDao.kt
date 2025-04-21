@@ -20,7 +20,7 @@ interface QuestionDao {
     @Query("SELECT * FROM questions")
     fun getAllQuestions(): List<QuestionEntity>
 
-    @Query("SELECT * FROM questions WHERE chosenAnswer == null")
+    @Query("SELECT * FROM questions WHERE chosenAnswer IS NULL")
     fun getAllNotAnsweredQuestions(): List<QuestionEntity>
 
     @Query("SELECT * FROM questions WHERE id = :id")
