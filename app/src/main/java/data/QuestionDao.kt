@@ -20,8 +20,11 @@ interface QuestionDao {
     @Query("SELECT * FROM questions")
     fun getAllQuestions(): List<QuestionEntity>
 
-    @Query("SELECT * FROM questions WHERE id = :id and chosenAnswer != null")
-    fun getQuestion(id: String): QuestionEntity
+    @Query("SELECT * FROM questions WHERE chosenAnswer == null")
+    fun getAllNotAnsweredQuestions(): List<QuestionEntity>
+
+    @Query("SELECT * FROM questions WHERE id = :id")
+    fun getQuestion(id: String): QuestionEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertQuestion(question: QuestionEntity)

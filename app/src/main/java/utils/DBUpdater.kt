@@ -42,9 +42,10 @@ data class JsonCountry(
 
 @Serializable
 data class JsonQuestion(
+    val imageName: String,
     val questionText: String,
     val options: List<String>,
-    val correctAnswer: String
+    val correctAnswer: String,
 )
 
 
@@ -74,6 +75,7 @@ object DBUpdater {
 
         return jsonQuestions.map {
             QuestionEntity(
+                imageName = it.imageName,
                 questionText = it.questionText,
                 options = it.options,
                 correctAnswer = it.correctAnswer,

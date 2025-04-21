@@ -10,6 +10,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "questions")
 data class QuestionEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val imageName: String,
     val questionText: String,
     val options: List<String>,
     val correctAnswer: String,
