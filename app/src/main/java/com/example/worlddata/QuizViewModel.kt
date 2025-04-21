@@ -1,28 +1,41 @@
 package com.example.worlddata
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import data.Question
+import data.QuizRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /**
  * The view model needed for the quiz screen.
  */
-class QuizViewModel : ViewModel() {
+@HiltViewModel
+class QuizViewModel @Inject constructor(
+    private val quizRepository: QuizRepository
+) : ViewModel() {
+
+
+    init {
+        viewModelScope.launch {
+            quizRepository.loadAllQuestions()
+            val firstQuestion = quizRepository.getNextQuestion()
+            firstQuestion?.let {
+                mutableUiState.value = QuestionState(it)
+            }
+        }
+    }
 
 
     /**
      * Mutable ui state for the quiz screen.
      */
-    private val mutableUiState = MutableStateFlow(
-        UiState(
-            imageRes = R.drawable.ic_flag_ar,
-            question = "This is a test question! what flag is this?",
-            answers = listOf("Saudi Arabia", "Pakistan", "Turkey", "Argentina"),
-            correctAnswer = "Argentina",
-            chosenAnswer = null
-        )
-    )
+    private val mutableUiState: MutableStateFlow<UiState> = MutableStateFlow(Loading)
 
 
     /**
@@ -36,13 +49,28 @@ class QuizViewModel : ViewModel() {
      */
     fun onUserClickAnswer(answer: String) {
         val currentState = mutableUiState.value
-        mutableUiState.value = UiState(
-            currentState.imageRes,
-            currentState.question,
-            currentState.answers,
-            currentState.correctAnswer,
-            answer
-        )
+
+        if (currentState is QuestionState) {
+            val question = currentState.question
+            val answeredQuestion = Question(
+                question.id,
+                question.imageRes,
+                question.questionText,
+                question.options,
+                question.correctAnswer,
+                answer
+            )
+            mutableUiState.value = QuestionState(answeredQuestion)
+
+            viewModelScope.launch {
+                quizRepository.updateQuestion(answeredQuestion)
+
+                delay(3000) // todo: change this. I need to have a "next" button in the screen.
+
+                val nextQuestion = quizRepository.getNextQuestion()
+                mutableUiState.value = nextQuestion?.let { QuestionState(nextQuestion) } ?: Finished
+            }
+        }
     }
 
 
@@ -50,12 +78,21 @@ class QuizViewModel : ViewModel() {
 
 
 /**
+ * The ui states.
+ */
+sealed interface UiState
+
+
+/**
+ * A default empty loading state.
+ */
+data object Loading : UiState
+
+
+/**
  * Holds the data needed for a single question in the quiz.
  */
-data class UiState(
-    val imageRes: Int,
-    val question: String,
-    val answers: List<String>,
-    val correctAnswer: String,
-    val chosenAnswer: String?
-)
+data class QuestionState(val question: Question) : UiState
+
+
+data object Finished : UiState

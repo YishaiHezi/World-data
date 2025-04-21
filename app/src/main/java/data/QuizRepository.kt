@@ -32,7 +32,7 @@ class QuizRepository @Inject constructor(private val questionDao: QuestionDao) {
         allQuestions = questionDao.getAllNotAnsweredQuestions()
         nextQuestionIndex = 0
 
-        Log.d(TAG, "loaded all relevant quiz questions: $allQuestions")
+        Log.d(TAG, "loaded ${allQuestions.size} quiz questions: $allQuestions")
     }
 
 

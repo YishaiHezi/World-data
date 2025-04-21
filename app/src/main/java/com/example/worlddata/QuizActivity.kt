@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.worlddata.ui.theme.AppTheme
@@ -46,13 +47,13 @@ import data.Question
 class QuizActivity : AppCompatActivity() {
 
 
-//    @Preview(showBackground = true)
-//    @Composable
-//    fun PreviewMyScreen() {
-//        AppTheme {
-//            QuizScreen()
-//        }
-//    }
+    @Preview(showBackground = true)
+    @Composable
+    fun PreviewMyScreen() {
+        AppTheme {
+            FinishedScreen()
+        }
+    }
 
 
     /**
@@ -79,15 +80,10 @@ class QuizActivity : AppCompatActivity() {
     private fun QuizScreen() {
         val uiState by viewModel.uiState.collectAsState()
 
-        when(val state = uiState){
+        when (val state = uiState) {
             is Loading -> LoadingScreen()
-            is QuestionState -> {
-                val question = state.question
-                QuestionScreen(question)
-
-                if (question.chosenAnswer == question.correctAnswer)
-                    ShowCenteredConfetti()
-            }
+            is QuestionState -> QuestionScreen(state)
+            is Finished -> FinishedScreen()
         }
     }
 
@@ -96,7 +92,9 @@ class QuizActivity : AppCompatActivity() {
      * Shows a screen with image, question, and answers.
      */
     @Composable
-    private fun QuestionScreen(question: Question) {
+    private fun QuestionScreen(state: QuestionState) {
+        val question = state.question
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -136,6 +134,9 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
         }
+
+        if (question.chosenAnswer == question.correctAnswer)
+            ShowCenteredConfetti()
     }
 
 
@@ -278,6 +279,39 @@ class QuizActivity : AppCompatActivity() {
     private fun onAnswerClicked(question: Question, answer: String) {
         if (question.chosenAnswer == null)
             viewModel.onUserClickAnswer(answer)
+    }
+
+
+    /**
+     * Finish screen - after the user answered all the questions.
+     */
+    @Composable
+    private fun FinishedScreen() {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 64.dp, end = 64.dp, top = 128.dp, bottom = 16.dp)
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Text(
+                    "Well Done!",
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.secondary,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    "You have answered 21 questions correctly!",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+        }
+
+        ShowSideConfetti()
     }
 
 
