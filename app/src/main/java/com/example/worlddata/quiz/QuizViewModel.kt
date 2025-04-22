@@ -1,11 +1,10 @@
-package com.example.worlddata
+package com.example.worlddata.quiz
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import data.Question
-import data.QuizRepository
-import kotlinx.coroutines.delay
+import data.quiz.Question
+import data.quiz.QuizRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -64,13 +63,17 @@ class QuizViewModel @Inject constructor(
 
             viewModelScope.launch {
                 quizRepository.updateQuestion(answeredQuestion)
-
-                delay(3000) // todo: change this. I need to have a "next" button in the screen.
-
-                val nextQuestion = quizRepository.getNextQuestion()
-                mutableUiState.value = nextQuestion?.let { QuestionState(nextQuestion) } ?: Finished
             }
         }
+    }
+
+
+    /**
+     * Gets the next question for the quiz.
+     */
+    fun onNextQuestion(){
+        val nextQuestion = quizRepository.getNextQuestion()
+        mutableUiState.value = nextQuestion?.let { QuestionState(nextQuestion) } ?: Finished
     }
 
 

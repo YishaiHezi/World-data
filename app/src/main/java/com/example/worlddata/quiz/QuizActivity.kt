@@ -1,4 +1,4 @@
-package com.example.worlddata
+package com.example.worlddata.quiz
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -14,10 +14,16 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,11 +39,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.worlddata.ShowCenteredConfetti
+import com.example.worlddata.ShowSideConfetti
 import com.example.worlddata.ui.theme.AppTheme
 import com.example.worlddata.ui.theme.correctGreen
 import com.example.worlddata.ui.theme.wrongRed
 import dagger.hilt.android.AndroidEntryPoint
-import data.Question
+import data.quiz.Question
 
 
 /**
@@ -98,7 +106,7 @@ class QuizActivity : AppCompatActivity() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 16.dp, end = 16.dp, top = 64.dp, bottom = 32.dp),
+                .padding(start = 16.dp, end = 16.dp, top = 32.dp, bottom = 32.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -107,11 +115,12 @@ class QuizActivity : AppCompatActivity() {
                 Image(
                     painter = painterResource(id = it),
                     contentDescription = "Image for the question",
-                    modifier = Modifier.shadow(8.dp)
+                    modifier = Modifier.shadow(8.dp).sizeIn(maxHeight = 150.dp)
                 )
             }
 
             Text(
+                modifier = Modifier.padding(top = 16.dp),
                 text = question.questionText,
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -132,6 +141,10 @@ class QuizActivity : AppCompatActivity() {
                     else
                         SingleChoice(rowAnswers[0], question)
                 }
+            }
+
+            question.chosenAnswer?.let {
+                NextButton()
             }
         }
 
@@ -265,7 +278,7 @@ class QuizActivity : AppCompatActivity() {
 
         Text(
             text = text,
-            fontSize = 64.sp,
+            fontSize = 48.sp,
             style = MaterialTheme.typography.headlineLarge,
             color = color,
             fontWeight = FontWeight.Bold
@@ -312,6 +325,31 @@ class QuizActivity : AppCompatActivity() {
         }
 
         ShowSideConfetti()
+    }
+
+
+    /**
+     * Creates a button that calls for the next question to show.
+     */
+    @Composable
+    fun NextButton(){
+        Button(
+            onClick = { viewModel.onNextQuestion() },
+            Modifier.padding(top = 24.dp, start = 8.dp, end = 8.dp).fillMaxWidth(),
+        ) {
+            Text(
+                text = "Next Question", // todo: update
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = "Next Question", // todo: update
+                modifier = Modifier.size(ButtonDefaults.IconSize) // optional size
+            )
+        }
     }
 
 

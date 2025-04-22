@@ -1,6 +1,7 @@
-package data
+package data.quiz
 
 import data.CountriesCodes.countryFlagMap
+import data.QuestionEntity
 
 
 /**

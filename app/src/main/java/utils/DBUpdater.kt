@@ -2,7 +2,7 @@ package utils
 
 import android.content.Context
 import data.CountryDao
-import data.QuestionDao
+import data.quiz.QuestionDao
 import data.QuestionEntity
 import data.RawCountry
 import kotlinx.serialization.Serializable

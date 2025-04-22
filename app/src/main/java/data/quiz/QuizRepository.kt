@@ -1,7 +1,8 @@
-package data
+package data.quiz
 
 import android.util.Log
-import data.Question.Companion.toQuestion
+import data.QuestionEntity
+import data.quiz.Question.Companion.toQuestion
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
