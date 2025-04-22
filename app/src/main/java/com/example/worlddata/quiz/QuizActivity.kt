@@ -106,8 +106,8 @@ class QuizActivity : AppCompatActivity() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 16.dp, end = 16.dp, top = 32.dp, bottom = 32.dp),
-            verticalArrangement = Arrangement.SpaceBetween,
+                .padding(16.dp),
+            verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
@@ -120,7 +120,6 @@ class QuizActivity : AppCompatActivity() {
             }
 
             Text(
-                modifier = Modifier.padding(top = 16.dp),
                 text = question.questionText,
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -335,7 +334,7 @@ class QuizActivity : AppCompatActivity() {
     fun NextButton(){
         Button(
             onClick = { viewModel.onNextQuestion() },
-            Modifier.padding(top = 24.dp, start = 8.dp, end = 8.dp).fillMaxWidth(),
+            Modifier.fillMaxWidth(),
         ) {
             Text(
                 text = "Next Question", // todo: update
