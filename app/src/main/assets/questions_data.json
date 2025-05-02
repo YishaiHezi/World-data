@@ -1,6 +1,5 @@
-[{"imageName" : "flag_AR", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option2"},
-  {"imageName" : "flag_AS", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option3"},
-  {"imageName" : "flag_EC", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option3"},
-  {"imageName" : "flag_IL", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option3"},
-  {"imageName" : "flag_US", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option3"},
-  {"imageName" : "flag_HI", "questionText" : "What country has this flag?" , "options" : ["option1", "option2", "option3", "option4"], "correctAnswer" : "option3"}]
+[{"imageName" : "flag_AR", "questionText" : "What country has this flag?" , "options" : ["France", "Finland", "Bulgaria", "Argentina"], "correctAnswer" : "Argentina"},
+  {"imageName" : "flag_IL", "questionText" : "What country has this flag?" , "options" : ["Israel", "Jordan", "Italy", "Greece"], "correctAnswer" : "Israel"},
+  {"imageName" : "flag_AS", "questionText" : "What country has this flag?" , "options" : ["Virgin Islands (U.S.)", "Puerto Rico", "American Samoa", "French Polynesia"], "correctAnswer" : "American Samoa"},
+  {"imageName" : "flag_EC", "questionText" : "What country has this flag?" , "options" : ["Argentina", "Ecuador", "Paraguay", "Uruguay"], "correctAnswer" : "Ecuador"},
+  {"imageName" : "flag_US", "questionText" : "What country has this flag?" , "options" : ["Canada", "Italy", "Japan", "United States"], "correctAnswer" : "United States"}]

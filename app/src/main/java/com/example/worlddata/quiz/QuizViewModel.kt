@@ -23,10 +23,7 @@ class QuizViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             quizRepository.loadAllQuestions()
-            val firstQuestion = quizRepository.getNextQuestion()
-            firstQuestion?.let {
-                mutableUiState.value = QuestionState(it)
-            }
+            onNextQuestion()
         }
     }
 
@@ -44,6 +41,18 @@ class QuizViewModel @Inject constructor(
 
 
     /**
+     * The number of correct answers the user answered.
+     */
+    private var correctAnswers = 0
+
+
+    /**
+     * The total number of questions the user answered.
+     */
+    private var totalQuestions = 0
+
+
+    /**
      * Invoked when the user clicks on answer.
      */
     fun onUserClickAnswer(answer: String) {
@@ -51,15 +60,11 @@ class QuizViewModel @Inject constructor(
 
         if (currentState is QuestionState) {
             val question = currentState.question
-            val answeredQuestion = Question(
-                question.id,
-                question.imageRes,
-                question.questionText,
-                question.options,
-                question.correctAnswer,
-                answer
-            )
+            val answeredQuestion = Question(question.id, question.imageRes, question.questionText, question.options, question.correctAnswer, answer)
             mutableUiState.value = QuestionState(answeredQuestion)
+
+            if (answer == question.correctAnswer)
+                correctAnswers++
 
             viewModelScope.launch {
                 quizRepository.updateQuestion(answeredQuestion)
@@ -73,7 +78,11 @@ class QuizViewModel @Inject constructor(
      */
     fun onNextQuestion(){
         val nextQuestion = quizRepository.getNextQuestion()
-        mutableUiState.value = nextQuestion?.let { QuestionState(nextQuestion) } ?: Finished
+        mutableUiState.value = nextQuestion?.let {
+            totalQuestions++
+            QuestionState(nextQuestion)
+        } ?:
+        Finished(correctAnswers, totalQuestions)
     }
 
 
@@ -98,4 +107,7 @@ data object Loading : UiState
 data class QuestionState(val question: Question) : UiState
 
 
-data object Finished : UiState
+/**
+ * Shows a finish screen, after the user answered all the questions correctly.
+ */
+data class Finished(val correctAnswers: Int, val totalQuestions: Int) : UiState

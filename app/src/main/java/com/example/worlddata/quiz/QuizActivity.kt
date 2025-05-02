@@ -39,6 +39,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.worlddata.R
 import com.example.worlddata.ShowCenteredConfetti
 import com.example.worlddata.ShowSideConfetti
 import com.example.worlddata.ui.theme.AppTheme
@@ -59,7 +60,7 @@ class QuizActivity : AppCompatActivity() {
     @Composable
     fun PreviewMyScreen() {
         AppTheme {
-            FinishedScreen()
+            FinishedScreen(Finished(20,30))
         }
     }
 
@@ -91,7 +92,7 @@ class QuizActivity : AppCompatActivity() {
         when (val state = uiState) {
             is Loading -> LoadingScreen()
             is QuestionState -> QuestionScreen(state)
-            is Finished -> FinishedScreen()
+            is Finished -> FinishedScreen(state)
         }
     }
 
@@ -298,7 +299,12 @@ class QuizActivity : AppCompatActivity() {
      * Finish screen - after the user answered all the questions.
      */
     @Composable
-    private fun FinishedScreen() {
+    private fun FinishedScreen(state: Finished) {
+        val title = if (state.totalQuestions == 0)
+            getString(R.string.no_more_questions_title)
+        else
+            getString(R.string.finished_questions_title)
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -309,17 +315,20 @@ class QuizActivity : AppCompatActivity() {
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
-                    "Well Done!",
+                    title,
                     style = MaterialTheme.typography.headlineLarge,
                     color = MaterialTheme.colorScheme.secondary,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    "You have answered 21 questions correctly!",
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyLarge
-                )
+
+                if (state.totalQuestions != 0){
+                    Text(
+                        getString(R.string.finished_questions_subtitle, state.correctAnswers, state.totalQuestions),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
             }
         }
 
