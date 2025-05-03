@@ -332,7 +332,8 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
-        ShowSideConfetti()
+        if (state.totalQuestions != 0)
+            ShowSideConfetti()
     }
 
 
@@ -344,9 +345,10 @@ class QuizActivity : AppCompatActivity() {
         Button(
             onClick = { viewModel.onNextQuestion() },
             Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary)
         ) {
             Text(
-                text = "Next Question", // todo: update
+                text = getString(R.string.next_question),
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
@@ -354,7 +356,7 @@ class QuizActivity : AppCompatActivity() {
             Spacer(modifier = Modifier.width(8.dp))
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                contentDescription = "Next Question", // todo: update
+                contentDescription = getString(R.string.next_question),
                 modifier = Modifier.size(ButtonDefaults.IconSize) // optional size
             )
         }
