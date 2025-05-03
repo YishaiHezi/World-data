@@ -17,6 +17,7 @@ Where am I:
 - to fix: why I don't have GDP data on Qatar?
 
 - to fix: the shadow around Nepal flag.
+- to fix: The triangles in Israel flag in the quiz screen are not good.
 
 - to fix: These countries doesn't have a coat of arms: (need to find a solution)
 Puerto Rico (PR)
