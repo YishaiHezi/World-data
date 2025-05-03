@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import data.quiz.QuestionDao
 import javax.inject.Singleton
 
 
@@ -20,12 +21,17 @@ object DatabaseModule {
 
 	@Provides
 	@Singleton
-	fun provideDatabase(@ApplicationContext context: Context): CountryDatabase {
+	fun provideDatabase(@ApplicationContext context: Context): WorldDatabase {
 		return DatabaseFactory.createCountryDatabase(context)
 	}
 
 	@Provides
-	fun provideCountryDao(database: CountryDatabase): CountryDao {
+	fun provideCountryDao(database: WorldDatabase): CountryDao {
 		return database.countryDao()
+	}
+
+	@Provides
+	fun provideQuestionDao(database: WorldDatabase): QuestionDao {
+		return database.questionDao()
 	}
 }

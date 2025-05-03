@@ -1,5 +1,6 @@
 package com.example.worlddata
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.worlddata.quiz.QuizActivity
 import com.example.worlddata.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -101,7 +103,7 @@ class HomeActivity : AppCompatActivity() {
      * Called when the "Take a Quiz" button is clicked.
      */
     fun onTakeQuizClick() {
-
+        startActivity(Intent(this, QuizActivity::class.java))
     }
 
 

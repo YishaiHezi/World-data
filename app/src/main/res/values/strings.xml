@@ -30,4 +30,10 @@
     <string name="located_in">Located in:</string>
     <string name="timezones">Timezones:</string>
 
+	<!-- Quiz -->
+	<string name="no_more_questions_title">You have answered all the questions!</string>
+	<string name="finished_questions_title">Well Done!</string>
+	<string name="finished_questions_subtitle">You have answered %1$d questions correctly out of %2$d!</string>
+	<string name="next_question">Next Question</string>
+
 </resources>

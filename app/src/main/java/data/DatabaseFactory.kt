@@ -2,11 +2,12 @@ package data
 
 import android.content.Context
 import androidx.room.Room
-import data.DatabaseModule.provideCountryDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import utils.UpdateDBFromJSON
+import utils.DBUpdater
+import androidx.core.content.edit
+import data.quiz.QuestionDao
 
 
 /**
@@ -20,37 +21,43 @@ object DatabaseFactory {
     /**
      * Create the country database.
      */
-    fun createCountryDatabase(context: Context): CountryDatabase {
-        val db = Room.databaseBuilder(context, CountryDatabase::class.java, "country_database")
+    fun createCountryDatabase(context: Context): WorldDatabase {
+        return Room.databaseBuilder(context, WorldDatabase::class.java, "world_database")
             .fallbackToDestructiveMigration()
             .build()
+    }
 
-        populateDBIfNeeded(context, db, "is_country_db_populated")
 
-        return db
+    /**
+     * Populate the DB with data from "assets" folder if needed.
+     */
+    fun populateDB(context: Context, countryDao: CountryDao, questionDao: QuestionDao, forceUpdate: Boolean = false){
+        populateTableIfNeeded(context, "is_country_table_populated") {
+            DBUpdater.insertCountriesFromJSON(context, countryDao)
+        }
+
+        populateTableIfNeeded(context, "is_question_table_populated", forceUpdate) {
+            DBUpdater.insertQuestionsFromJSON(context, questionDao)
+        }
     }
 
 
     /**
      * Populate the database if it is empty.
      */
-    private fun populateDBIfNeeded(context: Context, db: CountryDatabase, preferencesKey: String) {
+    private fun populateTableIfNeeded(context: Context, tableKey: String, forceUpdate: Boolean = false, populateBlock: suspend () -> Unit) {
         val sharedPreferences = context.getSharedPreferences("db_prefs", Context.MODE_PRIVATE)
 
-        val isDbPopulated = sharedPreferences.getBoolean(preferencesKey, false)
+        val isTablePopulated = sharedPreferences.getBoolean(tableKey, false)
 
-        if (!isDbPopulated) {
+        if (!isTablePopulated || forceUpdate) {
             val result = CoroutineScope(Dispatchers.IO).async {
-                UpdateDBFromJSON.readCountriesFromJSONToDB(context, provideCountryDao(db))
+                populateBlock()
             }
 
             result.invokeOnCompletion { cause ->
-                if (cause == null)
-                    sharedPreferences.edit().putBoolean(preferencesKey, true).apply()
-                else
-                    sharedPreferences.edit().putBoolean(preferencesKey, false).apply()
+                sharedPreferences.edit { putBoolean(tableKey, cause == null) }
             }
-
         }
     }
 

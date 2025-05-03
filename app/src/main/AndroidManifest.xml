@@ -40,6 +40,9 @@
 			android:name=".CountryActivity"
 			android:theme="@style/Theme.WorldData"/>
 
+		<activity android:name=".quiz.QuizActivity"
+			android:theme="@style/Theme.WorldData"/>
+
 	</application>
 
 </manifest>

@@ -30,8 +30,18 @@ United States Virgin Islands (VI)
 
 
 Comments:
-I took the flags from here:
+
+Need to add copyright notices for:
+
+
+- the flags:
+I took them from here:
 https://github.com/westnordost/flags-vector-drawables-android
+
+- the countries emblems (from wikipedia)
+
+- confetti, from here:
+https://github.com/DanielMartinus/Konfetti?tab=readme-ov-file
 
 
 

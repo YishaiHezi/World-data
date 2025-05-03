@@ -12,7 +12,6 @@ import coil.load
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 
 
@@ -48,7 +47,7 @@ class FullScreenImageFragment : Fragment(R.layout.full_screen_image_fragment), O
 
     // todo: for google maps:
     override fun onMapReady(googleMap: GoogleMap) {
-        Log.d("test_y", "onMapReady() called with: googleMap = $googleMap")
+        Log.d(TAG, "onMapReady() called with: googleMap = $googleMap")
 
 
         googleMap.uiSettings.isZoomControlsEnabled = true
@@ -58,6 +57,12 @@ class FullScreenImageFragment : Fragment(R.layout.full_screen_image_fragment), O
 
 
     companion object {
+
+
+        /**
+         * For logging.
+         */
+        const val TAG = "FullScreenImageFragment"
 
 
         /**

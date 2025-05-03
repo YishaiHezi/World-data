@@ -7,7 +7,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 /**
- * This is an interface to access the database.
+ * This is an interface to access the "countries" table in the database.
  * DAO = Data Access Object.
  * It encapsulates the logic for accessing data and abstracts
  * away the underlying database implementation details.
