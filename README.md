@@ -2,12 +2,12 @@
 
 Where am I:
 
-- I want to create a quiz. that is what I do in the quiz branch.
-
+- I want to enhance the quiz. I want to have levels.
 - I want to show every country's location on a map in the country activity. that is what I do in the maps branch.
 
 
 *In the future:*
+- Near future: need to organize the quiz - put all the composable in a different place so the activity will be readable.
 - I Need to add logic to the repository, to be able to call the server if the DB is empty (in the first installation) or if the DB need an update.
 
 
