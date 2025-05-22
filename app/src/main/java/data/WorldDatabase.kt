@@ -17,7 +17,7 @@ import data.quiz.QuestionDao
  *
  * @author Yishai Hezi
  */
-@Database(entities = [RawCountry::class, QuestionEntity::class], version = 18, exportSchema = false)
+@Database(entities = [RawCountry::class, QuestionEntity::class], version = 19, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class WorldDatabase : RoomDatabase() {
 

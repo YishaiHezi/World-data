@@ -46,6 +46,7 @@ data class JsonQuestion(
     val questionText: String,
     val options: List<String>,
     val correctAnswer: String,
+    val level: Int
 )
 
 
@@ -79,7 +80,8 @@ object DBUpdater {
                 questionText = it.questionText,
                 options = it.options,
                 correctAnswer = it.correctAnswer,
-                chosenAnswer = null
+                chosenAnswer = null,
+                level = it.level
             )
         }
     }

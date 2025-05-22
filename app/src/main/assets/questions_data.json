@@ -1,7 +1,7 @@
-[{"imageName" : "flag_US", "questionText" : "What country has this flag?" , "options" : ["Canada", "Italy", "Japan", "United States"], "correctAnswer" : "United States"},
-  {"imageName" : "flag_AR", "questionText" : "What country has this flag?" , "options" : ["France", "Finland", "Bulgaria", "Argentina"], "correctAnswer" : "Argentina"},
-  {"imageName" : "flag_BR", "questionText" : "What country has this flag?" , "options" : ["Paraguay", "Mexico", "Brazil", "Peru"], "correctAnswer" : "Brazil"},
-  {"imageName" : "flag_IL", "questionText" : "What country has this flag?" , "options" : ["Israel", "Jordan", "Italy", "Greece"], "correctAnswer" : "Israel"},
-  {"imageName" : "flag_KR", "questionText" : "What country has this flag?" , "options" : ["South Korea", "Japan", "North Korea", "Thailand"], "correctAnswer" : "South Korea"},
-  {"imageName" : "flag_EC", "questionText" : "What country has this flag?" , "options" : ["Argentina", "Ecuador", "Paraguay", "Uruguay"], "correctAnswer" : "Ecuador"},
-  {"imageName" : "flag_AS", "questionText" : "What country has this flag?" , "options" : ["Virgin Islands (U.S.)", "Puerto Rico", "American Samoa", "French Polynesia"], "correctAnswer" : "American Samoa"}]
+[{"imageName" : "flag_US", "questionText" : "What country has this flag?" , "options" : ["Canada", "Italy", "Japan", "United States"], "correctAnswer" : "United States", "level": 1},
+  {"imageName" : "flag_AR", "questionText" : "What country has this flag?" , "options" : ["France", "Finland", "Bulgaria", "Argentina"], "correctAnswer" : "Argentina", "level": 1},
+  {"imageName" : "flag_BR", "questionText" : "What country has this flag?" , "options" : ["Paraguay", "Mexico", "Brazil", "Peru"], "correctAnswer" : "Brazil", "level": 1},
+  {"imageName" : "flag_IL", "questionText" : "What country has this flag?" , "options" : ["Israel", "Jordan", "Italy", "Greece"], "correctAnswer" : "Israel", "level": 2},
+  {"imageName" : "flag_KR", "questionText" : "What country has this flag?" , "options" : ["South Korea", "Japan", "North Korea", "Thailand"], "correctAnswer" : "South Korea", "level": 2},
+  {"imageName" : "flag_EC", "questionText" : "What country has this flag?" , "options" : ["Argentina", "Ecuador", "Paraguay", "Uruguay"], "correctAnswer" : "Ecuador", "level": 3},
+  {"imageName" : "flag_AS", "questionText" : "What country has this flag?" , "options" : ["Virgin Islands (U.S.)", "Puerto Rico", "American Samoa", "French Polynesia"], "correctAnswer" : "American Samoa", "level": 3}]

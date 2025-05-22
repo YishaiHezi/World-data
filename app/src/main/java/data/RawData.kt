@@ -41,5 +41,6 @@ data class QuestionEntity(
     val questionText: String,
     val options: List<String>,
     val correctAnswer: String,
-    var chosenAnswer: String?
+    var chosenAnswer: String?,
+    val level: Int
 )
