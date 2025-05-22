@@ -55,7 +55,7 @@ class QuizViewModel @Inject constructor(
     /**
      * Invoked when the user clicks on answer.
      */
-    fun onUserClickAnswer(answer: String) {
+    fun onAnswerClicked(answer: String) {
         val currentState = mutableUiState.value
 
         if (currentState is QuestionState) {
@@ -63,6 +63,7 @@ class QuizViewModel @Inject constructor(
             val answeredQuestion = Question(question.id, question.imageRes, question.questionText, question.options, question.correctAnswer, answer)
             mutableUiState.value = QuestionState(answeredQuestion)
 
+            totalQuestions++
             if (answer == question.correctAnswer)
                 correctAnswers++
 
@@ -79,7 +80,6 @@ class QuizViewModel @Inject constructor(
     fun onNextQuestion(){
         val nextQuestion = quizRepository.getNextQuestion()
         mutableUiState.value = nextQuestion?.let {
-            totalQuestions++
             QuestionState(nextQuestion)
         } ?:
         Finished(correctAnswers, totalQuestions)

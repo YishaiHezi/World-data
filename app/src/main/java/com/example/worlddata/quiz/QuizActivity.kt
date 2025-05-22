@@ -291,7 +291,7 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun onAnswerClicked(question: Question, answer: String) {
         if (question.chosenAnswer == null)
-            viewModel.onUserClickAnswer(answer)
+            viewModel.onAnswerClicked(answer)
     }
 
 
