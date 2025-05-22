@@ -345,7 +345,7 @@ class QuizActivity : AppCompatActivity() {
         Button(
             onClick = { viewModel.onNextQuestion() },
             Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary)
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.correctGreen)
         ) {
             Text(
                 text = getString(R.string.next_question),
