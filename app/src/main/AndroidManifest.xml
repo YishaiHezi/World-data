@@ -33,14 +33,14 @@
 		</activity>
 
 		<activity
-			android:name=".CountryRatingActivity"
+			android:name=".country.ui.CountryRatingActivity"
 			android:theme="@style/Theme.WorldData"/>
 
 		<activity
-			android:name=".CountryActivity"
+			android:name=".country.ui.CountryActivity"
 			android:theme="@style/Theme.WorldData"/>
 
-		<activity android:name=".quiz.QuizActivity"
+		<activity android:name=".quiz.ui.QuizActivity"
 			android:theme="@style/Theme.WorldData"/>
 
 	</application>

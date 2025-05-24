@@ -1,5 +1,7 @@
-package data
+package com.example.worlddata.country.data
 
+import com.example.worlddata.country.model.Country
+import data.RawCountry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

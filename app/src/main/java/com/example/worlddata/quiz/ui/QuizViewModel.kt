@@ -1,10 +1,10 @@
-package com.example.worlddata.quiz
+package com.example.worlddata.quiz.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import data.quiz.Question
-import data.quiz.QuizRepository
+import com.example.worlddata.quiz.model.Question
+import com.example.worlddata.quiz.data.QuizRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.worlddata
+package com.example.worlddata.country.ui
 
 import android.content.Context
 import android.content.Intent
@@ -21,10 +21,13 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.worlddata.FullScreenImageDialogFragment
+import com.example.worlddata.FullScreenImageFragment
+import com.example.worlddata.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import data.FormattedCountry
+import com.example.worlddata.country.model.FormattedCountry
 import kotlinx.coroutines.launch
 
 

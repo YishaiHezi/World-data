@@ -2,9 +2,9 @@ package com.example.worlddata
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
-import data.CountryDao
+import com.example.worlddata.country.data.CountryDao
 import data.DatabaseFactory
-import data.quiz.QuestionDao
+import com.example.worlddata.quiz.data.QuestionDao
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.worlddata.quiz
+package com.example.worlddata.quiz.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.worlddata.quiz.composables.FinishedScreen
 import com.example.worlddata.ui.composables.LoadingScreen
-import com.example.worlddata.quiz.composables.QuestionScreen
 import com.example.worlddata.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import data.quiz.Question
+import com.example.worlddata.quiz.model.Question
 
 
 /**

@@ -3,7 +3,8 @@ package data
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import data.quiz.QuestionDao
+import com.example.worlddata.country.data.CountryDao
+import com.example.worlddata.quiz.data.QuestionDao
 
 /**
  * This is a Room Database that stores all the countries and their parameters.

@@ -1,4 +1,4 @@
-package com.example.worlddata
+package com.example.worlddata.country.model
 
 import androidx.annotation.DrawableRes
 

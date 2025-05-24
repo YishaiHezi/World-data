@@ -1,4 +1,4 @@
-package data.quiz
+package com.example.worlddata.quiz.data
 
 import androidx.room.Dao
 import androidx.room.Insert

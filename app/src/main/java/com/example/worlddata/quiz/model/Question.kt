@@ -1,4 +1,4 @@
-package data.quiz
+package com.example.worlddata.quiz.model
 
 import data.CountriesCodes.countryFlagMap
 import data.QuestionEntity

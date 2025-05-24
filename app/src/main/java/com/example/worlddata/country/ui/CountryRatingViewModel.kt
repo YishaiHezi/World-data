@@ -1,10 +1,11 @@
-package com.example.worlddata
+package com.example.worlddata.country.ui
 
 import androidx.lifecycle.ViewModel
+import com.example.worlddata.country.model.CountryItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.CountriesCodes.countryFlagMap
-import data.CountryRepository
-import data.ParameterType
+import com.example.worlddata.country.data.CountryRepository
+import com.example.worlddata.country.model.ParameterType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine

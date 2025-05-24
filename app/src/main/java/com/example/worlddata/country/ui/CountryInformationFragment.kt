@@ -1,10 +1,11 @@
-package com.example.worlddata
+package com.example.worlddata.country.ui
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import data.FormattedCountry
+import com.example.worlddata.R
+import com.example.worlddata.country.model.FormattedCountry
 import utils.updateVisibility
 
 

@@ -21,7 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.worlddata.quiz.QuizActivity
+import com.example.worlddata.country.ui.CountryRatingActivity
+import com.example.worlddata.quiz.ui.QuizActivity
 import com.example.worlddata.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 

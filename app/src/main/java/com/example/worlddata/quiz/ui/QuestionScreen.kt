@@ -1,4 +1,4 @@
-package com.example.worlddata.quiz.composables
+package com.example.worlddata.quiz.ui
 
 import android.content.Context
 import androidx.compose.foundation.Image
@@ -34,10 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.worlddata.R
 import com.example.worlddata.ShowCenteredConfetti
-import com.example.worlddata.quiz.QuestionState
 import com.example.worlddata.ui.theme.correctGreen
 import com.example.worlddata.ui.theme.wrongRed
-import data.quiz.Question
+import com.example.worlddata.quiz.model.Question
 
 
 /**

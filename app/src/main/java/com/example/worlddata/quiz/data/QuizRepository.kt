@@ -1,8 +1,9 @@
-package data.quiz
+package com.example.worlddata.quiz.data
 
 import android.util.Log
 import data.QuestionEntity
-import data.quiz.Question.Companion.toQuestion
+import com.example.worlddata.quiz.model.Question
+import com.example.worlddata.quiz.model.Question.Companion.toQuestion
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

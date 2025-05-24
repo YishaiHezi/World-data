@@ -1,4 +1,4 @@
-package com.example.worlddata.quiz.composables
+package com.example.worlddata.quiz.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,7 +16,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.worlddata.R
 import com.example.worlddata.ShowSideConfetti
-import com.example.worlddata.quiz.Finished
 
 
 /**

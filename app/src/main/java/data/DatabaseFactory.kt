@@ -7,7 +7,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import utils.DBUpdater
 import androidx.core.content.edit
-import data.quiz.QuestionDao
+import com.example.worlddata.country.data.CountryDao
+import com.example.worlddata.quiz.data.QuestionDao
 
 
 /**

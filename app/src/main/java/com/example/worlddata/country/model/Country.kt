@@ -1,4 +1,4 @@
-package data
+package com.example.worlddata.country.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -61,7 +61,7 @@ data class Country(
 	/**
 	 * Converts the country to a formatted country.
 	 */
-	fun toFormattedCountry(): FormattedCountry{
+	fun toFormattedCountry(): FormattedCountry {
 		return FormattedCountry(
 			name = this.name,
 			countryCode = this.countryCode,

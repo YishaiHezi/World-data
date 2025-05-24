@@ -1,4 +1,4 @@
-package com.example.worlddata
+package com.example.worlddata.country.ui
 
 import android.content.Context
 import android.content.Intent
@@ -22,13 +22,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.worlddata.country.model.CountryItem
+import com.example.worlddata.R
 import dagger.hilt.android.AndroidEntryPoint
-import data.ParameterType
+import com.example.worlddata.country.model.ParameterType
 import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class CountryRatingActivity : AppCompatActivity(R.layout.country_rating_activity), OnCountryClickListener {
+class CountryRatingActivity : AppCompatActivity(R.layout.country_rating_activity),
+    OnCountryClickListener {
 
 
     /**
