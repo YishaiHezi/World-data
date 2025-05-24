@@ -9,9 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.worlddata.quiz.screens.FinishedScreen
-import com.example.worlddata.ui.components.LoadingScreen
-import com.example.worlddata.quiz.screens.QuestionScreen
+import com.example.worlddata.quiz.composables.FinishedScreen
+import com.example.worlddata.ui.composables.LoadingScreen
+import com.example.worlddata.quiz.composables.QuestionScreen
 import com.example.worlddata.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import data.quiz.Question

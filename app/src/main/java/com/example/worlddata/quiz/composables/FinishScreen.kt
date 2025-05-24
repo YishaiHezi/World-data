@@ -1,4 +1,4 @@
-package com.example.worlddata.quiz.screens
+package com.example.worlddata.quiz.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

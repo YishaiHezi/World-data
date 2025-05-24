@@ -1,4 +1,4 @@
-package com.example.worlddata.quiz.screens
+package com.example.worlddata.quiz.composables
 
 import android.content.Context
 import androidx.compose.foundation.Image
