@@ -141,14 +141,7 @@ class QuizActivity : AppCompatActivity() {
                 ShowMessage(question)
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                question.options.chunked(2).forEach { rowAnswers ->
-                    Answers(rowAnswers, question, onClick)
-                }
-            }
+            Answers(question, onClick)
 
             question.chosenAnswer?.let {
                 NextButton()
@@ -174,25 +167,42 @@ class QuizActivity : AppCompatActivity() {
     }
 
 
-
-
+    /**
+     * Shows all the available choices (answers) to the question.
+     */
     @Composable
     fun Answers(
-     choices: List<String>,
-     question: Question,
-     onClick: (question: Question, choice: String) -> Unit
+        question: Question,
+        onClick: (question: Question, choice: String) -> Unit
     ) {
-        Row {
-            for (choice in choices){
-                Answer(
-                    modifier = Modifier
-                        .weight(1f)
-                        .aspectRatio(1f)
-                        .padding(8.dp),
-                    question,
-                    choice
-                ) {
-                    onClick(question, choice)
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            question.options.chunked(2).forEach { rowAnswers ->
+                Row {
+                    Answer(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(8.dp),
+                        question,
+                        rowAnswers[0]
+                    ) {
+                        onClick(question, rowAnswers[0])
+                    }
+
+                    Answer(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(8.dp),
+                        question,
+                        rowAnswers[1]
+                    ) {
+                        onClick(question, rowAnswers[1])
+                    }
+
                 }
             }
         }
