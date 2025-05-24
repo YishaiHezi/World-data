@@ -94,7 +94,7 @@ class QuizActivity : AppCompatActivity() {
             is Loading -> LoadingScreen()
             is QuestionState -> QuestionScreen(
                 state,
-                onClick = { question, choice -> onAnswerClicked(question, choice) })
+                onClick = ::onAnswerClicked)
 
             is Finished -> FinishedScreen(state)
         }
