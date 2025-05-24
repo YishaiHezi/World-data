@@ -1,6 +1,7 @@
 package com.example.worlddata.quiz
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -60,7 +61,7 @@ class QuizActivity : AppCompatActivity() {
     @Composable
     fun PreviewMyScreen() {
         AppTheme {
-            FinishedScreen(Finished(20,30))
+            FinishedScreen(Finished(20, 30))
         }
     }
 
@@ -91,7 +92,10 @@ class QuizActivity : AppCompatActivity() {
 
         when (val state = uiState) {
             is Loading -> LoadingScreen()
-            is QuestionState -> QuestionScreen(state)
+            is QuestionState -> QuestionScreen(
+                state,
+                onClick = { question, choice -> onAnswerClicked(question, choice) })
+
             is Finished -> FinishedScreen(state)
         }
     }
@@ -101,7 +105,10 @@ class QuizActivity : AppCompatActivity() {
      * Shows a screen with image, question, and answers.
      */
     @Composable
-    private fun QuestionScreen(state: QuestionState) {
+    private fun QuestionScreen(
+        state: QuestionState,
+        onClick: (question: Question, choice: String) -> Unit
+    ) {
         val question = state.question
 
         Column(
@@ -116,7 +123,9 @@ class QuizActivity : AppCompatActivity() {
                 Image(
                     painter = painterResource(id = it),
                     contentDescription = "Image for the question",
-                    modifier = Modifier.shadow(8.dp).sizeIn(maxHeight = 150.dp)
+                    modifier = Modifier
+                        .shadow(8.dp)
+                        .sizeIn(maxHeight = 150.dp)
                 )
             }
 
@@ -137,9 +146,9 @@ class QuizActivity : AppCompatActivity() {
             ) {
                 question.options.chunked(2).forEach { rowAnswers ->
                     if (rowAnswers.size == 2)
-                        TwoChoices(rowAnswers[0], rowAnswers[1], question)
+                        TwoChoices(rowAnswers[0], rowAnswers[1], question, onClick)
                     else
-                        SingleChoice(rowAnswers[0], question)
+                        SingleChoice(rowAnswers[0], question, onClick)
                 }
             }
 
@@ -174,17 +183,23 @@ class QuizActivity : AppCompatActivity() {
     private fun TwoChoices(
         choice1: String,
         choice2: String,
-        question: Question
+        question: Question,
+        onClick: (question: Question, choice: String) -> Unit
     ) {
         Row {
             Button(
-                onClick = { onAnswerClicked(question, choice1) },
+                onClick = { onClick(question, choice1) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .padding(8.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice1, question))
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = buttonColor(
+                        choice1,
+                        question
+                    )
+                )
             ) {
                 Text(
                     text = choice1,
@@ -193,13 +208,18 @@ class QuizActivity : AppCompatActivity() {
                 )
             }
             Button(
-                onClick = { onAnswerClicked(question, choice2) },
+                onClick = { onClick(question, choice2) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .padding(8.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice2, question))
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = buttonColor(
+                        choice2,
+                        question
+                    )
+                )
             ) {
                 Text(
                     text = choice2,
@@ -215,7 +235,11 @@ class QuizActivity : AppCompatActivity() {
      * Shows a single answer.
      */
     @Composable
-    private fun SingleChoice(choice: String, question: Question) {
+    private fun SingleChoice(
+        choice: String,
+        question: Question,
+        onClick: (question: Question, choice: String) -> Unit
+    ) {
         Row {
             Spacer(
                 modifier = Modifier
@@ -225,7 +249,7 @@ class QuizActivity : AppCompatActivity() {
             )
 
             Button(
-                onClick = { onAnswerClicked(question, choice) },
+                onClick = { onClick(question, choice) },
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -275,7 +299,8 @@ class QuizActivity : AppCompatActivity() {
     private fun ShowMessage(question: Question) {
         val isUserCorrect = question.chosenAnswer == question.correctAnswer
         val text = if (isUserCorrect) "Correct!" else "Wrong!"
-        val color = if (isUserCorrect) MaterialTheme.colorScheme.correctGreen else MaterialTheme.colorScheme.wrongRed
+        val color =
+            if (isUserCorrect) MaterialTheme.colorScheme.correctGreen else MaterialTheme.colorScheme.wrongRed
 
         Text(
             text = text,
@@ -291,6 +316,8 @@ class QuizActivity : AppCompatActivity() {
      * Invoked when the user clicks on answer.
      */
     private fun onAnswerClicked(question: Question, answer: String) {
+        Log.d(TAG, "User clicked on answer: $answer, in the question: $question")
+
         if (question.chosenAnswer == null)
             viewModel.onAnswerClicked(answer)
     }
@@ -323,9 +350,13 @@ class QuizActivity : AppCompatActivity() {
                     fontWeight = FontWeight.Bold
                 )
 
-                if (state.totalQuestions != 0){
+                if (state.totalQuestions != 0) {
                     Text(
-                        getString(R.string.finished_questions_subtitle, state.correctAnswers, state.totalQuestions),
+                        getString(
+                            R.string.finished_questions_subtitle,
+                            state.correctAnswers,
+                            state.totalQuestions
+                        ),
                         textAlign = TextAlign.Center,
                         style = MaterialTheme.typography.bodyLarge
                     )
@@ -342,7 +373,7 @@ class QuizActivity : AppCompatActivity() {
      * Creates a button that calls for the next question to show.
      */
     @Composable
-    fun NextButton(){
+    fun NextButton() {
         Button(
             onClick = { viewModel.onNextQuestion() },
             Modifier.fillMaxWidth(),
@@ -361,6 +392,18 @@ class QuizActivity : AppCompatActivity() {
                 modifier = Modifier.size(ButtonDefaults.IconSize) // optional size
             )
         }
+    }
+
+
+    companion object {
+
+
+        /**
+         * A tag for log.
+         */
+        const val TAG = "QuizActivity"
+
+
     }
 
 
