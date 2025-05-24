@@ -94,7 +94,8 @@ class QuizActivity : AppCompatActivity() {
             is Loading -> LoadingScreen()
             is QuestionState -> QuestionScreen(
                 state,
-                onClick = ::onAnswerClicked)
+                onClick = ::onAnswerClicked
+            )
 
             is Finished -> FinishedScreen(state)
         }
@@ -145,10 +146,7 @@ class QuizActivity : AppCompatActivity() {
                 modifier = Modifier.fillMaxWidth()
             ) {
                 question.options.chunked(2).forEach { rowAnswers ->
-                    if (rowAnswers.size == 2)
-                        TwoChoices(rowAnswers[0], rowAnswers[1], question, onClick)
-                    else
-                        SingleChoice(rowAnswers[0], question, onClick)
+                    Answers(rowAnswers, question, onClick)
                 }
             }
 
@@ -176,99 +174,56 @@ class QuizActivity : AppCompatActivity() {
     }
 
 
-    /**
-     * Shows 2 answers next to each other.
-     */
+
+
     @Composable
-    private fun TwoChoices(
-        choice1: String,
-        choice2: String,
-        question: Question,
-        onClick: (question: Question, choice: String) -> Unit
+    fun Answers(
+     choices: List<String>,
+     question: Question,
+     onClick: (question: Question, choice: String) -> Unit
     ) {
         Row {
-            Button(
-                onClick = { onClick(question, choice1) },
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f)
-                    .padding(8.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = buttonColor(
-                        choice1,
-                        question
-                    )
-                )
-            ) {
-                Text(
-                    text = choice1,
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center
-                )
-            }
-            Button(
-                onClick = { onClick(question, choice2) },
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f)
-                    .padding(8.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = buttonColor(
-                        choice2,
-                        question
-                    )
-                )
-            ) {
-                Text(
-                    text = choice2,
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center
-                )
+            for (choice in choices){
+                Answer(
+                    modifier = Modifier
+                        .weight(1f)
+                        .aspectRatio(1f)
+                        .padding(8.dp),
+                    question,
+                    choice
+                ) {
+                    onClick(question, choice)
+                }
             }
         }
     }
 
 
     /**
-     * Shows a single answer.
+     * A single answer to a question.
      */
     @Composable
-    private fun SingleChoice(
-        choice: String,
+    private fun Answer(
+        modifier: Modifier = Modifier,
         question: Question,
-        onClick: (question: Question, choice: String) -> Unit
+        choice: String,
+        onClick: () -> Unit
     ) {
-        Row {
-            Spacer(
-                modifier = Modifier
-                    .weight(0.5f)
-                    .aspectRatio(1f)
-                    .padding(8.dp)
-            )
-
-            Button(
-                onClick = { onClick(question, choice) },
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f)
-                    .padding(8.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = buttonColor(choice, question))
-            ) {
-                Text(
-                    text = choice,
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center
+        Button(
+            onClick = { onClick() },
+            modifier = modifier,
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = buttonColor(
+                    choice,
+                    question
                 )
-            }
-
-            Spacer(
-                modifier = Modifier
-                    .weight(0.5f)
-                    .aspectRatio(1f)
-                    .padding(8.dp)
+            )
+        ) {
+            Text(
+                text = choice,
+                style = MaterialTheme.typography.titleLarge,
+                textAlign = TextAlign.Center
             )
         }
     }
