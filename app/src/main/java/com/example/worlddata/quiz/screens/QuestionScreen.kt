@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -44,12 +45,12 @@ import data.quiz.Question
  */
 @Composable
 fun QuestionScreen(
-    context: Context,
     state: QuestionState,
     onAnswerClick: (question: Question, choice: String) -> Unit,
     onNextClick: () -> Unit
 ) {
     val question = state.question
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
