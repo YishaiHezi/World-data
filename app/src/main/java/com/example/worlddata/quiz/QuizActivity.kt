@@ -235,7 +235,8 @@ class QuizActivity : AppCompatActivity() {
             ) {
                 Text(
                     text = choice,
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
                 )
             }
 
